@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Light Green background */
+        }
+        .header-bg {
+            background-color: #047857; /* Deep Teal/Emerald */
+        }
+        .card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            border-radius: 0.75rem;
+        }
+    </style>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-xl font-bold text-emerald-800">
+                    Revelation Bible College
+                </a>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-500 hover:text-emerald-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="RoleSelector.html" class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-700 transition shadow-lg">
+                        Faculty Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <h1 class="text-4xl font-extrabold text-emerald-900 text-center mb-10 mt-4">
+            Faculty Management Dashboard
+        </h1>
+
+        <div id="loading" class="text-center text-lg text-emerald-600 my-8">
+            <p>Initializing Firebase and Loading Dashboard...</p>
+        </div>
+
+        <div id="dashboard-content" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column: Classes & Grading -->
+            <div class="lg:col-span-2 space-y-8">
+                
+                <div class="bg-white p-6 card">
+                    <div class="flex justify-between items-center mb-4 border-b pb-3">
+                        <h2 class="text-2xl font-semibold text-emerald-700 flex items-center">
+                            <i data-lucide="layout-list" class="w-6 h-6 mr-2"></i>
+                            My Active Courses
+                        </h2>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition flex items-center">
+                            <i data-lucide="square-check" class="w-4 h-4 mr-1"></i>
+                            Grade Center
+                        </button>
+                    </div>
+                    
+                    <div id="coursesList" class="space-y-4">
+                        <!-- Mock Course Data -->
+                        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex justify-between items-center">
+                            <div>
+                                <p class="font-semibold text-emerald-800">Old Testament Exegesis (OTX 301)</p>
+                                <p class="text-sm text-gray-600">Students: 32 | Next Class: Tomorrow 10:30 AM</p>
+                            </div>
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-200 text-yellow-800">
+                                4 Assignments Due
+                            </span>
+                        </div>
+                        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex justify-between items-center">
+                            <div>
+                                <p class="font-semibold text-emerald-800">Intro to Homiletics (HOM 101)</p>
+                                <p class="text-sm text-gray-600">Students: 45 | Next Class: Today 1:00 PM</p>
+                            </div>
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-200 text-blue-800">
+                                1 Project Pending
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="firebaseStatus" class="mt-4 p-2 text-sm rounded-lg bg-red-100 text-red-700 hidden">
+                        Error: Firebase Initialization Failed. Check configuration.
+                    </div>
+                </div>
+
+                <!-- Announcements Management -->
+                <div class="bg-white p-6 card">
+                    <h2 class="text-2xl font-semibold text-emerald-700 mb-4 border-b pb-3 flex items-center">
+                        <i data-lucide="megaphone" class="w-6 h-6 mr-2"></i>
+                        Portal Announcements
+                    </h2>
+                    <textarea id="announcementText" rows="3" class="w-full p-3 border rounded-lg focus:ring-emerald-500 focus:border-emerald-500 mb-4" placeholder="Type a new announcement for all portal users..."></textarea>
+                    <button id="postAnnouncementBtn" class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-700 transition">
+                        Post Announcement
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Column: Resources & Profile -->
+            <div class="lg:col-span-1 space-y-8">
+                <div class="bg-white p-6 card border-t-4 border-emerald-500">
+                    <h2 class="text-xl font-semibold text-emerald-700 mb-4 flex items-center">
+                        <i data-lucide="user-circle" class="w-5 h-5 mr-2"></i>
+                        Faculty Profile
+                    </h2>
+                    <p class="text-sm text-gray-600">
+                        **Name:** Dr. John Doe <br/>
+                        **Department:** Theology & Biblical Studies <br/>
+                        **Office Hours:** M/W 2:00 PM - 4:00 PM
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 card border-t-4 border-orange-500">
+                    <h2 class="text-xl font-semibold text-orange-700 mb-4 flex items-center">
+                        <i data-lucide="hard-hat" class="w-5 h-5 mr-2"></i>
+                        Support & Tools
+                    </h2>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li><a href="#" class="text-orange-600 hover:underline">Download Syllabus Templates</a></li>
+                        <li><a href="#" class="text-orange-600 hover:underline">Submit Grade Change Requests</a></li>
+                        <li><a href="#" class="text-orange-600 hover:underline">Tech Support Ticketing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-emerald-900 mt-12 py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-emerald-300">
+                Revelation Bible College Faculty Portal | User ID: <span id="currentUserId">Loading...</span>
+            </p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // --- Firebase Configuration and Initialization ---
+        
+        const loadingElement = document.getElementById('loading');
+        const dashboardContent = document.getElementById('dashboard-content');
+        const statusElement = document.getElementById('firebaseStatus');
+        const userIdDisplay = document.getElementById('currentUserId');
+
+        let db;
+        let auth;
+        let userId = null;
+        
+        try {
+            // CRITICAL FIX: Safely retrieve global configuration variables
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+            const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+            if (Object.keys(firebaseConfig).length === 0) {
+                throw new Error("Firebase Configuration Missing or Empty.");
+            }
+
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            
+            // 2. Authentication and User ID Setup
+            onAuthStateChanged(auth, async (user) => {
+                try {
+                    if (user) {
+                        userId = user.uid;
+                        userIdDisplay.textContent = userId;
+                        console.log("Faculty Firebase Auth State: Signed in with UID:", userId);
+                        
+                        // Faculty-specific data loading logic would go here
+                        
+                    } else if (initialAuthToken) {
+                        console.log("Attempting sign-in with custom token...");
+                        await signInWithCustomToken(auth, initialAuthToken);
+                        
+                    } else {
+                        console.log("Signing in anonymously...");
+                        await signInAnonymously(auth);
+                    }
+                    
+                    loadingElement.classList.add('hidden');
+                    dashboardContent.classList.remove('hidden');
+
+                } catch (error) {
+                    console.error("Faculty Authentication or Initialization Error:", error);
+                    statusElement.textContent = `Error: Authentication Failed. ${error.message}`;
+                    statusElement.classList.remove('hidden');
+                    loadingElement.classList.add('hidden');
+                }
+            });
+
+        } catch (error) {
+            console.error("Faculty Firebase Setup Failed:", error);
+            statusElement.textContent = `Error: Firebase Configuration Missing. Please ensure the environment variables are set. ${error.message}`;
+            statusElement.classList.remove('hidden');
+            loadingElement.classList.add('hidden');
+        }
+
+        // Mock 'Post Announcement' button handler (Example of Public Data Write)
+        document.getElementById('postAnnouncementBtn').addEventListener('click', async () => {
+            const announcementText = document.getElementById('announcementText').value.trim();
+            if (!db || !userId || !announcementText) {
+                console.error("Database not ready or announcement is empty.");
+                return;
+            }
+            
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            // Path for PUBLIC data: /artifacts/{appId}/public/data/announcements
+            const announcementDoc = doc(db, `artifacts/${appId}/public/data/announcements/latest`);
+            
+            try {
+                await setDoc(announcementDoc, {
+                    content: announcementText,
+                    timestamp: new Date().toISOString(),
+                    authorId: userId,
+                    authorRole: 'Faculty' 
+                }); 
+                alert('Announcement Posted Successfully!'); // Replace with custom modal in a real app
+                document.getElementById('announcementText').value = '';
+            } catch (e) {
+                console.error("Error posting announcement: ", e);
+                alert(`Failed to post announcement: ${e.message}`); // Replace with custom modal
+            }
+        });
+        
+        // Initialize Lucide icons on load
+        window.addEventListener('load', () => lucide.createIcons());
+    </script>
+</body>
+</html>
