@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revealed Bible College – Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #eef2f7;
+    }
+    .rbc-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    .rbc-card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+    .rbc-card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .rbc-card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100">
+  <!-- Top Nav -->
+  <header class="bg-gradient-to-r from-indigo-800 via-indigo-700 to-sky-600 text-white">
+    <div class="rbc-shell flex items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="h-9 w-9 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold tracking-tight">
+          RBC
+        </div>
+        <div class="leading-tight">
+          <div class="font-semibold text-sm sm:text-base">Revealed Bible College</div>
+          <div class="text-[11px] sm:text-xs text-indigo-100">Equipping believers for Spirit-led ministry</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html" class="text-white/90 hover:text-white">Home</a>
+        <a href="about.html" class="text-indigo-100 hover:text-white">About Us</a>
+        <a href="programs.html" class="text-indigo-100 hover:text-white">Programs</a>
+        <a href="contact.html" class="text-indigo-100 hover:text-white">Contact Us</a>
+        <a href="student-portal/index.html" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 text-xs font-semibold hover:bg-slate-100">
+          Student Portal
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="rbc-shell">
+    <section class="mt-8 grid gap-8 md:grid-cols-2 items-center">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.18em] text-indigo-500 uppercase mb-3">Welcome to RBC</p>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-3">
+          A Bible college devoted to revelation, character, and Spirit-filled ministry.
+        </h1>
+        <p class="text-sm md:text-base text-slate-600 mb-6">
+          Revealed Bible College exists to raise up grounded believers and leaders who know the Word,
+          walk in the Spirit, and serve with integrity in every sphere of life.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="programs.html"
+            class="inline-flex items-center px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-md"
+          >
+            View Programs
+          </a>
+          <a
+            href="contact.html"
+            class="inline-flex items-center px-4 py-2.5 rounded-full text-sm font-semibold text-indigo-700 bg-white hover:bg-slate-100 border border-indigo-100"
+          >
+            Talk to Admissions
+          </a>
+        </div>
+      </div>
+      <div class="rbc-card rbc-card-hover p-6 md:p-7 bg-gradient-to-br from-white via-slate-50 to-indigo-50">
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">Why students choose RBC</h2>
+        <ul class="space-y-3 text-sm text-slate-700">
+          <li class="flex gap-2">
+            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
+            <span>Christ-centered teaching that is solid in doctrine and practical for ministry.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
+            <span>Programs from diploma through advanced study to equip pastors, leaders, and ministry workers.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
+            <span>A focus on both character formation and academic strength.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
+            <span>Global reach with students, branches, and partners in multiple nations.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Three Highlight Cards -->
+    <section class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="rbc-card rbc-card-hover p-5">
+        <h3 class="text-sm font-semibold text-indigo-700 mb-1">Our Calling</h3>
+        <p class="text-sm text-slate-700">
+          We exist to help believers know Christ deeply, understand Scripture clearly, and serve the Church faithfully.
+        </p>
+      </div>
+      <div class="rbc-card rbc-card-hover p-5">
+        <h3 class="text-sm font-semibold text-indigo-700 mb-1">Academic + Spiritual</h3>
+        <p class="text-sm text-slate-700">
+          Courses are designed to be biblically sound, theologically balanced, and practically connected to real ministry.
+        </p>
+      </div>
+      <div class="rbc-card rbc-card-hover p-5">
+        <h3 class="text-sm font-semibold text-indigo-700 mb-1">Global Family</h3>
+        <p class="text-sm text-slate-700">
+          RBC partners with churches and leaders worldwide to train students in different regions and contexts.
+        </p>
+      </div>
+    </section>
+
+    <!-- Programs Overview -->
+    <section class="mt-12">
+      <div class="flex items-baseline justify-between mb-4">
+        <div>
+          <h2 class="text-xl md:text-2xl font-bold text-slate-900">Academic Programs</h2>
+          <p class="text-sm text-slate-600">
+            Study options for different stages of your calling and ministry journey.
+          </p>
+        </div>
+        <a href="programs.html" class="hidden md:inline-flex text-xs font-semibold text-indigo-600 hover:text-indigo-700">
+          View all programs →
+        </a>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="rbc-card rbc-card-hover p-5">
+          <h3 class="text-sm font-semibold text-slate-900">Diploma in Christian Ministry</h3>
+          <p class="mt-1 text-xs text-slate-600">
+            A foundation in Bible, doctrine, and ministry skills for new and emerging leaders.
+          </p>
+        </article>
+        <article class="rbc-card rbc-card-hover p-5">
+          <h3 class="text-sm font-semibold text-slate-900">Bachelor in Theology</h3>
+          <p class="mt-1 text-xs text-slate-600">
+            For those called to preach, teach, and lead in local churches and ministries.
+          </p>
+        </article>
+        <article class="rbc-card rbc-card-hover p-5">
+          <h3 class="text-sm font-semibold text-slate-900">Advanced & Honours Programs</h3>
+          <p class="mt-1 text-xs text-slate-600">
+            Deepen your theological understanding and refine your ministry practice at a higher level.
+          </p>
+        </article>
+      </div>
+      <div class="mt-4 md:hidden">
+        <a href="programs.html" class="inline-flex text-xs font-semibold text-indigo-600 hover:text-indigo-700">
+          View all programs →
+        </a>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="mt-12">
+      <div class="rbc-card rbc-card-hover p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-gradient-to-r from-indigo-700 to-sky-500">
+        <div>
+          <h2 class="text-lg md:text-xl font-bold text-white mb-1">Ready to take your next step?</h2>
+          <p class="text-sm text-indigo-100 max-w-xl">
+            Whether you are just starting your studies or returning to deepen your understanding,
+            our team is ready to walk with you, answer questions, and help you find the right program.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href="contact.html"
+            class="inline-flex justify-center px-4 py-2.5 rounded-full text-sm font-semibold bg-white text-indigo-700 hover:bg-slate-100"
+          >
+            Contact Admissions
+          </a>
+          <a
+            href="student-portal/index.html"
+            class="inline-flex justify-center px-4 py-2.5 rounded-full text-sm font-semibold bg-indigo-900/40 text-white hover:bg-indigo-900/60 border border-indigo-200/40"
+          >
+            Go to Student Portal
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-8 bg-slate-900 text-slate-200">
+    <div class="rbc-shell py-6 grid gap-6 md:grid-cols-3 text-xs">
+      <div>
+        <h3 class="font-semibold text-white text-sm mb-2">Revealed Bible College</h3>
+        <p class="text-slate-400">
+          Training men and women to rightly handle the Word of God and serve
+          with humility, excellence, and spiritual sensitivity.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white text-xs mb-2">Quick Links</h4>
+        <ul class="space-y-1 text-slate-400">
+          <li><a href="about.html" class="hover:text-white">About Us</a></li>
+          <li><a href="programs.html" class="hover:text-white">Programs</a></li>
+          <li><a href="student-portal/index.html" class="hover:text-white">Student Portal</a></li>
+          <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white text-xs mb-2">Contact</h4>
+        <p class="text-slate-400">Email: info@revealbiblicollege.org (example)</p>
+        <p class="text-slate-400">Phone: +44 (0) 0000 000000</p>
+      </div>
+    </div>
+    <div class="border-t border-slate-800">
+      <div class="rbc-shell py-3 text-[11px] text-slate-500 flex flex-wrap justify-between gap-2">
+        <span>© 2025 Revealed Bible College. All rights reserved.</span>
+        <span>Built for learning and ministry preparation.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
