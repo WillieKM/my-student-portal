@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RBC – Student Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #eef2f7;
+    }
+    .card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100">
+  <div id="root" class="min-h-screen"></div>
+
+  <!-- Firebase init (same pattern as faculty dashboard) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, query, onSnapshot, Timestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    setLogLevel('Debug');
+
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'rbc-portal-app';
+    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+    let app, db, auth;
+
+    if (Object.keys(firebaseConfig).length > 0) {
+      app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+      auth = getAuth(app);
+    } else {
+      console.error("Firebase configuration is missing or empty (Student Dashboard).");
+    }
+
+    window.firebase = {
+      appId,
+      db,
+      auth,
+      initialAuthToken,
+      Timestamp,
+      onAuthStateChanged,
+      collection,
+      query,
+      onSnapshot
+    };
+
+    window.initializeAuth = async () => {
+      if (auth) {
+        try {
+          if (initialAuthToken) {
+            await signInWithCustomToken(auth, initialAuthToken);
+            console.log("Student signed in with custom token.");
+          } else {
+            await signInAnonymously(auth);
+            console.log("Student signed in anonymously.");
+          }
+        } catch (error) {
+          console.error("Student auth failed:", error);
+        }
+      } else {
+        console.log("Firebase not initialized (Student Dashboard). Running in demo mode.");
+        return new Promise(resolve => setTimeout(resolve, 100));
+      }
+    };
+  </script>
+
+  <!-- React & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Student Dashboard React app -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const {
+      db,
+      auth,
+      appId,
+      Timestamp,
+      onAuthStateChanged,
+      collection,
+      query,
+      onSnapshot
+    } = window.firebase || {};
+
+    const demoCourses = [
+      {
+        code: "CS101",
+        title: "Introduction to Biblical Technology",
+        instructor: "Dr. Jane Smith",
+        schedule: "Tue/Thu 10:00 AM",
+        grade: "N/A"
+      },
+      {
+        code: "NT501",
+        title: "Greek Exegesis I",
+        instructor: "Dr. Thompson",
+        schedule: "Tue/Thu 10:00 AM",
+        grade: "A-"
+      },
+      {
+        code: "ST605",
+        title: "Systematic Theology II",
+        instructor: "Dr. Vance",
+        schedule: "Mon/Wed 1:00 PM",
+        grade: "A"
+      }
+    ];
+
+    const MessageBadge = ({ count }) => (
+      <span className="inline-flex items-center justify-center px-2.5 py-0.5 text-xs font-medium rounded-full bg-orange-100 text-orange-700">
+        {count}
+      </span>
+    );
+
+    const StatCard = ({ label, value, accent }) => (
+      <div className={`card relative overflow-hidden`}>
+        <div className={`absolute inset-y-0 left-0 w-1.5 ${accent}`}></div>
+        <div className="px-5 py-4">
+          <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-slate-400">
+            {label}
+          </div>
+          <div className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">
+            {value}
+          </div>
+        </div>
+      </div>
+    );
+
+    const CourseCard = ({ course }) => (
+      <article className="card px-5 py-4 flex items-center justify-between gap-4">
+        <div className="max-w-[70%]">
+          <div className="text-[11px] font-semibold tracking-[0.16em] text-indigo-500 uppercase">
+            {course.code}
+          </div>
+          <h3 className="text-sm md:text-base font-semibold text-slate-900 mt-1">
+            {course.title}
+          </h3>
+          <p className="text-xs text-slate-500 mt-1">
+            {course.instructor} &middot; {course.schedule}
+          </p>
+        </div>
+        <div>
+          <span className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-[11px] font-medium text-slate-700">
+            {course.grade}
+          </span>
+        </div>
+      </article>
+    );
+
+    const App = () => {
+      const [isAuthReady, setIsAuthReady] = useState(false);
+      const [userId, setUserId] = useState(null);
+      const [assignments, setAssignments] = useState([]);
+      const [gpa, setGpa] = useState("3.85");
+      const [unreadMessages, setUnreadMessages] = useState(2);
+      const [enrolledCount, setEnrolledCount] = useState(demoCourses.length);
+
+      // Auth + initialization
+      useEffect(() => {
+        if (!auth) {
+          // no Firebase config – demo mode
+          setIsAuthReady(true);
+          return;
+        }
+
+        window.initializeAuth().then(() => {
+          const unsub = onAuthStateChanged(auth, (user) => {
+            if (user) {
+              setUserId(user.uid);
+            } else {
+              setUserId(null);
+            }
+            setIsAuthReady(true);
+          });
+          return () => unsub && unsub();
+        });
+      }, []);
+
+      // Load assignments from Firestore
+      useEffect(() => {
+        if (!isAuthReady || !db) return;
+
+        try {
+          const assignmentsRef = collection(db, "artifacts", appId, "public", "data", "assignments");
+          const q = query(assignmentsRef);
+          const unsub = onSnapshot(q, (snapshot) => {
+            const items = snapshot.docs.map(doc => {
+              const data = doc.data();
+              return {
+                id: doc.id,
+                title: data.title,
+                content: data.content,
+                type: data.type || "assignment",
+                timestamp: data.timestamp?.toDate?.() || null
+              };
+            });
+
+            items.sort((a, b) => {
+              const ta = a.timestamp ? a.timestamp.getTime() : 0;
+              const tb = b.timestamp ? b.timestamp.getTime() : 0;
+              return tb - ta;
+            });
+            setAssignments(items);
+          });
+
+          return () => unsub();
+        } catch (e) {
+          console.error("Error setting up assignment listener:", e);
+        }
+      }, [isAuthReady, db, appId]);
+
+      const nextDue = assignments.find(a => a.type === "assignment") || assignments[0] || null;
+
+      if (!isAuthReady) {
+        return (
+          <div className="min-h-screen flex flex-col bg-slate-100">
+            <header className="bg-indigo-800 text-white">
+              <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">RBC</div>
+                  <div>
+                    <div className="text-sm font-semibold">Revealed Bible College</div>
+                    <div className="text-[11px] text-indigo-100/90">Student Portal</div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <main className="flex-1 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-3 text-slate-600">
+                <div className="h-10 w-10 rounded-full border-4 border-indigo-200 border-t-indigo-600 animate-spin"></div>
+                <p className="text-sm">Preparing your dashboard…</p>
+              </div>
+            </main>
+          </div>
+        );
+      }
+
+      return (
+        <div className="min-h-screen flex flex-col bg-slate-100">
+          {/* Top nav */}
+          <header className="bg-indigo-800 text-white">
+            <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+              <a href="../index.html" className="flex items-center gap-2">
+                <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">RBC</div>
+                <div className="leading-tight">
+                  <div className="text-sm font-semibold">Revealed Bible College</div>
+                  <div className="text-[11px] text-indigo-100/90">Student Portal</div>
+                </div>
+              </a>
+              <div className="flex items-center gap-3 text-[11px]">
+                <span className="hidden sm:inline-block text-indigo-100/90">
+                  {userId ? `ID: ${userId.substring(0, 8)}…` : "Demo mode"}
+                </span>
+                <a
+                  href="../student-portal/index.html"
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 font-semibold text-[11px] hover:bg-slate-100"
+                >
+                  Portal Home
+                </a>
+              </div>
+            </div>
+          </header>
+
+          <main className="flex-1 max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+            {/* Header text */}
+            <section className="mb-6 md:mb-8">
+              <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+                Welcome Back, Student Name
+              </h1>
+              <p className="text-xs md:text-sm text-slate-500 mt-1">
+                B.A. in Biblical Studies <span className="hidden sm:inline">·</span>{" "}
+                <span className="block sm:inline">Expected Graduation: Spring 2026</span>
+              </p>
+            </section>
+
+            {/* Stat cards */}
+            <section className="grid gap-4 md:grid-cols-3 mb-8">
+              <StatCard
+                label="Current GPA"
+                value={gpa}
+                accent="bg-emerald-400"
+              />
+              <StatCard
+                label="Enrolled Courses"
+                value={enrolledCount}
+                accent="bg-indigo-400"
+              />
+              <div className="card relative overflow-hidden">
+                <div className="absolute inset-y-0 left-0 w-1.5 bg-orange-400"></div>
+                <div className="px-5 py-4 flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-slate-400">
+                      Unread Messages
+                    </div>
+                    <div className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">
+                      {unreadMessages}
+                    </div>
+                  </div>
+                  <MessageBadge count={unreadMessages} />
+                </div>
+              </div>
+            </section>
+
+            {/* Main layout: courses + next due / quick actions */}
+            <section className="grid gap-6 md:grid-cols-[minmax(0,1.8fr)_minmax(0,1.2fr)]">
+              {/* Courses */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-sm md:text-base font-semibold text-slate-900">
+                    My Current Courses (Fall 2025)
+                  </h2>
+                  <a
+                    href="#"
+                    className="hidden md:inline-flex text-[11px] font-semibold text-indigo-600 hover:text-indigo-700"
+                  >
+                    View full schedule →
+                  </a>
+                </div>
+                <div className="space-y-3">
+                  {demoCourses.map(c => (
+                    <CourseCard key={c.code} course={c} />
+                  ))}
+                </div>
+                <div className="mt-3 md:hidden">
+                  <a
+                    href="#"
+                    className="inline-flex text-[11px] font-semibold text-indigo-600 hover:text-indigo-700"
+                  >
+                    View full schedule →
+                  </a>
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div className="space-y-4">
+                {/* Next Due */}
+                <div className="card px-5 py-4 min-h-[120px]">
+                  <h2 className="text-sm md:text-base font-semibold text-slate-900 mb-2">
+                    Next Due
+                  </h2>
+                  {nextDue ? (
+                    <div>
+                      <p className="text-xs font-semibold text-indigo-600 mb-1">
+                        {nextDue.type === "assignment"
+                          ? "Assignment"
+                          : nextDue.type === "announcement"
+                          ? "Announcement"
+                          : "Item"}
+                      </p>
+                      <p className="text-sm font-semibold text-slate-900">
+                        {nextDue.title}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-600 whitespace-pre-wrap">
+                        {nextDue.content}
+                      </p>
+                      {nextDue.timestamp && (
+                        <p className="mt-2 text-[11px] text-slate-400">
+                          Published on{" "}
+                          {nextDue.timestamp.toLocaleString()}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-slate-500 mt-2">
+                      No assignments or announcements found yet. Check back soon.
+                    </p>
+                  )}
+                </div>
+
+                {/* Quick actions */}
+                <div className="card px-5 py-4">
+                  <h2 className="text-sm md:text-base font-semibold text-slate-900 mb-3">
+                    Quick Actions
+                  </h2>
+                  <div className="flex flex-col gap-2">
+                    <button className="w-full text-left text-xs md:text-sm font-medium px-3 py-2 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700">
+                      Register for Spring Classes
+                    </button>
+                    <button className="w-full text-left text-xs md:text-sm font-medium px-3 py-2 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700">
+                      Check Financial Aid Status
+                    </button>
+                    <button className="w-full text-left text-xs md:text-sm font-medium px-3 py-2 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-700">
+                      Access Library Resources
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Recent announcements / assignments list (optional extra) */}
+            <section className="mt-8">
+              <h2 className="text-sm md:text-base font-semibold text-slate-900 mb-3">
+                Latest Announcements & Assignments
+              </h2>
+              {assignments.length === 0 ? (
+                <div className="card px-5 py-4 text-xs text-slate-500">
+                  No items yet. When faculty publish assignments or announcements, they’ll appear here.
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {assignments.slice(0, 4).map(item => (
+                    <div
+                      key={item.id}
+                      className="card px-5 py-3 flex items-start justify-between gap-3"
+                    >
+                      <div>
+                        <span
+                          className={
+                            "inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold mr-2 " +
+                            (item.type === "assignment"
+                              ? "bg-emerald-100 text-emerald-700"
+                              : item.type === "announcement"
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-sky-100 text-sky-700")
+                          }
+                        >
+                          {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+                        </span>
+                        <span className="text-xs font-semibold text-slate-900">
+                          {item.title}
+                        </span>
+                        <p className="mt-1 text-[11px] text-slate-600 line-clamp-3">
+                          {item.content}
+                        </p>
+                      </div>
+                      {item.timestamp && (
+                        <p className="text-[10px] text-slate-400 whitespace-nowrap">
+                          {item.timestamp.toLocaleDateString()}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          </main>
+        </div>
+      );
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const rootEl = document.getElementById("root");
+      if (rootEl) {
+        const root = ReactDOM.createRoot(rootEl);
+        root.render(<App />);
+      }
+    });
+  </script>
+</body>
+</html>
