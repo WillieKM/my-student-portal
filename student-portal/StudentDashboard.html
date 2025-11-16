@@ -6,6 +6,9 @@
   <title>RBC – Student Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html {
+      font-size: 18px;
+    }
     body {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background-color: #eef2f7;
@@ -25,18 +28,18 @@
 <body class="min-h-screen bg-slate-100">
   <div id="root" class="min-h-screen"></div>
 
-  <!-- Firebase init (same pattern as faculty dashboard) -->
+  <!-- Firebase init -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
     import { getFirestore, collection, query, onSnapshot, Timestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
     import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-    setLogLevel('Debug');
+    setLogLevel("Debug");
 
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'rbc-portal-app';
-    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+    const appId = typeof __app_id !== "undefined" ? __app_id : "rbc-portal-app";
+    const firebaseConfig = typeof __firebase_config !== "undefined" ? JSON.parse(__firebase_config) : {};
+    const initialAuthToken = typeof __initial_auth_token !== "undefined" ? __initial_auth_token : null;
 
     let app, db, auth;
 
@@ -57,7 +60,8 @@
       onAuthStateChanged,
       collection,
       query,
-      onSnapshot
+      onSnapshot,
+      signOut
     };
 
     window.initializeAuth = async () => {
@@ -67,6 +71,7 @@
             await signInWithCustomToken(auth, initialAuthToken);
             console.log("Student signed in with custom token.");
           } else {
+            // if user is not already logged in, keep them anonymous – we'll still gate UI in React
             await signInAnonymously(auth);
             console.log("Student signed in anonymously.");
           }
@@ -85,7 +90,7 @@
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Student Dashboard React app -->
+  <!-- React app -->
   <script type="text/babel">
     const { useState, useEffect } = React;
     const {
@@ -96,7 +101,8 @@
       onAuthStateChanged,
       collection,
       query,
-      onSnapshot
+      onSnapshot,
+      signOut
     } = window.firebase || {};
 
     const demoCourses = [
@@ -130,7 +136,7 @@
     );
 
     const StatCard = ({ label, value, accent }) => (
-      <div className={`card relative overflow-hidden`}>
+      <div className="card relative overflow-hidden">
         <div className={`absolute inset-y-0 left-0 w-1.5 ${accent}`}></div>
         <div className="px-5 py-4">
           <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-slate-400">
@@ -153,47 +159,40 @@
             {course.title}
           </h3>
           <p className="text-xs text-slate-500 mt-1">
-            {course.instructor} &middot; {course.schedule}
+            {course.instructor} · {course.schedule}
           </p>
         </div>
-        <div>
-          <span className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-[11px] font-medium text-slate-700">
-            {course.grade}
-          </span>
-        </div>
+        <span className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-[11px] font-medium text-slate-700">
+          {course.grade}
+        </span>
       </article>
     );
 
     const App = () => {
       const [isAuthReady, setIsAuthReady] = useState(false);
-      const [userId, setUserId] = useState(null);
+      const [user, setUser] = useState(null);
       const [assignments, setAssignments] = useState([]);
       const [gpa, setGpa] = useState("3.85");
       const [unreadMessages, setUnreadMessages] = useState(2);
       const [enrolledCount, setEnrolledCount] = useState(demoCourses.length);
 
-      // Auth + initialization
+      // Auth
       useEffect(() => {
         if (!auth) {
-          // no Firebase config – demo mode
           setIsAuthReady(true);
           return;
         }
 
         window.initializeAuth().then(() => {
-          const unsub = onAuthStateChanged(auth, (user) => {
-            if (user) {
-              setUserId(user.uid);
-            } else {
-              setUserId(null);
-            }
+          const unsub = onAuthStateChanged(auth, (u) => {
+            setUser(u);
             setIsAuthReady(true);
           });
           return () => unsub && unsub();
         });
       }, []);
 
-      // Load assignments from Firestore
+      // Firestore assignments
       useEffect(() => {
         if (!isAuthReady || !db) return;
 
@@ -228,6 +227,16 @@
 
       const nextDue = assignments.find(a => a.type === "assignment") || assignments[0] || null;
 
+      const handleSignOut = async () => {
+        if (!auth) return;
+        try {
+          await signOut(auth);
+          window.location.href = "./login.html";
+        } catch (e) {
+          console.error("Sign out failed:", e);
+        }
+      };
+
       if (!isAuthReady) {
         return (
           <div className="min-h-screen flex flex-col bg-slate-100">
@@ -252,6 +261,12 @@
         );
       }
 
+      // Optional: if you want to hard-require login (not anonymous), redirect:
+      // if (!user || user.isAnonymous) {
+      //   window.location.href = "./login.html";
+      //   return null;
+      // }
+
       return (
         <div className="min-h-screen flex flex-col bg-slate-100">
           {/* Top nav */}
@@ -266,14 +281,20 @@
               </a>
               <div className="flex items-center gap-3 text-[11px]">
                 <span className="hidden sm:inline-block text-indigo-100/90">
-                  {userId ? `ID: ${userId.substring(0, 8)}…` : "Demo mode"}
+                  {user ? `ID: ${user.uid.substring(0, 8)}…` : "Demo mode"}
                 </span>
                 <a
                   href="../student-portal/index.html"
-                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 font-semibold text-[11px] hover:bg-slate-100"
+                  className="hidden sm:inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 font-semibold text-[11px] hover:bg-slate-100"
                 >
                   Portal Home
                 </a>
+                <button
+                  onClick={handleSignOut}
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-indigo-600 text-white font-semibold text-[11px] hover:bg-indigo-500"
+                >
+                  Sign Out
+                </button>
               </div>
             </div>
           </header>
@@ -282,26 +303,17 @@
             {/* Header text */}
             <section className="mb-6 md:mb-8">
               <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">
-                Welcome Back, Student Name
+                Welcome back, {user && !user.isAnonymous ? "Student" : "Student Name"}
               </h1>
               <p className="text-xs md:text-sm text-slate-500 mt-1">
-                B.A. in Biblical Studies <span className="hidden sm:inline">·</span>{" "}
-                <span className="block sm:inline">Expected Graduation: Spring 2026</span>
+                B.A. in Biblical Studies · <span className="hidden sm:inline">Expected Graduation: Spring 2026</span>
               </p>
             </section>
 
-            {/* Stat cards */}
+            {/* Stats */}
             <section className="grid gap-4 md:grid-cols-3 mb-8">
-              <StatCard
-                label="Current GPA"
-                value={gpa}
-                accent="bg-emerald-400"
-              />
-              <StatCard
-                label="Enrolled Courses"
-                value={enrolledCount}
-                accent="bg-indigo-400"
-              />
+              <StatCard label="Current GPA" value={gpa} accent="bg-emerald-400" />
+              <StatCard label="Enrolled Courses" value={enrolledCount} accent="bg-indigo-400" />
               <div className="card relative overflow-hidden">
                 <div className="absolute inset-y-0 left-0 w-1.5 bg-orange-400"></div>
                 <div className="px-5 py-4 flex items-center justify-between gap-3">
@@ -318,7 +330,7 @@
               </div>
             </section>
 
-            {/* Main layout: courses + next due / quick actions */}
+            {/* Layout */}
             <section className="grid gap-6 md:grid-cols-[minmax(0,1.8fr)_minmax(0,1.2fr)]">
               {/* Courses */}
               <div>
@@ -404,7 +416,7 @@
               </div>
             </section>
 
-            {/* Recent announcements / assignments list (optional extra) */}
+            {/* Recent items */}
             <section className="mt-8">
               <h2 className="text-sm md:text-base font-semibold text-slate-900 mb-3">
                 Latest Announcements & Assignments
