@@ -6,6 +6,7 @@
   <title>RBC – Student Login</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html { font-size: 18px; }
     body {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background-color: #eef2f7;
@@ -18,322 +19,95 @@
   </style>
 </head>
 <body class="min-h-screen bg-slate-100">
-  <!-- Top Nav (simple) -->
+  <!-- NAV -->
   <header class="bg-indigo-800 text-white">
-    <div class="max-w-4xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
       <a href="../index.html" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">
-          RBC
-        </div>
+        <div class="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">RBC</div>
         <div class="leading-tight">
           <div class="text-sm font-semibold">Revealed Bible College</div>
-          <div class="text-[11px] text-indigo-100/90">Student Portal</div>
+          <div class="text-[11px] text-indigo-100/90">Student Login</div>
         </div>
-      </a>
-      <a
-        href="../student-portal/index.html"
-        class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 text-[11px] font-semibold hover:bg-slate-100"
-      >
-        Portal Home
       </a>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-12">
-    <section class="mb-6">
-      <p class="text-xs font-semibold tracking-[0.18em] text-indigo-500 uppercase mb-2">Student Login</p>
-      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900">Access your student dashboard</h1>
-      <p class="text-sm text-slate-600 mt-1">
-        Sign in with your student email and password to view your courses, assignments, and announcements.
-      </p>
-    </section>
+  <main class="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-10">
+    <p class="text-[11px] font-semibold tracking-[0.18em] text-indigo-500 uppercase mb-2">
+      Student Login
+    </p>
+    <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
+      Access your student dashboard
+    </h1>
+    <p class="text-sm text-slate-600 mb-6">
+      This demo login does not use real authentication. Any email/password will take you to the sample dashboard.
+    </p>
 
-    <section id="login-main" class="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
-      <!-- Auth card -->
-      <div class="card p-6 md:p-7">
-        <!-- Tabs -->
-        <div class="flex text-xs font-semibold text-slate-500 mb-4 border-b border-slate-200">
-          <button
-            id="tab-signin"
-            class="px-3 pb-2 border-b-2 border-indigo-600 text-indigo-700"
-            type="button"
-          >
+    <div class="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.1fr)]">
+      <!-- Login card -->
+      <section class="card p-6 md:p-7">
+        <div class="flex border-b border-slate-100 mb-4">
+          <button class="px-4 py-2 text-sm font-semibold text-indigo-600 border-b-2 border-indigo-500">
             Sign In
           </button>
-          <button
-            id="tab-register"
-            class="px-3 pb-2 border-b-2 border-transparent hover:text-slate-700"
-            type="button"
-          >
-            Create Account
+          <button class="px-4 py-2 text-sm text-slate-400 cursor-default">
+            Create Account (coming soon)
           </button>
         </div>
 
-        <!-- Message area -->
-        <div id="message" class="hidden mb-3 rounded-md px-3 py-2 text-xs"></div>
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="email">Email</label>
+            <input id="email" type="email" required
+                   class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="password">Password</label>
+            <input id="password" type="password" required
+                   class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
 
-        <!-- Sign-in form -->
-        <form id="signin-form" class="space-y-4">
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Email</label>
-            <input
-              id="signin-email"
-              type="email"
-              required
-              class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
-            <input
-              id="signin-password"
-              type="password"
-              required
-              class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </div>
           <div class="flex items-center justify-between text-[11px] text-slate-500">
             <label class="inline-flex items-center gap-2">
-              <input type="checkbox" class="rounded border-slate-300" disabled />
-              <span>Remember this device (handled by browser)</span>
+              <input type="checkbox" class="rounded border-slate-300" />
+              Remember this device
             </label>
-            <button
-              type="button"
-              id="btn-reset"
-              class="font-semibold text-indigo-600 hover:text-indigo-700"
-            >
+            <button type="button" class="text-indigo-600 font-semibold">
               Forgot password?
             </button>
           </div>
+
           <button
             type="submit"
-            id="signin-submit"
-            class="w-full bg-indigo-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-400"
+            class="w-full mt-2 rounded-lg bg-indigo-600 text-white font-semibold py-2.5 text-sm hover:bg-indigo-700 transition"
           >
             Sign In
           </button>
         </form>
+      </section>
 
-        <!-- Register form -->
-        <form id="register-form" class="space-y-4 hidden">
-          <div class="text-xs text-slate-600 mb-1">
-            Use your official student email address if one has been assigned.
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Email</label>
-            <input
-              id="register-email"
-              type="email"
-              required
-              class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
-            <input
-              id="register-password"
-              type="password"
-              required
-              minlength="6"
-              class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            />
-            <p class="mt-1 text-[11px] text-slate-500">
-              Must be at least 6 characters (Firebase default).
-            </p>
-          </div>
-          <button
-            type="submit"
-            id="register-submit"
-            class="w-full bg-emerald-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-emerald-700 disabled:bg-emerald-400"
-          >
-            Create Account
-          </button>
-        </form>
-      </div>
-
-      <!-- Info card -->
-      <div class="card p-6 md:p-7 bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-50">
-        <h2 class="text-sm font-semibold text-slate-900 mb-2">Having trouble signing in?</h2>
-        <ul class="text-xs text-slate-700 space-y-2">
-          <li>• Make sure you’re using the correct student email address.</li>
-          <li>• If you forgot your password, use “Forgot password?” to receive a reset link.</li>
-          <li>• If this is your first time, you can create a new student login using the email provided by the college.</li>
-          <li>• Contact your program coordinator if you still cannot access the portal.</li>
+      <!-- Help card -->
+      <aside class="card p-6 md:p-7">
+        <h2 class="text-sm font-semibold text-slate-900 mb-3">
+          Having trouble signing in?
+        </h2>
+        <ul class="text-xs text-slate-600 space-y-2 mb-4">
+          <li>• In this demo, any email and password will work.</li>
+          <li>• In a real deployment, login would be powered by Firebase Authentication.</li>
+          <li>• After signing in, you’ll be redirected automatically to your Student Dashboard.</li>
         </ul>
-        <p class="mt-4 text-[11px] text-slate-500">
-          After signing in, you’ll be redirected automatically to your <strong>Student Dashboard</strong>.
+        <p class="text-[11px] text-slate-400">
+          This site is currently running in demo mode for design review.
         </p>
-      </div>
-    </section>
-
-    <!-- Shown if Firebase config is missing -->
-    <section
-      id="login-disabled-message"
-      class="hidden mt-6 card p-4 border border-amber-300 bg-amber-50 text-xs text-amber-800"
-    >
-      Firebase configuration is not set. Login is running in demo mode only. Configure
-      <code>__firebase_config</code> / environment variables in your deployment to enable real authentication.
-    </section>
+      </aside>
+    </div>
   </main>
 
-  <!-- Firebase + Auth logic -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      createUserWithEmailAndPassword,
-      sendPasswordResetEmail,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-    const appId = typeof __app_id !== "undefined" ? __app_id : "rbc-portal-app";
-    const firebaseConfig = typeof __firebase_config !== "undefined"
-      ? JSON.parse(__firebase_config)
-      : {};
-    const initialAuthToken = typeof __initial_auth_token !== "undefined"
-      ? __initial_auth_token
-      : null;
-
-    let app, auth;
-
-    if (Object.keys(firebaseConfig).length > 0) {
-      app = initializeApp(firebaseConfig);
-      auth = getAuth(app);
-    } else {
-      console.error("Firebase configuration is missing or empty (Login).");
-    }
-
-    // UI helpers
-    const $ = (id) => document.getElementById(id);
-    const showMessage = (text, type = "info") => {
-      const box = $("message");
-      if (!box) return;
-      box.textContent = text;
-      box.classList.remove("hidden");
-      box.classList.remove(
-        "bg-emerald-50",
-        "text-emerald-700",
-        "bg-red-50",
-        "text-red-700",
-        "bg-sky-50",
-        "text-sky-700"
-      );
-      if (type === "success") {
-        box.classList.add("bg-emerald-50", "text-emerald-700");
-      } else if (type === "error") {
-        box.classList.add("bg-red-50", "text-red-700");
-      } else {
-        box.classList.add("bg-sky-50", "text-sky-700");
-      }
-    };
-
-    const clearMessage = () => {
-      const box = $("message");
-      if (!box) return;
-      box.classList.add("hidden");
-      box.textContent = "";
-    };
-
-    // Tabs
-    const tabSignin = $("tab-signin");
-    const tabRegister = $("tab-register");
-    const formSignin = $("signin-form");
-    const formRegister = $("register-form");
-
-    tabSignin?.addEventListener("click", () => {
-      tabSignin.classList.add("border-indigo-600", "text-indigo-700");
-      tabRegister.classList.remove("border-indigo-600", "text-indigo-700");
-      formSignin.classList.remove("hidden");
-      formRegister.classList.add("hidden");
-      clearMessage();
-    });
-
-    tabRegister?.addEventListener("click", () => {
-      tabRegister.classList.add("border-indigo-600", "text-indigo-700");
-      tabSignin.classList.remove("border-indigo-600", "text-indigo-700");
-      formRegister.classList.remove("hidden");
-      formSignin.classList.add("hidden");
-      clearMessage();
-    });
-
-    if (!auth) {
-      // Show warning if no config
-      $("login-disabled-message")?.classList.remove("hidden");
-      $("login-main")?.classList.add("opacity-60", "pointer-events-none");
-    } else {
-      // If already signed in, go straight to dashboard
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          window.location.href = "./StudentDashboard.html";
-        }
-      });
-
-      // Sign-in handler
-      formSignin?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        clearMessage();
-        const email = $("signin-email").value.trim();
-        const password = $("signin-password").value;
-        $("signin-submit").disabled = true;
-
-        try {
-          await signInWithEmailAndPassword(auth, email, password);
-          showMessage("Sign-in successful. Redirecting to dashboard…", "success");
-          setTimeout(() => {
-            window.location.href = "./StudentDashboard.html";
-          }, 700);
-        } catch (err) {
-          console.error("Sign-in failed:", err);
-          showMessage(err.message || "Unable to sign in. Please check your details.", "error");
-          $("signin-submit").disabled = false;
-        }
-      });
-
-      // Register handler
-      formRegister?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        clearMessage();
-        const email = $("register-email").value.trim();
-        const password = $("register-password").value;
-        $("register-submit").disabled = true;
-
-        try {
-          await createUserWithEmailAndPassword(auth, email, password);
-          showMessage("Account created. You are now signed in and will be redirected.", "success");
-          setTimeout(() => {
-            window.location.href = "./StudentDashboard.html";
-          }, 800);
-        } catch (err) {
-          console.error("Registration failed:", err);
-          showMessage(err.message || "Unable to create account.", "error");
-          $("register-submit").disabled = false;
-        }
-      });
-
-      // Password reset
-      $("btn-reset")?.addEventListener("click", async () => {
-        clearMessage();
-        const email = $("signin-email").value.trim();
-        if (!email) {
-          showMessage("Enter your email in the Email field first, then click ‘Forgot password?’", "info");
-          return;
-        }
-        try {
-          await sendPasswordResetEmail(auth, email);
-          showMessage("Password reset link sent if this email is registered.", "success");
-        } catch (err) {
-          console.error("Password reset failed:", err);
-          showMessage(err.message || "Unable to send reset link.", "error");
-        }
-      });
-    }
-
-    // Expose firebase if you ever need it elsewhere
-    window.firebase = Object.assign(window.firebase || {}, {
-      appId,
-      auth,
-      initialAuthToken
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Demo: just go to dashboard, no auth
+      window.location.href = 'StudentDashboard.html';
     });
   </script>
 </body>
