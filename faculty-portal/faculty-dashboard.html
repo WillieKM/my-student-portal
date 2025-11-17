@@ -59,6 +59,7 @@
 
     setLogLevel("Debug");
 
+    // appId from server if provided, else default
     const appId = typeof __app_id !== "undefined" ? __app_id : "rbc-portal-app";
     const firebaseConfig = typeof __firebase_config !== "undefined" ? JSON.parse(__firebase_config) : {};
     const initialAuthToken = typeof __initial_auth_token !== "undefined" ? __initial_auth_token : null;
@@ -73,6 +74,7 @@
       console.error("Firebase configuration is missing or empty.");
     }
 
+    // Always create window.firebase so React code never crashes
     window.firebase = {
       appId,
       db,
@@ -118,6 +120,9 @@
   <!-- React app -->
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
+
+    // SAFER: don't crash if window.firebase isn't ready yet
+    const firebaseGlobals = window.firebase || {};
     const {
       db,
       auth,
@@ -132,7 +137,7 @@
       doc,
       updateDoc,
       deleteDoc
-    } = window.firebase;
+    } = firebaseGlobals;
 
     const runWithRetry = async (fn, maxRetries = 3, delay = 1000) => {
       for (let i = 0; i < maxRetries; i++) {
@@ -179,8 +184,10 @@
       const [assignments, setAssignments] = useState([]);
       const isSubmitting = useRef(false);
 
+      // AUTH
       useEffect(() => {
         if (!auth) {
+          // no Firebase config – run in mock mode but still show UI
           setIsAuthReady(true);
           return;
         }
@@ -198,6 +205,7 @@
         });
       }, []);
 
+      // ASSIGNMENTS LISTENER
       useEffect(() => {
         if (!isAuthReady || !db || !userId) return;
 
@@ -238,8 +246,8 @@
           showUserMessage("Validation Error", "Please provide both a title and content for the assignment.");
           return;
         }
-        if (!userId) {
-          showUserMessage("Authorization Error", "User not authenticated. Please ensure Firebase is set up.");
+        if (!userId || !db) {
+          showUserMessage("Authorization Error", "User not authenticated or database not available.");
           return;
         }
 
@@ -275,6 +283,10 @@
       };
 
       const handleDelete = async (id) => {
+        if (!db) {
+          showUserMessage("Error", "Database not available.");
+          return;
+        }
         if (!window.confirm("Are you sure you want to delete this publication?")) return;
 
         try {
@@ -291,7 +303,10 @@
       };
 
       const handleSignOut = async () => {
-        if (!auth) return;
+        if (!auth) {
+          window.location.href = "../student-portal/index.html";
+          return;
+        }
         try {
           await signOut(auth);
           window.location.href = "../student-portal/index.html";
@@ -456,6 +471,14 @@
                   Published Items ({assignments.length})
                 </h2>
 
+                {(!db || !userId) && (
+                  <div className="card p-6 mb-4 text-sm text-amber-700 bg-amber-50 border border-amber-200">
+                    Firebase is not fully configured or you are not authenticated.
+                    The interface is visible, but publishing will not persist until
+                    your Firebase config and authentication are set up.
+                  </div>
+                )}
+
                 {assignments.length === 0 ? (
                   <div className="card p-6 text-center text-gray-500">
                     No publications found. Use the form to publish your first item.
@@ -502,7 +525,6 @@
                               <path
                                 fillRule="evenodd"
                                 d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                clipRule="evenodd"
                               />
                             </svg>
                           </button>
