@@ -2,232 +2,1455 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Revealed Bible College – Student Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revealed Bible College – Home</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta
+    name="description"
+    content="Revealed Bible College Student Portal – access courses, resources, and student services in one place."
+  />
   <style>
-    html {
-      font-size: 18px; /* makes everything larger */
+    :root {
+      --primary: #1b365d;      /* deep academic blue */
+      --primary-dark: #13233f;
+      --accent: #c28b37;       /* gold */
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.15);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --transition-fast: 180ms ease-out;
+      --max-width: 1120px;
     }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: #eef2f7;
+
+    * {
+      box-sizing: border-box;
     }
-    .rbc-shell {
-      max-width: 1120px;
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #eef2ff 0, #f9fafb 40%, #f3f4f6 100%);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout helpers */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+      padding: 0 1.5rem;
     }
-    .rbc-card {
-      background-color: #ffffff;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+    section {
+      padding: 4rem 0;
     }
-    .rbc-card-hover {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
     }
-    .rbc-card-hover:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .section-heading p {
+      margin: 0.8rem auto 0;
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.93),
+        rgba(15, 23, 42, 0.94)
+      );
+      color: #f9fafb;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.4);
+      background: radial-gradient(circle at 30% 10%, #fde68a, #b45309 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text span:first-child {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #cbd5f5;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #fbbf24, #f97316);
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 22px rgba(248, 181, 0, 0.4);
+    }
+
+    .nav-cta span {
+      font-size: 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      color: #f9fafb;
+      padding: 3.5rem 0 4.5rem;
+      overflow: hidden;
+      background: radial-gradient(circle at 0 0, #1d4ed8 0, #020617 60%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 3.2rem;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.2rem, 3.1vw, 2.9rem);
+      margin: 0 0 0.7rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-copy h1 span {
+      color: #fde68a;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.25rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(12px);
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.12), rgba(15, 23, 42, 0.8));
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      padding: 0.7rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        background var(--transition-fast), color var(--transition-fast),
+        opacity var(--transition-fast);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #fbbf24, #f97316);
+      color: #111827;
+      box-shadow: 0 16px 35px rgba(248, 181, 0, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 45px rgba(248, 181, 0, 0.6);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.65);
+      color: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-footnote {
+      font-size: 0.78rem;
+      color: #cbd5f5;
+      max-width: 22rem;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.2rem 1.5rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-card-sub {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .hero-avatar-group {
+      display: flex;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 2px solid #020617;
+      margin-left: -8px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .avatar:first-child {
+      margin-left: 0;
+    }
+
+    /* PLACE HERO AVATAR IMAGES HERE */
+    .avatar-1 {
+      background-image: url("/images/students-avatar-1.jpg");
+    }
+
+    .avatar-2 {
+      background-image: url("/images/students-avatar-2.jpg");
+    }
+
+    .avatar-3 {
+      background-image: url("/images/students-avatar-3.jpg");
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .stat-card {
+      border-radius: 14px;
+      padding: 0.7rem 0.9rem;
+      background: radial-gradient(circle at top left, rgba(249, 250, 251, 0.16), rgba(15, 23, 42, 0.92));
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: #9ca3af;
+      margin-bottom: 0.1rem;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.2);
+      color: #bbf7d0;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      margin-top: 0.15rem;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: -0.3rem;
+      bottom: -0.6rem;
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 10%, #fef9c3 0, #f97316 50%, #7c2d12 100%);
+      border: 4px solid rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #111827;
+      font-size: 0.7rem;
+      font-weight: 700;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-badge span:first-child {
+      font-size: 1.1rem;
+    }
+
+    /* About */
+    .about {
+      background: var(--bg);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin: 0 0 0.9rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.5rem;
+    }
+
+    .highlight-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-alt);
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+      font-size: 0.85rem;
+    }
+
+    .highlight-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ABOUT IMAGE AREA (CAMPUS / STUDENTS) */
+    .about-media {
+      position: relative;
+    }
+
+    .about-photo-main {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .about-photo-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 320px;
+    }
+
+    .about-photo-secondary {
+      position: absolute;
+      bottom: -16%;
+      right: -4%;
+      width: 52%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.75);
+    }
+
+    .about-photo-secondary img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 180px;
+    }
+
+    /* Programs */
+    .programs {
+      background: #f9fafb;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .program-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+      border-color: rgba(37, 99, 235, 0.35);
+    }
+
+    /* PROGRAM IMAGE AREA PER CARD */
+    .program-image {
+      height: 150px;
+      overflow: hidden;
+    }
+
+    .program-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+    }
+
+    .program-body {
+      padding: 1.1rem 1.1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .program-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .program-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .program-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .program-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Student Life (Photo-focused) */
+    .student-life {
+      background: #020617;
+      color: #e5e7eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .student-life::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .student-life-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .student-life-text p {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      margin-bottom: 1rem;
+    }
+
+    .student-life-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .life-item {
+      border-radius: 14px;
+      padding: 0.7rem 0.9rem;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .life-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* STUDENT LIFE PHOTO STRIP */
+    .life-photos {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 0.75rem;
+    }
+
+    .life-photo-main,
+    .life-photo-column {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .life-photo {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .life-photo img {
+      width: 100%;
+      height: 100%;
+      max-height: 210px;
+      object-fit: cover;
+    }
+
+    /* Testimonials & Faculty */
+    .testimonials {
+      background: var(--bg);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 0.9rem;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .faculty-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .faculty-card {
+      display: flex;
+      gap: 0.7rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+    }
+
+    /* FACULTY PORTRAIT IMAGES */
+    .faculty-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .faculty-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .faculty-meta span:first-child {
+      font-weight: 600;
+    }
+
+    .faculty-meta span:last-child {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    /* Admissions & Portal */
+    .cta-section {
+      background: #ffffff;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .cta-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #eef2ff, #ffffff 55%, #f4f4f5);
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+    }
+
+    .cta-card h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.3rem;
+    }
+
+    .cta-card p {
+      margin: 0 0 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .cta-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(22, 163, 74, 0.08);
+      color: #15803d;
+      border: 1px solid rgba(22, 163, 74, 0.2);
+    }
+
+    .portal-card {
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px dashed var(--border);
+      background: #f9fafb;
+      font-size: 0.85rem;
+    }
+
+    .portal-card ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .portal-card li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      padding: 2rem 0 1.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      font-size: 0.85rem;
+    }
+
+    .footer-brand strong {
+      color: #e5e7eb;
+    }
+
+    .footer-meta {
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 0.8rem 0 1rem;
+      font-size: 0.75rem;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner,
+      .about-layout,
+      .student-life-inner,
+      .testimonials-grid,
+      .cta-grid,
+      .footer-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-inner {
+        gap: 2.3rem;
+      }
+
+      .about-photo-secondary {
+        position: static;
+        width: 70%;
+        margin: 1rem auto 0;
+      }
+
+      .program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .program-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-highlights,
+      .student-life-highlights,
+      .faculty-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .life-photos {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-photo-secondary {
+        width: 100%;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen bg-slate-100">
-  <!-- Top Nav -->
-  <header class="bg-gradient-to-r from-indigo-800 via-indigo-700 to-sky-600 text-white">
-    <div class="rbc-shell flex items-center justify-between py-4">
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="h-9 w-9 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold tracking-tight">
-          RBC
-        </div>
-        <div class="leading-tight">
-          <div class="font-semibold text-base sm:text-lg">Revealed Bible College</div>
-          <div class="text-[0.7rem] sm:text-xs text-indigo-100">Equipping believers for Spirit-led ministry</div>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="index.html" class="text-white/90 hover:text-white">Home</a>
-        <a href="about.html" class="text-indigo-100 hover:text-white">About Us</a>
-        <a href="programs.html" class="text-indigo-100 hover:text-white">Programs</a>
-        <a href="contact.html" class="text-indigo-100 hover:text-white">Contact Us</a>
-        <a href="student-portal/index.html" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 text-xs font-semibold hover:bg-slate-100">
-          Student Portal
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main class="rbc-shell">
-    <section class="mt-8 grid gap-8 md:grid-cols-2 items-center">
-      <div>
-        <p class="text-xs font-semibold tracking-[0.18em] text-indigo-300 uppercase mb-3">Welcome to RBC</p>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-          A Bible college devoted to revelation, character, and Spirit-filled ministry.
-        </h1>
-        <p class="text-lg text-slate-600 mb-6">
-          Revealed Bible College exists to raise up grounded believers and leaders who know the Word,
-          walk in the Spirit, and serve with integrity in every sphere of life.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="programs.html"
-            class="inline-flex items-center px-5 py-3 rounded-full text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-md"
-          >
-            View Programs
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="#top" class="brand">
+            <div class="brand-mark">R</div>
+            <div class="brand-text">
+              <span>Revealed Bible College</span>
+              <span>Student Portal</span>
+            </div>
           </a>
-          <a
-            href="contact.html"
-            class="inline-flex items-center px-5 py-3 rounded-full text-sm font-semibold text-indigo-700 bg-white hover:bg-slate-100 border border-indigo-100"
-          >
-            Talk to Admissions
-          </a>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#life">Student Life</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#admissions">Admissions</a>
+            <a href="#portal" class="nav-cta">
+              Portal Login
+              <span>↗</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow">Accredited Online Bible College</div>
+            <h1>
+              Forming leaders for a
+              <span>global move of God.</span>
+            </h1>
+            <p class="hero-tagline">
+              Access your courses, track your progress, connect with your cohort,
+              and stay in sync with your calling — all from one central student
+              portal.
+            </p>
+
+            <div class="hero-meta">
+              <div class="pill">
+                <div class="pill-dot"></div>
+                Student Portal Online · 24/7 access
+              </div>
+              <div class="pill">
+                🎓 Serving students across nations
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <!-- LINK THIS TO YOUR REAL PORTAL LOGIN -->
+              <a href="/portal-login" class="btn btn-primary">
+                Open Student Portal
+                <span>↗</span>
+              </a>
+              <!-- LINK THIS TO AN APPLICATION FORM -->
+              <a href="/apply" class="btn btn-ghost">
+                Apply to Revealed Bible College
+              </a>
+            </div>
+
+            <p class="hero-footnote">
+              Use your college email to sign in. New student? Check your inbox
+              for your activation link after enrollment.
+            </p>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div>
+                  <div class="hero-card-title">Current Term Overview</div>
+                  <div class="hero-card-sub">
+                    Semester: Fall 2025 · Online Campus
+                  </div>
+                </div>
+                <div class="hero-avatar-group">
+                  <div class="avatar avatar-1"></div>
+                  <div class="avatar avatar-2"></div>
+                  <div class="avatar avatar-3"></div>
+                </div>
+              </div>
+
+              <div class="hero-stats">
+                <div class="stat-card">
+                  <div class="stat-label">Enrolled Courses</div>
+                  <div class="stat-value">4 Active</div>
+                  <div class="stat-pill">On track · 92% completion</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Next Live Session</div>
+                  <div class="stat-value">Tuesday · 7:00 PM</div>
+                  <div class="stat-pill">Join via Zoom from portal</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Assignments Due</div>
+                  <div class="stat-value">2 this week</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Community</div>
+                  <div class="stat-value">+1,200 global students</div>
+                </div>
+              </div>
+
+              <div class="hero-badge">
+                <span>100%</span>
+                <span>Online &amp; Hybrid</span>
+                <span>Flexible study paths</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Our Mission</div>
+            <h2>Rooted in Scripture. Focused on Nations.</h2>
+            <p>
+              Revealed Bible College exists to equip believers with deep
+              theological foundations and practical ministry training for real
+              impact in their local church and beyond.
+            </p>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-text">
+              <p>
+                <strong>Revealed Bible College</strong> combines rigorous
+                biblical study with Spirit-led formation, delivered in a format
+                that works for working professionals, pastors, and emerging
+                leaders.
+              </p>
+              <p>
+                Through your student portal, you’ll access lectures, readings,
+                assessments, and mentorship, all within a supportive global
+                community.
+              </p>
+
+              <div class="about-highlights">
+                <div class="highlight-card">
+                  <div class="highlight-title">Accessible Anywhere</div>
+                  Study from any device, anywhere in the world, with structured
+                  courses and self-paced learning options.
+                </div>
+                <div class="highlight-card">
+                  <div class="highlight-title">Mentored Formation</div>
+                  Faculty and mentors walk with you through your studies,
+                  providing feedback and pastoral guidance.
+                </div>
+                <div class="highlight-card">
+                  <div class="highlight-title">Accredited Programs</div>
+                  Programs aligned with recognized standards for ministry and
+                  theological education.
+                </div>
+                <div class="highlight-card">
+                  <div class="highlight-title">Kingdom Impact</div>
+                  Every course is designed to move from theory into real local
+                  church application and global mission.
+                </div>
+              </div>
+            </div>
+
+            <div class="about-media">
+              <!-- MAIN CAMPUS / LIBRARY IMAGE -->
+              <div class="about-photo-main">
+                <img
+                  src="/images/campus-library.jpg"
+                  alt="Students studying together in a modern theological library"
+                />
+              </div>
+              <!-- SECONDARY STUDENTS / PRAYER IMAGE -->
+              <div class="about-photo-secondary">
+                <img
+                  src="/images/students-praying.jpg"
+                  alt="Group of students praying together on campus"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRAMS SECTION -->
+      <section id="programs" class="programs">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Academic Programs</div>
+            <h2>Pathways for Every Calling.</h2>
+            <p>
+              Whether you are exploring faith foundations or preparing for
+              full-time ministry, our programs are designed to serve your next
+              step.
+            </p>
+          </div>
+
+          <div class="program-grid">
+            <!-- Program 1: Diploma -->
+            <article class="program-card">
+              <!-- IMAGE FOR PROGRAM 1 -->
+              <div class="program-image">
+                <img
+                  src="/images/program-theology.jpg"
+                  alt="Student reading the Bible and taking notes"
+                />
+              </div>
+              <div class="program-body">
+                <div class="program-tag">Diploma</div>
+                <div class="program-title">Diploma in Biblical Studies</div>
+                <p class="program-desc">
+                  Build a solid foundation in Old and New Testament survey,
+                  hermeneutics, and core doctrines of the Christian faith.
+                </p>
+                <div class="program-meta">
+                  <span>1–2 years · Online</span>
+                  <span>Beginner–Intermediate</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Program 2: Ministry -->
+            <article class="program-card">
+              <!-- IMAGE FOR PROGRAM 2 -->
+              <div class="program-image">
+                <img
+                  src="/images/program-ministry.jpg"
+                  alt="Preacher speaking in a church setting"
+                />
+              </div>
+              <div class="program-body">
+                <div class="program-tag">Ministry</div>
+                <div class="program-title">Certificate in Pastoral Ministry</div>
+                <p class="program-desc">
+                  Develop practical skills for preaching, leadership,
+                  discipleship, and pastoral care within the local church.
+                </p>
+                <div class="program-meta">
+                  <span>1 year · Online</span>
+                  <span>Hands-on assignments</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Program 3: Leadership -->
+            <article class="program-card">
+              <!-- IMAGE FOR PROGRAM 3 -->
+              <div class="program-image">
+                <img
+                  src="/images/program-leadership.jpg"
+                  alt="Leaders discussing strategy around a table"
+                />
+              </div>
+              <div class="program-body">
+                <div class="program-tag">Leadership</div>
+                <div class="program-title">Advanced Christian Leadership</div>
+                <p class="program-desc">
+                  For emerging and established leaders stewarding teams,
+                  ministries, and initiatives across the nations.
+                </p>
+                <div class="program-meta">
+                  <span>2 years · Blended</span>
+                  <span>Global cohorts</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- STUDENT LIFE / IMAGES SECTION -->
+      <section id="life" class="student-life">
+        <div class="container student-life-inner">
+          <div class="student-life-text">
+            <div class="section-heading" style="text-align: left; margin-bottom: 1.5rem;">
+              <div class="eyebrow">Student Life</div>
+              <h2 style="color: #e5e7eb;">Formation happens in community.</h2>
+              <p style="color: #cbd5f5;">
+                Even online, you’re never studying alone. Courses are supported
+                by live sessions, small groups, and mentoring spaces.
+              </p>
+            </div>
+
+            <p>
+              The student portal is your hub for everything: announcements,
+              course materials, live session links, assignment submissions, and
+              communication with faculty and peers.
+            </p>
+
+            <div class="student-life-highlights">
+              <div class="life-item">
+                <strong>Live classrooms</strong>
+                Join real-time teaching, Q&amp;A, and ministry labs from your
+                laptop or phone.
+              </div>
+              <div class="life-item">
+                <strong>Global cohorts</strong>
+                Learn alongside students from different nations, cultures, and
+                church backgrounds.
+              </div>
+              <div class="life-item">
+                <strong>Prayer &amp; mentoring</strong>
+                Participate in prayer rooms, pastoral care calls, and one-to-one
+                sessions.
+              </div>
+              <div class="life-item">
+                <strong>On-demand content</strong>
+                Rewatch lectures, download notes, and study at the pace that
+                fits your season.
+              </div>
+            </div>
+          </div>
+
+          <!-- STUDENT LIFE PHOTO GALLERY -->
+          <div class="life-photos" aria-hidden="true">
+            <div class="life-photo-main">
+              <div class="life-photo">
+                <img
+                  src="/images/student-life-worship.jpg"
+                  alt="Students worshipping during a live session"
+                />
+              </div>
+              <div class="life-photo">
+                <img
+                  src="/images/student-life-study.jpg"
+                  alt="Student studying with Bible and laptop"
+                />
+              </div>
+            </div>
+            <div class="life-photo-column">
+              <div class="life-photo">
+                <img
+                  src="/images/student-life-zoom.jpg"
+                  alt="Zoom grid of online students in class"
+                />
+              </div>
+              <div class="life-photo">
+                <img
+                  src="/images/student-life-community.jpg"
+                  alt="Small group discussing and praying together"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS & FACULTY -->
+      <section id="faculty" class="testimonials">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Stories &amp; Faculty</div>
+            <h2>Led by practitioners. Shaped by testimony.</h2>
+            <p>
+              Hear from students and meet some of the leaders investing into
+              your journey.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial-card">
+              <div class="testimonial-quote">
+                “The flexibility of the student portal made it possible to study
+                while serving full-time in my local church. The mentorship and
+                assignments have transformed the way I preach and pastor.”
+              </div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-role">Diploma in Biblical Studies · South Africa</div>
+            </article>
+
+            <div class="faculty-list">
+              <!-- FACULTY 1 -->
+              <div class="faculty-card">
+                <div class="faculty-avatar">
+                  <img
+                    src="/images/faculty-1.jpg"
+                    alt="Faculty member headshot"
+                  />
+                </div>
+                <div class="faculty-meta">
+                  <span>Dr. Michael James</span>
+                  <span>Academic Dean · New Testament &amp; Hermeneutics</span>
+                </div>
+              </div>
+
+              <!-- FACULTY 2 -->
+              <div class="faculty-card">
+                <div class="faculty-avatar">
+                  <img
+                    src="/images/faculty-2.jpg"
+                    alt="Faculty member headshot"
+                  />
+                </div>
+                <div class="faculty-meta">
+                  <span>Ps. Angela Rivera</span>
+                  <span>Director of Ministry Training · Pastoral Practice</span>
+                </div>
+              </div>
+
+              <!-- FACULTY 3 -->
+              <div class="faculty-card">
+                <div class="faculty-avatar">
+                  <img
+                    src="/images/faculty-3.jpg"
+                    alt="Faculty member headshot"
+                  />
+                </div>
+                <div class="faculty-meta">
+                  <span>Rev. Daniel Okafor</span>
+                  <span>Global Missions &amp; Leadership · Africa Hub</span>
+                </div>
+              </div>
+
+              <!-- FACULTY 4 -->
+              <div class="faculty-card">
+                <div class="faculty-avatar">
+                  <img
+                    src="/images/faculty-4.jpg"
+                    alt="Faculty member headshot"
+                  />
+                </div>
+                <div class="faculty-meta">
+                  <span>Prof. Emily Chen</span>
+                  <span>Christian Ethics &amp; Worldview · Marketplace Ministry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADMISSIONS & PORTAL CTA -->
+      <section id="admissions" class="cta-section">
+        <div class="container">
+          <div class="cta-grid">
+            <div class="cta-card">
+              <div class="eyebrow">Admissions</div>
+              <h3>Ready to take your next step?</h3>
+              <p>
+                Our admissions process is simple: complete your application,
+                submit references if required, and schedule a conversation with
+                our team. Once accepted, you’ll receive your portal login and
+                be guided into orientation.
+              </p>
+              <div class="cta-inline">
+                <!-- LINK THIS TO YOUR APPLICATION FORM -->
+                <a href="/apply" class="btn btn-primary">
+                  Start Application
+                </a>
+                <a href="/info-session" class="btn btn-ghost">
+                  Book Info Call
+                </a>
+              </div>
+              <div class="cta-inline" style="margin-top: 0.9rem;">
+                <div class="badge">📌 Intakes throughout the year</div>
+                <div class="badge">🌍 Online &amp; hybrid options</div>
+              </div>
+            </div>
+
+            <div id="portal" class="portal-card">
+              <div class="eyebrow" style="margin-bottom: 0.3rem;">Student Portal</div>
+              <h3 style="margin: 0 0 0.4rem; font-size: 1.1rem;">What you can do inside the portal</h3>
+              <p>
+                Once you’re enrolled, your portal becomes your central hub for
+                academic and community life.
+              </p>
+              <ul>
+                <li>View your timetable and upcoming live sessions</li>
+                <li>Access lectures, readings, and resources</li>
+                <li>Submit assignments and track grades</li>
+                <li>Receive announcements and important updates</li>
+                <li>Connect with faculty and mentors</li>
+              </ul>
+
+              <div style="margin-top: 1rem;">
+                <!-- LINK THIS TO THE ACTUAL LOGIN PAGE -->
+                <a href="/portal-login" class="btn btn-primary">
+                  Go to Portal Login
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <strong>Revealed Bible College</strong>
+          <div class="footer-meta">
+            Preparing believers for Spirit-led leadership in the nations.
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <!-- LINK THESE TO REAL PAGES -->
+            <a href="/catalog">Academic Catalog</a><br />
+            <a href="/policies">Policies &amp; Procedures</a><br />
+            <a href="/privacy">Privacy &amp; Data Protection</a>
+          </div>
+          <div>
+            <a href="/contact">Contact &amp; Support</a><br />
+            <a href="/donate">Partner with the College</a><br />
+            <a href="#top">Back to top ↑</a>
+          </div>
         </div>
       </div>
-      <div class="rbc-card rbc-card-hover p-6 md:p-7 bg-gradient-to-br from-white via-slate-50 to-indigo-50">
-        <h2 class="text-xl font-semibold text-slate-900 mb-3">Why students choose RBC</h2>
-        <ul class="space-y-3 text-sm text-slate-700">
-          <li class="flex gap-2">
-            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
-            <span>Christ-centered teaching that is solid in doctrine and practical for ministry.</span>
-          </li>
-          <li className="flex gap-2">
-            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
-            <span>Programs from diploma through advanced study to equip pastors, leaders, and ministry workers.</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
-            <span>A focus on both character formation and academic strength.</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="mt-1 h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
-            <span>Global reach with students, branches, and partners in multiple nations.</span>
-          </li>
-        </ul>
+      <div class="container footer-bottom">
+        © <span id="year"></span> Revealed Bible College. All rights reserved.
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <!-- Three Highlight Cards -->
-    <section class="mt-10 grid gap-6 md:grid-cols-3">
-      <div class="rbc-card rbc-card-hover p-6">
-        <h3 class="text-base font-semibold text-indigo-700 mb-1">Our Calling</h3>
-        <p class="text-sm text-slate-700">
-          We exist to help believers know Christ deeply, understand Scripture clearly, and serve the Church faithfully.
-        </p>
-      </div>
-      <div class="rbc-card rbc-card-hover p-6">
-        <h3 class="text-base font-semibold text-indigo-700 mb-1">Academic + Spiritual</h3>
-        <p class="text-sm text-slate-700">
-          Courses are designed to be biblically sound, theologically balanced, and practically connected to real ministry.
-        </p>
-      </div>
-      <div class="rbc-card rbc-card-hover p-6">
-        <h3 class="text-base font-semibold text-indigo-700 mb-1">Global Family</h3>
-        <p class="text-sm text-slate-700">
-          RBC partners with churches and leaders worldwide to train students in different regions and contexts.
-        </p>
-      </div>
-    </section>
-
-    <!-- Programs Overview -->
-    <section class="mt-12">
-      <div class="flex items-baseline justify-between mb-4">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Academic Programs</h2>
-          <p class="text-sm text-slate-600">
-            Study options for different stages of your calling and ministry journey.
-          </p>
-        </div>
-        <a href="programs.html" class="hidden md:inline-flex text-xs font-semibold text-indigo-600 hover:text-indigo-700">
-          View all programs →
-        </a>
-      </div>
-      <div class="grid gap-5 md:grid-cols-3">
-        <article class="rbc-card rbc-card-hover p-5">
-          <h3 class="text-base font-semibold text-slate-900">Diploma in Christian Ministry</h3>
-          <p class="mt-1 text-sm text-slate-600">
-            A foundation in Bible, doctrine, and ministry skills for new and emerging leaders.
-          </p>
-        </article>
-        <article class="rbc-card rbc-card-hover p-5">
-          <h3 class="text-base font-semibold text-slate-900">Bachelor in Theology</h3>
-          <p class="mt-1 text-sm text-slate-600">
-            For those called to preach, teach, and lead in local churches and ministries.
-          </p>
-        </article>
-        <article class="rbc-card rbc-card-hover p-5">
-          <h3 class="text-base font-semibold text-slate-900">Advanced & Honours Programs</h3>
-          <p class="mt-1 text-sm text-slate-600">
-            Deepen your theological understanding and refine your ministry practice at a higher level.
-          </p>
-        </article>
-      </div>
-      <div class="mt-4 md:hidden">
-        <a href="programs.html" class="inline-flex text-xs font-semibold text-indigo-600 hover:text-indigo-700">
-          View all programs →
-        </a>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="mt-12">
-      <div class="rbc-card rbc-card-hover p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-gradient-to-r from-indigo-700 to-sky-500">
-        <div>
-          <h2 class="text-xl md:text-2xl font-bold text-white mb-1">Ready to take your next step?</h2>
-          <p class="text-sm text-indigo-100 max-w-xl">
-            Whether you are just starting your studies or returning to deepen your understanding,
-            our team is ready to walk with you, answer questions, and help you find the right program.
-          </p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a
-            href="contact.html"
-            class="inline-flex justify-center px-4 py-2.5 rounded-full text-sm font-semibold bg-white text-indigo-700 hover:bg-slate-100"
-          >
-            Contact Admissions
-          </a>
-          <a
-            href="student-portal/index.html"
-            class="inline-flex justify-center px-4 py-2.5 rounded-full text-sm font-semibold bg-indigo-900/40 text-white hover:bg-indigo-900/60 border border-indigo-200/40"
-          >
-            Go to Student Portal
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="mt-8 bg-slate-900 text-slate-200">
-    <div class="rbc-shell py-6 grid gap-6 md:grid-cols-3 text-xs">
-      <div>
-        <h3 class="font-semibold text-white text-sm mb-2">Revealed Bible College</h3>
-        <p class="text-slate-400">
-          Training men and women to rightly handle the Word of God and serve
-          with humility, excellence, and spiritual sensitivity.
-        </p>
-      </div>
-      <div>
-        <h4 class="font-semibold text-white text-xs mb-2">Quick Links</h4>
-        <ul class="space-y-1 text-slate-400">
-          <li><a href="about.html" class="hover:text-white">About Us</a></li>
-          <li><a href="programs.html" class="hover:text-white">Programs</a></li>
-          <li><a href="student-portal/index.html" class="hover:text-white">Student Portal</a></li>
-          <li><a href="contact.html" class="hover:text-white">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-white text-xs mb-2">Contact</h4>
-        <p class="text-slate-400">Email: info@revealbiblicollege.org (example)</p>
-        <p class="text-slate-400">Phone: +44 (0) 0000 000000</p>
-      </div>
-    </div>
-    <div class="border-t border-slate-800">
-      <div class="rbc-shell py-3 text-[0.7rem] text-slate-500 flex flex-wrap justify-between gap-2">
-        <span>© 2025 Revealed Bible College. All rights reserved.</span>
-        <span>Built for learning and ministry preparation.</span>
-      </div>
-    </div>
-  </footer>
+  <script>
+    // Auto-update year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
