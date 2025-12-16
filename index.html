@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,17 +7,14 @@
   <meta name="description" content="Revealed Bible College equips believers through biblical scholarship, pastoral formation, and global leadership training." />
 
   <!-- Google Fonts -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Base Styles -->
-
   <style>
     :root {
-      --primary: #0b2c64; /* Deep Blue */
-      --secondary: #f4b400; /* Gold */
+      --primary: #0b2c64;
+      --secondary: #f4b400;
       --light: #f8fafc;
       --dark: #020617;
       --muted: #475569;
@@ -49,7 +45,6 @@
       color: inherit;
     }
 
-    /* Layout */
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -57,7 +52,7 @@
     }
 
     section {
-      padding: 3.5rem 0;
+      padding: 3rem 0;
     }
 
     /* Navigation */
@@ -102,7 +97,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
       font-weight: 700;
       line-height: 1.15;
       margin-bottom: 1rem;
@@ -142,7 +137,7 @@
     }
 
     .section-title h2 {
-      font-size: 2.25rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
@@ -190,7 +185,7 @@
 
     /* Dark Sections */
     .dark {
-      background: linear-gradient(180deg, #020617, #020617 60%, #020617);
+      background: #020617;
       color: #fff;
     }
 
@@ -218,38 +213,31 @@
       gap: 1rem;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
-
       .nav-links {
         display: none;
       }
     }
   </style>
-
 </head>
 
 <body>
-
-<!-- NAV -->
 
 <header>
   <div class="container nav">
     <strong>Revealed Bible College</strong>
     <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#community">Community</a>
-      <a href="#faculty">Faculty</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html">Admissions</a>
+      <a href="login.html">Portal</a>
     </nav>
-    <a href="/portal-login" class="nav-cta" id="nav-login">Portal Login</a>
+    <a href="login.html" class="nav-cta">Portal Login</a>
   </div>
 </header>
-
-<!-- HERO -->
 
 <section class="hero">
   <div class="container hero-grid">
@@ -259,17 +247,15 @@
         Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College equips believers for ministry, leadership, and mission across the nations.
       </p>
       <div class="hero-actions">
-        <a href="/apply" class="btn-primary">Apply Now</a>
-        <a href="/info-session" class="btn-secondary">Attend an Info Session</a>
+        <a href="contact.html" class="btn-primary">Apply Now</a>
+        <a href="contact.html" class="btn-secondary">Request Information</a>
       </div>
     </div>
-    <img src="/images/campus-library.jpg" alt="Students studying scripture together" loading="lazy">
+    <img src="student-life-study.jpg" alt="Students studying Scripture together" loading="lazy">
   </div>
 </section>
 
-<!-- MISSION -->
-
-<section id="about">
+<section>
   <div class="container">
     <div class="section-title">
       <h2>Rooted in Scripture. Focused on Nations.</h2>
@@ -278,105 +264,94 @@
       </p>
     </div>
 
-```
-<div class="grid grid-3">
-  <div class="card">
-    <h3>Biblical Excellence</h3>
-    <p>Rigorous study of Scripture anchored in theological depth and Spirit-led insight.</p>
-  </div>
-  <div class="card">
-    <h3>Pastoral Formation</h3>
-    <p>Hands-on discipleship that shapes character, calling, and ministry effectiveness.</p>
-  </div>
-  <div class="card">
-    <h3>Global Vision</h3>
-    <p>Preparing leaders to serve faithfully in churches, missions, and communities worldwide.</p>
-  </div>
-</div>
-```
-
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Biblical Excellence</h3>
+        <p>Rigorous study of Scripture grounded in theological depth and Spirit-led insight.</p>
+      </div>
+      <div class="card">
+        <h3>Pastoral Formation</h3>
+        <p>Hands-on discipleship that shapes character, calling, and ministry effectiveness.</p>
+      </div>
+      <div class="card">
+        <h3>Global Vision</h3>
+        <p>Preparing leaders to serve faithfully in churches, missions, and communities worldwide.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PROGRAMS -->
-
-<section id="programs" class="dark">
+<section class="dark">
   <div class="container">
     <div class="section-title">
       <h2>Pathways for Every Calling</h2>
       <p>Flexible programs designed to meet you where you are in your ministry journey.</p>
     </div>
 
-```
-<div class="grid grid-3">
-  <div class="card">
-    <h3>Diploma in Biblical Studies</h3>
-    <p>A comprehensive foundation in Scripture, doctrine, and Christian worldview.</p>
-  </div>
-  <div class="card">
-    <h3>Certificate in Pastoral Ministry</h3>
-    <p>Practical training for preaching, shepherding, and church leadership.</p>
-  </div>
-  <div class="card">
-    <h3>Advanced Christian Leadership</h3>
-    <p>Equipping seasoned leaders for greater influence and global impact.</p>
-  </div>
-</div>
-```
-
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Diploma in Biblical Studies</h3>
+        <p>A comprehensive foundation in Scripture, doctrine, and Christian worldview.</p>
+      </div>
+      <div class="card">
+        <h3>Certificate in Pastoral Ministry</h3>
+        <p>Practical training for preaching, shepherding, and church leadership.</p>
+      </div>
+      <div class="card">
+        <h3>Advanced Christian Leadership</h3>
+        <p>Equipping seasoned leaders for greater influence and global impact.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- COMMUNITY -->
-
-<section id="community">
+<section>
   <div class="container">
     <div class="section-title">
       <h2>Formation Happens in Community</h2>
       <p>Students grow together through worship, study, prayer, and shared mission.</p>
     </div>
 
-```
-<div class="grid grid-3">
-  <div class="card">
-    <h3>Spiritual Life</h3>
-    <p>Weekly worship, prayer gatherings, and spiritual mentorship.</p>
-  </div>
-  <div class="card">
-    <h3>Academic Support</h3>
-    <p>Faculty guidance, peer collaboration, and structured learning paths.</p>
-  </div>
-  <div class="card">
-    <h3>Global Connections</h3>
-    <p>Engage with believers and ministries across cultures and continents.</p>
-  </div>
-</div>
-```
-
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Spiritual Life</h3>
+        <p>Weekly worship, prayer gatherings, and spiritual mentorship.</p>
+      </div>
+      <div class="card">
+        <h3>Academic Support</h3>
+        <p>Faculty guidance, peer collaboration, and structured learning paths.</p>
+      </div>
+      <div class="card">
+        <h3>Global Connections</h3>
+        <p>Engage with believers and ministries across cultures and continents.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FACULTY -->
-
-<section id="faculty" class="dark">
+<section class="dark">
   <div class="container">
     <div class="section-title">
       <h2>Led by Practitioners. Shaped by Testimony.</h2>
       <p>Our faculty brings academic excellence and real-world ministry experience.</p>
     </div>
 
-```
-<div class="grid grid-3">
-  <div class="card"><h3>Seasoned Pastors</h3><p>Decades of faithful ministry and leadership.</p></div>
-  <div class="card"><h3>Scholars & Teachers</h3><p>Grounded in theology and committed to truth.</p></div>
-  <div class="card"><h3>Global Ministers</h3><p>Experienced voices from mission fields worldwide.</p></div>
-</div>
-```
-
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Seasoned Pastors</h3>
+        <p>Decades of faithful ministry and leadership.</p>
+      </div>
+      <div class="card">
+        <h3>Scholars & Teachers</h3>
+        <p>Grounded in theology and committed to biblical truth.</p>
+      </div>
+      <div class="card">
+        <h3>Global Ministers</h3>
+        <p>Experienced voices from mission fields worldwide.</p>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- FOOTER -->
 
 <footer>
   <div class="container">
