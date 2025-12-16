@@ -26,6 +26,15 @@ html, body{
   margin:0;
   padding:0;
 }
+<header class="portal-header">
+  <div class="wrap">
+    <div class="portal-brand">Revealed Bible College • Student Portal</div>
+    <div class="portal-actions">
+      <a class="pill pill-outline" href="../index.html">Main Site</a>
+      <a class="pill pill-gold" href="../login.html">Portal Home</a>
+    </div>
+  </div>
+</header>
 
 body{
   font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
