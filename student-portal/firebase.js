@@ -3,14 +3,15 @@
   import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "YOUR_KEY",
-    authDomain: "YOUR_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_BUCKET",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyAz_Ld5YRBJJo1nxrU0wkmoSeUbPyYITxE",
+  authDomain: "universityportal-prod.firebaseapp.com",
+  projectId: "universityportal-prod",
+  storageBucket: "universityportal-prod.appspot.com",
+  messagingSenderId: "500607842510",
+  appId: "1:500607842510:web:b614f87ffbabe9f3e5789f"
+};
+
 
   export const app = initializeApp(firebaseConfig);
   export const auth = getAuth(app);
