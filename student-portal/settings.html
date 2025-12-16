@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Settings | Revealed Bible College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+<header class="portal-header">
+  <div class="wrap">
+    <div class="portal-brand">Revealed Bible College • Student Portal</div>
+    <div class="portal-actions">
+      <a class="pill pill-outline" href="../index.html">Main Site</a>
+      <a class="pill pill-gold" href="../login.html">Portal Home</a>
+    </div>
+  </div>
+</header>
+
+<main class="container section">
+
+  <h1>Account Settings</h1>
+
+  <div class="grid grid-2">
+
+    <div class="card">
+      <h3>Profile Information</h3>
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" value="Student Name">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" value="student@email.com">
+      </div>
+
+      <button class="btn-primary">Save Changes</button>
+    </div>
+
+    <div class="card">
+      <h3>Password & Security</h3>
+
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password">
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password">
+      </div>
+
+      <button class="btn-secondary">Update Password</button>
+    </div>
+
+  </div>
+
+</main>
+
+<div class="portal-footer">
+  © <span id="year"></span> Revealed Bible College
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
 
