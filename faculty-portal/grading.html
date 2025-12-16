@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grading | Revealed Bible College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+<header class="portal-header">
+  <div class="wrap">
+    <div class="portal-brand">Revealed Bible College • Faculty Portal</div>
+    <div class="portal-actions">
+      <a class="pill pill-outline" href="../index.html">Main Site</a>
+      <a class="pill pill-gold" href="../login.html">Portal Home</a>
+    </div>
+  </div>
+</header>
+
+<main class="container section">
+
+  <h1>Assignment Grading</h1>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Assignment</th>
+          <th>Course</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jane Doe</td>
+          <td>OT Reflection</td>
+          <td>Biblical Foundations</td>
+          <td>Pending</td>
+        </tr>
+        <tr>
+          <td>John Smith</td>
+          <td>Sermon Outline</td>
+          <td>Christian Leadership</td>
+          <td>Graded</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<div class="portal-footer">
+  © <span id="year"></span> Revealed Bible College
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
 
