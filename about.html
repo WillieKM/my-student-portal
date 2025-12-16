@@ -3,150 +3,326 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revealed Bible College – About Us</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Revealed Bible College | About Us</title>
+  <meta name="description" content="Learn about the mission, vision, and leadership of Revealed Bible College." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    html {
-      font-size: 18px;
+    :root {
+      --primary: #0b2c64;
+      --secondary: #f4b400;
+      --light: #f8fafc;
+      --dark: #020617;
+      --muted: #475569;
+      --radius: 1.25rem;
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: #eef2f7;
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
     }
-    .rbc-shell {
-      max-width: 1120px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+      padding: 0 1.5rem;
     }
-    .rbc-card {
-      background-color: #ffffff;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+    section {
+      padding: 3rem 0;
+    }
+
+    /* Navigation */
+    header {
+      background: linear-gradient(90deg, #0b2c64, #020617);
+      color: #fff;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      background: var(--secondary);
+      color: #000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    /* Headings */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    /* Content */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .content p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Values Grid */
+    .grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      padding: 1.75rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Dark Section */
+    .dark {
+      background: #020617;
+      color: #fff;
+    }
+
+    .dark .section-title p {
+      color: #c7d2fe;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: var(--secondary);
+      color: #000;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen bg-slate-100">
-  <!-- Nav -->
-  <header class="bg-gradient-to-r from-indigo-800 via-indigo-700 to-sky-600 text-white">
-    <div class="rbc-shell flex items-center justify-between py-4">
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="h-9 w-9 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold">RBC</div>
-        <div class="leading-tight">
-          <div class="font-semibold text-base sm:text-lg">Revealed Bible College</div>
-          <div class="text-[0.7rem] sm:text-xs text-indigo-100">Equipping believers for Spirit-led ministry</div>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="index.html" class="text-indigo-100 hover:text-white">Home</a>
-        <a href="about.html" class="text-white">About Us</a>
-        <a href="programs.html" class="text-indigo-100 hover:text-white">Programs</a>
-        <a href="contact.html" class="text-indigo-100 hover:text-white">Contact Us</a>
-        <a href="student-portal/index.html" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white text-indigo-700 text-xs font-semibold hover:bg-slate-100">
-          Student Portal
-        </a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="rbc-shell">
-    <section class="mt-8 mb-6">
-      <p class="text-xs font-semibold tracking-[0.18em] text-indigo-400 uppercase mb-2">About Revealed Bible College</p>
-      <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">A legacy of biblical fidelity and service</h1>
-      <p class="text-lg text-slate-600 max-w-3xl">
-        Revealed Bible College is a Pentecostal, charismatic training center dedicated to helping believers
-        know the Word of God, hear His voice, and serve with humility and excellence in every area of life.
+<body>
+
+<header>
+  <div class="container nav">
+    <strong>Revealed Bible College</strong>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html">Admissions</a>
+    </nav>
+    <a href="login.html" class="nav-cta">Portal Login</a>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>About Revealed Bible College</h2>
+      <p>
+        A Christ-centered institution dedicated to biblical truth, spiritual formation, and ministry leadership.
       </p>
-    </section>
+    </div>
 
-    <section class="grid gap-6 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1.3fr)] items-start">
-      <!-- Mission / Vision -->
-      <div class="space-y-6">
-        <article class="rbc-card p-6 md:p-7">
-          <h2 class="text-xl font-bold text-slate-900 mb-2">Our History and Vision</h2>
-          <p class="text-sm text-slate-700 leading-relaxed">
-            Revealed Bible College began with a simple desire: to see believers grounded in Scripture and equipped
-            to minister in the power of the Holy Spirit. Over time, that small training effort has grown into a
-            global community of students, graduates, and ministry partners.
-          </p>
-          <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-            Our vision is to see every graduate equipped not just with knowledge, but with the character and
-            practical skills needed to lead, preach, teach, and serve God’s people in a complex world.
-          </p>
-        </article>
+    <div class="content">
+      <p>
+        Revealed Bible College exists to equip men and women with a deep understanding of Scripture and a
+        strong foundation for Spirit-led ministry. Our commitment is to academic integrity, faithful teaching,
+        and practical application of God’s Word.
+      </p>
 
-        <article class="rbc-card p-6 md:p-7">
-          <h2 class="text-xl font-bold text-slate-900 mb-3">Core Values</h2>
-          <div class="grid gap-4 md:grid-cols-2">
-            <div>
-              <h3 class="text-sm font-semibold text-slate-900 mb-1">Scriptural Authority</h3>
-              <p class="text-xs text-slate-700">
-                We believe the Bible is the final authority in all matters of faith and life.
-              </p>
-            </div>
-            <div>
-              <h3 class="text-sm font-semibold text-slate-900 mb-1">Servant Leadership</h3>
-              <p class="text-xs text-slate-700">
-                Graduates are trained to lead from a posture of humility, integrity, and service.
-              </p>
-            </div>
-            <div>
-              <h3 class="text-sm font-semibold text-slate-900 mb-1">Community & Discipleship</h3>
-              <p class="text-xs text-slate-700">
-                Growth happens in community through mentoring, accountability, and authentic relationships.
-              </p>
-            </div>
-            <div>
-              <h3 class="text-sm font-semibold text-slate-900 mb-1">Academic Rigor</h3>
-              <p class="text-xs text-slate-700">
-                We are committed to excellence in scholarship, critical thinking, and clear communication.
-              </p>
-            </div>
-          </div>
-        </article>
-      </div>
+      <p>
+        We believe that biblical education should form both the mind and the heart. Our programs are designed
+        to cultivate theological clarity, personal maturity, and a passion for serving the Church and the
+        nations.
+      </p>
+    </div>
+  </div>
+</section>
 
-      <!-- Accreditation / location card -->
-      <aside class="rbc-card p-6 md:p-7 bg-slate-50">
-        <h2 class="text-xl font-bold text-slate-900 mb-3">Accreditation & Reach</h2>
-        <p class="text-sm text-slate-700 mb-4">
-          Revealed Bible College partners with churches, ministries, and networks in multiple regions to
-          deliver accessible, Spirit-filled theological training. Accreditation and formal recognition may
-          vary by region and partner.
-        </p>
+<section class="dark">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Mission & Vision</h2>
+      <p>
+        Guiding principles that shape our academic and spiritual life.
+      </p>
+    </div>
 
-        <div class="border-t border-slate-200 my-4"></div>
+    <div class="content">
+      <p>
+        <strong>Our Mission</strong> is to prepare Christ-centered leaders through rigorous biblical education,
+        spiritual formation, and practical ministry training.
+      </p>
 
-        <h3 class="text-base font-semibold text-slate-900 mb-1">Location</h3>
-        <p class="text-sm text-slate-700">
-          Main Campus: Example City (update with your real location).<br />
-          Online programs are available globally through local church hubs and study groups.
-        </p>
-      </aside>
-    </section>
-  </main>
+      <p>
+        <strong>Our Vision</strong> is to see graduates serve faithfully in churches, ministries, and communities
+        around the world, advancing the Gospel with wisdom, humility, and conviction.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="mt-8 bg-slate-900 text-slate-200">
-    <div class="rbc-shell py-6 grid gap-6 md:grid-cols-3 text-xs">
-      <div>
-        <h3 class="font-semibold text-white text-sm mb-2">Revealed Bible College</h3>
-        <p class="text-slate-400">
-          A community of learning, worship, and transformation for those called to serve God and His people.
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Core Values</h2>
+      <p>
+        The commitments that define who we are and how we teach.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Biblical Authority</h3>
+        <p>
+          Scripture is the foundation of all teaching, learning, and ministry practice at Revealed Bible College.
         </p>
       </div>
-      <div>
-        <h4 class="font-semibold text-white text-xs mb-2">Quick Links</h4>
-        <ul class="space-y-1 text-slate-400">
-          <li><a href="index.html" class="hover:text-white">Home</a></li>
-          <li><a href="programs.html" class="hover:text-white">Programs</a></li>
-          <li><a href="student-portal/index.html" class="hover:text-white">Student Portal</a></li>
-        </ul>
+
+      <div class="card">
+        <h3>Spiritual Formation</h3>
+        <p>
+          We emphasize personal growth, character development, and a life shaped by prayer and obedience.
+        </p>
       </div>
-      <div>
-        <h4 class="font-semibold text-white text-xs mb-2">Contact</h4>
-        <p class="text-slate-400">Email: info@revealbiblicollege.org (example)</p>
+
+      <div class="card">
+        <h3>Servant Leadership</h3>
+        <p>
+          Our programs encourage humility, integrity, and a commitment to serving others faithfully.
+        </p>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+    <div class="section-title">
+      <h2>Leadership & Faculty</h2>
+      <p>
+        Experienced practitioners committed to teaching and discipleship.
+      </p>
+    </div>
+
+    <div class="content">
+      <p>
+        Revealed Bible College is led by pastors, teachers, and ministry leaders with years of experience in
+        theological education and church service. Our faculty brings together academic preparation and real-world
+        ministry insight to guide students effectively.
+      </p>
+
+      <p>
+        Through mentorship, instruction, and example, our leadership team seeks to model faithful service,
+        doctrinal soundness, and a heart for the global Church.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Begin Your Journey</h2>
+      <p>
+        Discover how Revealed Bible College can support your calling and ministry preparation.
+      </p>
+    </div>
+
+    <div style="text-align:center">
+      <a href="contact.html" class="btn-primary">Request Information</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>© <span id="year"></span> Revealed Bible College</span>
+    <span>Equipping leaders for the nations</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
