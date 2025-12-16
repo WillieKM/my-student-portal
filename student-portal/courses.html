@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Courses | Revealed Bible College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+<header class="portal-header">
+  <div class="wrap">
+    <div class="portal-brand">Revealed Bible College • Student Portal</div>
+    <div class="portal-actions">
+      <a class="pill pill-outline" href="../index.html">Main Site</a>
+      <a class="pill pill-gold" href="../login.html">Portal Home</a>
+    </div>
+  </div>
+</header>
+
+<main class="container section">
+
+  <h1>My Courses</h1>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Instructor</th>
+          <th>Term</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Biblical Foundations</td>
+          <td>Dr. John Smith</td>
+          <td>Spring 2025</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>New Testament Survey</td>
+          <td>Rev. Mary Johnson</td>
+          <td>Spring 2025</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>Christian Leadership</td>
+          <td>Pastor James Lee</td>
+          <td>Fall 2024</td>
+          <td>Completed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<div class="portal-footer">
+  © <span id="year"></span> Revealed Bible College
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
 
