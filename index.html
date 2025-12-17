@@ -1,91 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revealed Bible College</title>
+  <meta charset="UTF-8" />
+  <title>Revealed Bible College</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --primary:#0b2c64;
-  --secondary:#f4b400;
-  --dark:#020617;
-  --light:#f8fafc;
-  --radius:1.25rem;
-}
+  <style>
+    :root {
+      --primary: #0b2c64;
+      --secondary: #f4b400;
+      --dark: #020617;
+      --light: #f8fafc;
+      --muted: #c7d2fe;
+      --radius: 1.25rem;
+    }
 
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;background:var(--light);color:#020617}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* HEADER */
-header{background:linear-gradient(90deg,#0b2c64,#020617)}
-.nav{max-width:1280px;margin:auto;padding:1.2rem;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:.75rem;font-weight:700;color:#fff}
-.brand img{height:42px}
-.nav-links{display:flex;gap:1.5rem}
-.nav-links a{color:#fff;text-decoration:none;font-weight:500}
-.nav-cta{background:var(--secondary);color:#000;padding:.6rem 1.3rem;border-radius:999px;font-weight:600}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: #020617;
+    }
 
-/* HERO */
-.hero{background:radial-gradient(1200px 500px at 20% 0%,#1e40af,#020617);color:#fff;padding:4rem 0}
-.hero-grid{max-width:1280px;margin:auto;padding:0 1.5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center}
-.hero h1{font-size:3.2rem;line-height:1.15;margin-bottom:1rem}
-.hero p{color:#cbd5f5;max-width:520px;margin-bottom:2rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--secondary);color:#000;padding:.8rem 1.6rem;border-radius:var(--radius);font-weight:600;text-decoration:none}
-.btn-secondary{border:1px solid #93c5fd;color:#e0e7ff;padding:.8rem 1.6rem;border-radius:var(--radius);text-decoration:none}
+    a { text-decoration: none; color: inherit; }
 
-.hero img{border-radius:var(--radius);max-width:100%}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-footer{background:#020617;color:#94a3b8;text-align:center;padding:2rem;font-size:.9rem}
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #0b2c64, #020617);
+      color: white;
+    }
 
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
-}
-</style>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      background: var(--secondary);
+      color: black;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    /* HERO */
+    .hero {
+      background: radial-gradient(1200px 400px at 20% 0%, #1e40af, #020617);
+      color: white;
+      padding: 4.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: black;
+      padding: 0.85rem 1.7rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+
+    .btn-secondary {
+      border: 1px solid #93c5fd;
+      color: #e0e7ff;
+      padding: 0.85rem 1.7rem;
+      border-radius: var(--radius);
+    }
+
+    .hero-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <div class="nav">
+  <div class="container nav">
     <div class="brand">
-      <img src="/assets/logo.png" alt="RBC Logo">
-      <span>Revealed Bible College</span>
+      <img src="assets/logo.png" alt="RBC Logo">
+      Revealed Bible College
     </div>
-   <nav class="nav-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="programs.html">Programs</a>
-  <a href="admissions.html">Admissions</a>
-  <a href="contact.html">Contact</a>
-      <a href="login.html">Portal</a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="contact.html">Contact</a>
     </nav>
+
     <a href="login.html" class="nav-cta">Portal Login</a>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-grid">
+  <div class="container hero-grid">
     <div>
       <h1>Forming leaders for a global move of God.</h1>
-      <p>Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College equips believers for ministry and leadership worldwide.</p>
+      <p>
+        Rooted in Scripture and empowered by the Holy Spirit,
+        Revealed Bible College equips believers for ministry,
+        leadership, and mission worldwide.
+      </p>
+
       <div class="hero-actions">
-        <a href="contact.html" class="btn-primary">Apply Now</a>
+        <a href="admissions.html" class="btn-primary">Apply Now</a>
         <a href="contact.html" class="btn-secondary">Request Information</a>
-        <a href="/assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank" class="btn-secondary">View Catalogue</a>
+        <a href="assets/REVEALED%20BIBLE%20COLLEGE%202025.pdf"
+           target="_blank"
+           class="btn-secondary">View Catalogue</a>
       </div>
     </div>
-    <img src="student-life-study.jpg" alt="Students studying">
+
+    <div class="hero-image">
+      <img src="student-life-study.jpg" alt="Students studying together">
+    </div>
   </div>
 </section>
 
 <footer>
-  © 2025 Revealed Bible College • Equipping leaders for the nations
+  © <span id="year"></span> Revealed Bible College · Equipping leaders for the nations
 </footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
