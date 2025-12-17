@@ -1,286 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Admissions | Revealed Bible College</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admissions | Revealed Bible College</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #0b2c64;
-      --secondary: #f4b400;
-      --dark: #020617;
-      --light: #f8fafc;
-      --muted: #475569;
-      --radius: 1.25rem;
-    }
+<style>
+body {
+  font-family: Inter, sans-serif;
+  margin: 0;
+  background: #020617;
+  color: #fff;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+header {
+  background: linear-gradient(90deg,#0b2c64,#020617);
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    a { text-decoration: none; color: inherit; }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: 700;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+.brand img { height: 42px; }
 
-    /* Header */
-    header {
-      background: linear-gradient(90deg, #0b2c64, #020617);
-      color: white;
-    }
+.nav a { color: #fff; margin-left: 1.5rem; text-decoration: none; }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 0;
-    }
+.hero {
+  padding: 5rem 2.5rem 3rem;
+  text-align: center;
+  background: radial-gradient(1000px 400px at 20% 0%, #1e40af, #020617);
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 700;
-    }
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
 
-    .brand img {
-      height: 40px;
-    }
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: #c7d2fe;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      font-weight: 500;
-    }
+.section {
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 2.5rem;
+}
 
-    .nav-cta {
-      background: var(--secondary);
-      color: black;
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 600;
-    }
+.form-box {
+  background: #0b2c64;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+}
 
-    /* Hero */
-    .hero {
-      background: radial-gradient(1200px 400px at 20% 0%, #1e40af, #020617);
-      color: white;
-      padding: 4rem 0;
-      text-align: center;
-    }
+form {
+  display: grid;
+  gap: 1.2rem;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+input, select, textarea {
+  padding: .9rem;
+  border-radius: .6rem;
+  border: none;
+  font-size: 1rem;
+}
 
-    .hero p {
-      color: #c7d2fe;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+button {
+  background: #f4b400;
+  border: none;
+  padding: 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-    /* Sections */
-    section {
-      padding: 4rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    .grid {
-      display: grid;
-      gap: 2rem;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 2rem;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    /* Form */
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    form label {
-      display: block;
-      font-weight: 600;
-      margin: 1rem 0 0.4rem;
-    }
-
-    form input,
-    form textarea,
-    form select {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: 1px solid #cbd5e1;
-      font-family: inherit;
-    }
-
-    form button {
-      margin-top: 1.5rem;
-      width: 100%;
-      background: var(--secondary);
-      border: none;
-      padding: 0.9rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-
-    /* Footer */
-    footer {
-      background: #020617;
-      color: #94a3b8;
-      padding: 2rem 0;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-    }
-  </style>
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: .85rem;
+  color: #94a3b8;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="container nav">
+  <div class="nav">
     <div class="brand">
-      <img src="assets/logo.png" alt="Revealed Bible College Logo">
+      <img src="assets/logo.png">
       Revealed Bible College
     </div>
-
-    <nav class="nav-links">
+    <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="admissions.html">Admissions</a>
       <a href="contact.html">Contact</a>
+      <a href="login.html">Portal</a>
     </nav>
-
-    <a href="login.html" class="nav-cta">Portal Login</a>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h1>Admissions</h1>
-    <p>Begin your journey of biblical education, spiritual formation, and leadership training at Revealed Bible College.</p>
-  </div>
+  <h1>Admissions</h1>
+  <p>Begin your journey in biblical education and Christian leadership.</p>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Who Can Apply</h2>
-      <p>Our programs are open to believers seeking structured biblical education and ministry preparation.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Spiritual Commitment</h3>
-        <p>Applicants should demonstrate a personal commitment to Christian faith and growth.</p>
-      </div>
-      <div class="card">
-        <h3>Educational Readiness</h3>
-        <p>Programs are accessible to students from diverse educational backgrounds.</p>
-      </div>
-      <div class="card">
-        <h3>Ministry Calling</h3>
-        <p>Designed for those pursuing ministry, leadership, or theological development.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Request Admissions Information</h2>
-      <p>Complete the form below and our admissions team will contact you.</p>
-    </div>
+<section class="section">
+  <div class="form-box">
+    <h2>Apply for Admission</h2>
 
     <form>
-      <label>Full Name</label>
-      <input type="text" required>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number">
 
-      <label>Email Address</label>
-      <input type="email" required>
-
-      <label>Phone Number</label>
-      <input type="tel">
-
-      <label>Program of Interest</label>
-      <select>
+      <select required>
+        <option value="">Select Program</option>
         <option>Diploma in Biblical Studies</option>
         <option>Certificate in Pastoral Ministry</option>
         <option>Advanced Christian Leadership</option>
       </select>
 
-      <label>Message</label>
-      <textarea rows="4"></textarea>
+      <select required>
+        <option value="">Preferred Start Term</option>
+        <option>Spring</option>
+        <option>Summer</option>
+        <option>Fall</option>
+      </select>
 
-      <button type="submit">Submit Inquiry</button>
+      <textarea rows="4" placeholder="Tell us about your calling or goals"></textarea>
+
+      <button type="submit">Submit Application</button>
     </form>
   </div>
 </section>
 
 <footer>
-  © <span id="year"></span> Revealed Bible College — Equipping leaders for the nations
+© 2025 Revealed Bible College · Equipping leaders for the nations
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
