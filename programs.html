@@ -1,61 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Programs – Revealed Bible College</title>
-<link rel="stylesheet" href="index.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Revealed Bible College</title>
+  <meta name="description" content="Learn about Revealed Bible College, our mission, values, leadership vision, and commitment to biblical excellence." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0b2c64;
+      --accent: #f4b400;
+      --dark: #020617;
+      --light: #f8fafc;
+      --muted: #475569;
+      --radius: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: linear-gradient(90deg, #0b2c64, #020617);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .site-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-button {
+      background: var(--accent);
+      color: #000;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ================= HERO ================= */
+    .page-hero {
+      background: linear-gradient(180deg, #0b2c64, #020617);
+      color: #fff;
+      padding: 4rem 1.25rem;
+    }
+
+    .page-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero p {
+      color: #dbeafe;
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ================= CONTENT ================= */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-left: 1.25rem;
+      color: var(--muted);
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 2rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ================= MOBILE ================= */
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .page-hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
-<div class="nav-left">
-<img src="assets/logo.png">
-<strong>Revealed Bible College</strong>
-</div>
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="contact.html">Admissions</a>
-<a href="login.html">Portal</a>
-</nav>
-</div>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="/assets/logo.png" alt="Revealed Bible College Logo" class="site-logo">
+      <span class="brand-name">Revealed Bible College</span>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html">Admissions</a>
+      <a href="login.html" class="nav-button">Portal Login</a>
+    </nav>
+  </div>
 </header>
 
-<section class="container" style="padding:4rem 0">
-<h1>Academic Programs</h1>
-
-<h2>Diploma in Biblical Studies</h2>
-<p>
-A foundational program focusing on Old and New Testament studies,
-biblical doctrine, and Christian worldview.
-</p>
-
-<h2>Certificate in Pastoral Ministry</h2>
-<p>
-Designed for current and aspiring ministry leaders seeking practical
-training in preaching, pastoral care, and church leadership.
-</p>
-
-<h2>Advanced Christian Leadership</h2>
-<p>
-An advanced track for experienced leaders focusing on theology,
-organizational leadership, and global mission engagement.
-</p>
-
-<p>
-<a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank">
-View Full Academic Catalogue (PDF)
-</a>
-</p>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>About Revealed Bible College</h1>
+    <p>
+      Revealed Bible College exists to train believers in biblical truth,
+      spiritual formation, and leadership for effective ministry and global service.
+    </p>
+  </div>
 </section>
 
+<main>
+
+  <section>
+    <h2>Our Mission</h2>
+    <p>
+      Revealed Bible College is committed to equipping men and women with a strong
+      foundation in Scripture, theological understanding, and Spirit-led discernment.
+      Our mission is to prepare leaders who are biblically grounded, spiritually mature,
+      and missionally effective.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Vision</h2>
+    <p>
+      We envision a global community of trained Christian leaders serving faithfully
+      in churches, missions, education, and marketplace ministry across cultures
+      and nations.
+    </p>
+  </section>
+
+  <section>
+    <h2>Core Values</h2>
+    <ul>
+      <li>Biblical Authority and Sound Doctrine</li>
+      <li>Spiritual Formation and Character Development</li>
+      <li>Academic Excellence with Practical Application</li>
+      <li>Servant Leadership and Global Mission</li>
+      <li>Integrity, Accountability, and Faithfulness</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Educational Philosophy</h2>
+    <p>
+      Our programs integrate rigorous academic study with spiritual growth and
+      practical ministry training. Students are encouraged to apply what they learn
+      in real-world ministry contexts while growing in personal devotion and leadership
+      capacity.
+    </p>
+  </section>
+
+  <section>
+    <h2>Who We Serve</h2>
+    <p>
+      Revealed Bible College serves students from diverse backgrounds, including
+      aspiring pastors, ministry leaders, missionaries, educators, and committed
+      believers seeking deeper biblical understanding.
+    </p>
+  </section>
+
+</main>
+
 <footer>
-<div class="container">
-<span>© 2025 Revealed Bible College</span>
-</div>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Revealed Bible College</span>
+    <span>Equipping leaders for the nations</span>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
