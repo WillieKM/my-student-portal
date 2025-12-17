@@ -2,74 +2,118 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal Login | Revealed Bible College</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  background: #020617;
-  font-family: Inter, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(1000px 500px at 20% 0%, #1e40af, #020617);
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
+/* NAV */
+header {
+  padding: 1rem 1.5rem;
+}
+header img {
+  height: 42px;
+}
+
+/* LOGIN */
+.main {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card {
-  background: #0b2c64;
-  padding: 3rem;
-  border-radius: 1.5rem;
+  background: #fff;
+  color: #020617;
+  padding: 2.5rem;
+  border-radius: 1.2rem;
   width: 100%;
   max-width: 420px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.4);
+}
+.card h2 {
   text-align: center;
+  margin-bottom: 1.5rem;
 }
-
-.card img {
-  height: 60px;
-  margin-bottom: 1rem;
-}
-
 input {
   width: 100%;
   padding: .9rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   border-radius: .6rem;
-  border: none;
+  border: 1px solid #cbd5f5;
 }
-
 button {
-  margin-top: 1.5rem;
   width: 100%;
-  padding: 1rem;
-  border-radius: 999px;
-  border: none;
   background: #f4b400;
+  border: none;
+  padding: .9rem;
+  border-radius: .6rem;
   font-weight: 700;
+  cursor: pointer;
+}
+.link {
+  text-align: center;
+  margin-top: 1rem;
+}
+.link a {
+  color: #1e40af;
+  font-weight: 600;
+  text-decoration: none;
+}
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: .5rem;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <img src="assets/logo.png">
-  <h2>Portal Login</h2>
+<header>
+  <img src="assets/logo.png" alt="RBC Logo">
+</header>
 
-  <input type="email" placeholder="Email">
-  <input type="password" placeholder="Password">
+<div class="main">
+  <div class="card">
+    <h2>Portal Login</h2>
+    <p class="error" id="errorMsg"></p>
 
-  <button>Sign In</button>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="password" type="password" placeholder="Password" required>
 
-  <p style="margin-top:1rem;">
-    <a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank" style="color:#93c5fd;">
-      View Academic Catalogue
-    </a>
-  </p>
+    <button id="loginBtn">Sign In</button>
+
+    <div class="link">
+      <a href="assets/REVEALED BIBLE COLLEGE 2025.pdf" target="_blank">
+        View Academic Catalogue
+      </a>
+    </div>
+  </div>
 </div>
+
+<script type="module">
+import { auth } from './firebase.js';
+import { signInWithEmailAndPassword }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+loginBtn.onclick = async () => {
+  try {
+    await signInWithEmailAndPassword(auth, email.value, password.value);
+    window.location.href = "student-portal/index.html";
+  } catch (err) {
+    errorMsg.textContent = "Invalid login credentials.";
+  }
+};
+</script>
 
 </body>
 </html>
