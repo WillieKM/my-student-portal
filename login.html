@@ -1,77 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revealed Bible College | Portal Login</title>
-
-  <meta name="description" content="Secure login for students and faculty of Revealed Bible College." />
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Portal Styles -->
-  <link rel="stylesheet" href="student-portal/portal.css">
-
-  <!-- Firebase -->
-  <script type="module" src="student-portal/firebase.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Login | RBC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif;background:#f8fafc;margin:0}
+.card{max-width:420px;margin:4rem auto;background:#fff;padding:2rem;border-radius:1rem;text-align:center}
+input{width:100%;padding:.8rem;margin-bottom:1rem}
+button{width:100%;background:#f4b400;border:none;padding:.8rem;font-weight:600}
+</style>
 </head>
 
-<body class="auth-page">
+<body>
 
-  <!-- Header -->
-  <header class="auth-header">
-    <div class="rbc-brand">
-     <img src="/assets/logo.png" alt="Revealed Bible College Logo" class="rbc-logo">
-
-      <div>
-        <strong>Revealed Bible College</strong>
-        <div class="tagline">Student & Faculty Portal</div>
-      </div>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="/assets/logo.png">
+      <span>Revealed Bible College</span>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Login Card -->
-  <main class="auth-wrapper">
-    <div class="auth-card">
-
-      <h1>Sign In</h1>
-      <p class="muted">
-        Sign in using your assigned institutional email and password.
-      </p>
-
-      <form id="loginForm">
-        <label>Email</label>
-        <input type="email" id="email" required>
-
-        <label>Password</label>
-        <input type="password" id="password" required>
-
-        <button type="submit" class="btn-primary">Sign In</button>
-      </form>
-
-      <p id="errorMessage" class="error-text"></p>
-
-    <!-- Catalogue Link -->
-<div class="catalogue-link">
-  <a href="../assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank">
-    📘 View Academic Catalogue
-  </a>
+<div class="card">
+  <h2>Portal Login</h2>
+  <input placeholder="Email">
+  <input placeholder="Password" type="password">
+  <button>Sign In</button>
+  <p>
+    <a href="/assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank">
+      View Academic Catalogue
+    </a>
+  </p>
 </div>
 
-
-    </div>
-  </main>
-
-  <footer class="auth-footer">
-    © <span id="year"></span> Revealed Bible College
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<footer style="text-align:center">© 2025 Revealed Bible College</footer>
 
 </body>
 </html>
