@@ -1,307 +1,53 @@
 <!DOCTYPE html>
-<header class="site-header">
-  <div class="container nav">
-    <div class="nav-brand">
-      <img src="./assets/logo.png" alt="Revealed Bible College Logo" class="nav-logo">
-      <span>Revealed Bible College</span>
-    </div>
-
-    <nav class="nav-links">
-      <a href="./about.html">About</a>
-      <a href="./programs.html">Programs</a>
-      <a href="./contact.html">Admissions</a>
-      <a href="./login.html">Portal</a>
-    </nav>
-
-    <a href="./login.html" class="nav-cta">Portal Login</a>
-  </div>
-</header>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revealed Bible College | Programs of Study</title>
-  <meta name="description" content="Explore certificate, diploma, and advanced ministry programs at Revealed Bible College." />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #0b2c64;
-      --secondary: #f4b400;
-      --light: #f8fafc;
-      --dark: #020617;
-      --muted: #475569;
-      --radius: 1.25rem;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 3rem 0;
-    }
-
-    /* Navigation */
-    header {
-      background: linear-gradient(90deg, #0b2c64, #020617);
-      color: #fff;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      font-weight: 500;
-    }
-
-    .nav-cta {
-      background: var(--secondary);
-      color: #000;
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-
-    /* Headings */
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 42rem;
-      margin: 0 auto;
-    }
-
-    /* Grid & Cards */
-    .grid {
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      padding: 1.75rem;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .card .tag {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card ul {
-      padding-left: 1.2rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* Dark Section */
-    .dark {
-      background: #020617;
-      color: #fff;
-    }
-
-    .dark .section-title p {
-      color: #c7d2fe;
-    }
-
-    /* Buttons */
-    .btn-primary {
-      display: inline-block;
-      background: var(--secondary);
-      color: #000;
-      padding: 0.8rem 1.6rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-    }
-
-    footer {
-      background: #020617;
-      color: #94a3b8;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-    }
-
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs | RBC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif;margin:0;background:#f8fafc}
+.container{max-width:1000px;margin:auto;padding:3rem 1.5rem}
+.card{background:#fff;border-radius:1rem;padding:1.5rem;margin-bottom:1rem}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="container nav">
-    <strong>Revealed Bible College</strong>
+  <div class="nav">
+    <div class="brand">
+      <img src="/assets/logo.png">
+      <span>Revealed Bible College</span>
+    </div>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
       <a href="contact.html">Admissions</a>
+      <a href="login.html">Portal</a>
     </nav>
-    <a href="login.html" class="nav-cta">Portal Login</a>
   </div>
 </header>
 
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Programs of Study</h2>
-      <p>
-        From foundational Bible training to advanced theological study, Revealed Bible College offers
-        pathways for students at different stages of their calling and ministry development.
-      </p>
-    </div>
+<div class="container">
+  <h1>Programs</h1>
 
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Diploma in Christian Ministry</h3>
-        <div class="tag">Foundational Program</div>
-        <p>
-          A one-year program focused on laying a strong foundation in Scripture, doctrine, and personal discipleship.
-        </p>
-        <ul>
-          <li>Old and New Testament survey</li>
-          <li>Basic doctrine and Christian living</li>
-          <li>Introduction to ministry and service</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Bachelor in Theology</h3>
-        <div class="tag">Undergraduate Program</div>
-        <p>
-          Designed to equip pastors, teachers, and church leaders with a solid theological and practical ministry framework.
-        </p>
-        <ul>
-          <li>Systematic and biblical theology</li>
-          <li>Hermeneutics and homiletics</li>
-          <li>Pastoral ministry and leadership</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Graduate & Advanced Studies</h3>
-        <div class="tag">Advanced Program</div>
-        <p>
-          For students seeking deeper engagement in theology, leadership development, and ministry practice.
-        </p>
-        <ul>
-          <li>Advanced biblical and theological themes</li>
-          <li>Research, writing, and ministry projects</li>
-          <li>Specialized ministry focus areas</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Ministry & Leadership Tracks</h3>
-        <div class="tag">Special Focus</div>
-        <p>
-          Targeted tracks designed for worship leaders, youth ministers, church planters, and ministry practitioners.
-        </p>
-        <p>
-          Program availability and delivery formats vary. Contact admissions for current offerings.
-        </p>
-      </div>
-    </div>
+  <div class="card">
+    <h3>Diploma in Biblical Studies</h3>
+    <p>Foundational training in Scripture and doctrine.</p>
   </div>
-</section>
 
-<section class="dark">
-  <div class="container">
-    <div class="section-title">
-      <h2>Ready to Take the Next Step?</h2>
-      <p>
-        Whether you are discerning your calling or preparing for ministry leadership, our admissions team is here to help.
-      </p>
-    </div>
-    <div style="text-align:center">
-      <a href="contact.html" class="btn-primary">Request Information</a>
-    </div>
+  <div class="card">
+    <h3>Pastoral Ministry Certificate</h3>
+    <p>Hands-on ministry and leadership formation.</p>
   </div>
-</section>
 
-<footer>
-  <div class="container">
-    <span>© <span id="year"></span> Revealed Bible College</span>
-    <span>Equipping leaders for the nations</span>
-  </div>
-</footer>
+  <a href="/assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank">
+    View Full Academic Catalogue
+  </a>
+</div>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<footer>© 2025 Revealed Bible College</footer>
 
 </body>
 </html>
