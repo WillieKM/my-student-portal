@@ -1,28 +1,10 @@
 <!DOCTYPE html>
-<header class="site-header">
-  <div class="container nav">
-    <div class="nav-brand">
-      <img src="./assets/logo.png" alt="Revealed Bible College Logo" class="nav-logo">
-      <span>Revealed Bible College</span>
-    </div>
-
-    <nav class="nav-links">
-      <a href="./about.html">About</a>
-      <a href="./programs.html">Programs</a>
-      <a href="./contact.html">Admissions</a>
-      <a href="./login.html">Portal</a>
-    </nav>
-
-    <a href="./login.html" class="nav-cta">Portal Login</a>
-  </div>
-</header>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Revealed Bible College | Forming Leaders for a Global Move of God</title>
-  <meta name="description" content="Revealed Bible College equips believers through biblical scholarship, pastoral formation, and global leadership training." />
+  <meta name="description" content="Revealed Bible College equips believers for ministry, leadership, and mission across the nations." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,10 +15,9 @@
     :root {
       --primary: #0b2c64;
       --secondary: #f4b400;
-      --light: #f8fafc;
       --dark: #020617;
-      --muted: #cbd5f5;
-      --radius: 1.25rem;
+      --light: #f8fafc;
+      --radius: 14px;
     }
 
     * {
@@ -48,7 +29,7 @@
     body {
       font-family: 'Inter', sans-serif;
       background: var(--light);
-      color: var(--dark);
+      color: #020617;
       line-height: 1.6;
     }
 
@@ -69,7 +50,6 @@
     }
 
     /* ================= HEADER ================= */
-
     header {
       background: linear-gradient(90deg, #0b2c64, #020617);
       color: #fff;
@@ -77,20 +57,21 @@
 
     .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 0;
+      justify-content: space-between;
+      padding: 1.1rem 0;
     }
 
-    .nav-brand {
+    .brand {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
 
-    .nav-logo {
-      height: 38px;
+    .brand img {
+      height: 44px;
       width: auto;
     }
 
@@ -103,40 +84,35 @@
     .nav-cta {
       background: var(--secondary);
       color: #000;
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1.3rem;
       border-radius: 999px;
       font-weight: 600;
     }
 
     /* ================= HERO ================= */
-
     .hero {
-      background:
-        linear-gradient(180deg, rgba(11,44,100,0.95), rgba(2,6,23,0.95)),
-        radial-gradient(1200px 500px at 20% 0%, #1e40af, #020617);
+      background: radial-gradient(1200px 500px at 20% 0%, #1e40af, #020617);
       color: #fff;
-      padding: 5rem 0 6rem;
+      padding: 4rem 0 4.5rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 3rem;
       align-items: center;
     }
 
     .hero h1 {
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.1;
+      font-size: clamp(2.6rem, 5vw, 3.6rem);
+      line-height: 1.15;
       margin-bottom: 1.25rem;
     }
 
     .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 40rem;
-      margin-bottom: 2.25rem;
+      color: #c7d2fe;
+      max-width: 42rem;
+      margin-bottom: 2rem;
     }
 
     .hero-actions {
@@ -148,7 +124,7 @@
     .btn-primary {
       background: var(--secondary);
       color: #000;
-      padding: 0.85rem 1.75rem;
+      padding: 0.85rem 1.7rem;
       border-radius: var(--radius);
       font-weight: 600;
     }
@@ -156,30 +132,16 @@
     .btn-secondary {
       border: 1px solid #93c5fd;
       color: #e0e7ff;
-      padding: 0.85rem 1.75rem;
+      padding: 0.85rem 1.7rem;
       border-radius: var(--radius);
-      font-weight: 600;
     }
 
-    .btn-outline {
-      border: 1px solid #c7d2fe;
-      color: #e0e7ff;
-      padding: 0.85rem 1.75rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .hero-image {
-      border-radius: 1.5rem;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    .hero-image img {
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     }
 
     /* ================= FOOTER ================= */
-
     footer {
       background: #020617;
       color: #94a3b8;
@@ -194,16 +156,9 @@
       gap: 1rem;
     }
 
-    /* ================= RESPONSIVE ================= */
-
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-actions {
-        justify-content: center;
       }
 
       .nav-links {
@@ -215,12 +170,10 @@
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
   <div class="container nav">
-    <div class="nav-brand">
-      <img src="assets/logo.png" alt="Revealed Bible College Logo" class="nav-logo">
+    <div class="brand">
+      <img src="/assets/logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
     </div>
 
@@ -235,39 +188,28 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
   <div class="container hero-grid">
     <div>
       <h1>Forming leaders for a global move of God.</h1>
       <p>
-        Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College
-        equips believers for ministry, leadership, and mission across the nations.
+        Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College equips believers for ministry, leadership, and mission across the nations.
       </p>
 
       <div class="hero-actions">
         <a href="contact.html" class="btn-primary">Apply Now</a>
         <a href="contact.html" class="btn-secondary">Request Information</a>
-        <a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf"
-           class="btn-outline"
-           target="_blank"
-           rel="noopener">
+        <a href="/assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank" class="btn-secondary">
           View Catalogue
         </a>
       </div>
     </div>
 
-    <img
-      src="student-life-study.jpg"
-      alt="Students studying Scripture together"
-      class="hero-image"
-      loading="lazy"
-    >
+    <div class="hero-image">
+      <img src="student-life-study.jpg" alt="Students studying together">
+    </div>
   </div>
 </section>
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
   <div class="container">
