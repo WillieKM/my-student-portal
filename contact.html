@@ -3,49 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Revealed Bible College</title>
+<title>Portal Login | Revealed Bible College</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
-  font-family: Inter, sans-serif;
   margin: 0;
   background: #020617;
+  font-family: Inter, sans-serif;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.hero {
-  padding: 5rem 2.5rem;
-  text-align: center;
-  background: radial-gradient(900px 400px at 20% 0%, #1e40af, #020617);
-}
-
-.section {
-  max-width: 800px;
-  margin: auto;
-  padding: 3rem 2.5rem;
-}
-
-form {
+.card {
   background: #0b2c64;
-  padding: 2.5rem;
-  border-radius: 1.25rem;
-  display: grid;
-  gap: 1.2rem;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
 }
 
-input, textarea {
+.card img {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
   padding: .9rem;
+  margin-top: 1rem;
   border-radius: .6rem;
   border: none;
 }
 
 button {
-  background: #f4b400;
-  border: none;
+  margin-top: 1.5rem;
+  width: 100%;
   padding: 1rem;
   border-radius: 999px;
+  border: none;
+  background: #f4b400;
   font-weight: 700;
 }
 </style>
@@ -53,19 +55,21 @@ button {
 
 <body>
 
-<section class="hero">
-  <h1>Contact Us</h1>
-  <p>We’re here to help you take the next step.</p>
-</section>
+<div class="card">
+  <img src="assets/logo.png">
+  <h2>Portal Login</h2>
 
-<section class="section">
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea rows="5" placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+
+  <button>Sign In</button>
+
+  <p style="margin-top:1rem;">
+    <a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank" style="color:#93c5fd;">
+      View Academic Catalogue
+    </a>
+  </p>
+</div>
 
 </body>
 </html>
