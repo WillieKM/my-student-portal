@@ -1,92 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Login | Revealed Bible College</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Login | Revealed Bible College</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-    }
+<style>
+body {
+  margin: 0;
+  background: #020617;
+  font-family: Inter, sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    header {
-      background: linear-gradient(90deg, #0b2c64, #020617);
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: #fff;
-    }
+.card {
+  background: #0b2c64;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
 
-    header img {
-      height: 40px;
-    }
+.card img {
+  height: 60px;
+  margin-bottom: 1rem;
+}
 
-    main {
-      min-height: calc(100vh - 80px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
+input {
+  width: 100%;
+  padding: .9rem;
+  margin-top: 1rem;
+  border-radius: .6rem;
+  border: none;
+}
 
-    .login-box {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 1rem;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    input {
-      width: 100%;
-      padding: 0.6rem;
-      margin-bottom: 1rem;
-    }
-
-    button {
-      width: 100%;
-      padding: 0.6rem;
-      background: #f4b400;
-      border: none;
-      font-weight: 600;
-    }
-
-    .catalog {
-      margin-top: 1rem;
-    }
-  </style>
+button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 999px;
+  border: none;
+  background: #f4b400;
+  font-weight: 700;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <img src="/assets/logo.png" alt="RBC Logo">
-  Revealed Bible College
-</header>
+<div class="card">
+  <img src="assets/logo.png">
+  <h2>Portal Login</h2>
 
-<main>
-  <div class="login-box">
-    <h2>Portal Login</h2>
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
 
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Sign In</button>
+  <button>Sign In</button>
 
-    <div class="catalog">
-      <a href="/assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank">
-        View Academic Catalogue
-      </a>
-    </div>
-  </div>
-</main>
+  <p style="margin-top:1rem;">
+    <a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank" style="color:#93c5fd;">
+      View Academic Catalogue
+    </a>
+  </p>
+</div>
 
 </body>
 </html>
