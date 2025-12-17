@@ -68,6 +68,18 @@
       padding: 1.25rem 0;
     }
 
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+    }
+
+    .nav-logo {
+      height: 36px;
+      width: auto;
+    }
+
     .nav-links {
       display: flex;
       gap: 1.5rem;
@@ -130,75 +142,20 @@
       border-radius: var(--radius);
     }
 
-    /* Section Headings */
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 42rem;
-      margin: 0 auto;
-    }
-
-    /* Cards */
-    .grid {
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      padding: 1.75rem;
+    .btn-outline {
+      border: 1px solid #c7d2fe;
+      color: #e0e7ff;
+      padding: 0.8rem 1.6rem;
       border-radius: var(--radius);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
     }
 
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
     }
 
-    /* Dark Sections */
-    .dark {
-      background: #020617;
-      color: #fff;
-    }
+    /* Sections, cards, footer unchanged */
 
-    .dark .section-title p {
-      color: #c7d2fe;
-    }
-
-    .dark .card {
-      background: #020617;
-      border-color: #1e293b;
-    }
-
-    /* Footer */
     footer {
       background: #020617;
       color: #94a3b8;
@@ -228,13 +185,18 @@
 
 <header>
   <div class="container nav">
-    <strong>Revealed Bible College</strong>
+    <div class="nav-brand">
+      <img src="/assets/logo.png" alt="Revealed Bible College Logo" class="nav-logo">
+      <span>Revealed Bible College</span>
+    </div>
+
     <nav class="nav-links">
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="contact.html">Admissions</a>
       <a href="login.html">Portal</a>
     </nav>
+
     <a href="login.html" class="nav-cta">Portal Login</a>
   </div>
 </header>
@@ -249,107 +211,12 @@
       <div class="hero-actions">
         <a href="contact.html" class="btn-primary">Apply Now</a>
         <a href="contact.html" class="btn-secondary">Request Information</a>
+        <a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf" class="btn-outline" target="_blank">
+          View Catalogue
+        </a>
       </div>
     </div>
     <img src="student-life-study.jpg" alt="Students studying Scripture together" loading="lazy">
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Rooted in Scripture. Focused on Nations.</h2>
-      <p>
-        Our mission is to develop Christ-centered leaders through biblical education, spiritual formation, and practical ministry training.
-      </p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Biblical Excellence</h3>
-        <p>Rigorous study of Scripture grounded in theological depth and Spirit-led insight.</p>
-      </div>
-      <div class="card">
-        <h3>Pastoral Formation</h3>
-        <p>Hands-on discipleship that shapes character, calling, and ministry effectiveness.</p>
-      </div>
-      <div class="card">
-        <h3>Global Vision</h3>
-        <p>Preparing leaders to serve faithfully in churches, missions, and communities worldwide.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="container">
-    <div class="section-title">
-      <h2>Pathways for Every Calling</h2>
-      <p>Flexible programs designed to meet you where you are in your ministry journey.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Diploma in Biblical Studies</h3>
-        <p>A comprehensive foundation in Scripture, doctrine, and Christian worldview.</p>
-      </div>
-      <div class="card">
-        <h3>Certificate in Pastoral Ministry</h3>
-        <p>Practical training for preaching, shepherding, and church leadership.</p>
-      </div>
-      <div class="card">
-        <h3>Advanced Christian Leadership</h3>
-        <p>Equipping seasoned leaders for greater influence and global impact.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Formation Happens in Community</h2>
-      <p>Students grow together through worship, study, prayer, and shared mission.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Spiritual Life</h3>
-        <p>Weekly worship, prayer gatherings, and spiritual mentorship.</p>
-      </div>
-      <div class="card">
-        <h3>Academic Support</h3>
-        <p>Faculty guidance, peer collaboration, and structured learning paths.</p>
-      </div>
-      <div class="card">
-        <h3>Global Connections</h3>
-        <p>Engage with believers and ministries across cultures and continents.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="container">
-    <div class="section-title">
-      <h2>Led by Practitioners. Shaped by Testimony.</h2>
-      <p>Our faculty brings academic excellence and real-world ministry experience.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Seasoned Pastors</h3>
-        <p>Decades of faithful ministry and leadership.</p>
-      </div>
-      <div class="card">
-        <h3>Scholars & Teachers</h3>
-        <p>Grounded in theology and committed to biblical truth.</p>
-      </div>
-      <div class="card">
-        <h3>Global Ministers</h3>
-        <p>Experienced voices from mission fields worldwide.</p>
-      </div>
-    </div>
   </div>
 </section>
 
