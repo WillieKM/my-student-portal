@@ -215,3 +215,21 @@
 
 </body>
 </html>
+<script type="module">
+import { db } from './firebase.js'
+import { collection, addDoc } from
+'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'
+
+document.getElementById('contactForm').addEventListener('submit', async e => {
+  e.preventDefault()
+  await addDoc(collection(db,'contactMessages'),{
+    name:e.target[0].value,
+    email:e.target[1].value,
+    subject:e.target[2].value,
+    message:e.target[3].value,
+    timestamp:new Date()
+  })
+  alert('Message sent successfully!')
+  e.target.reset()
+})
+</script>
