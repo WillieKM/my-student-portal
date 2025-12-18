@@ -278,6 +278,40 @@
 
       <button class="submit-btn">Submit Application</button>
     </form>
+
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAz_Ld5YRBJJo1nxrU0wkmoSeUbPyYlTxE",
+  authDomain: "universityportal-prod.firebaseapp.com",
+  projectId: "universityportal-prod"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.getElementById("admissionsForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const fields = e.target.elements;
+
+  await addDoc(collection(db, "admissions"), {
+    name: fields[0].value,
+    email: fields[1].value,
+    phone: fields[2].value,
+    program: fields[3].value,
+    term: fields[4].value,
+    goals: fields[5].value,
+    submittedAt: new Date()
+  });
+
+  alert("Application submitted successfully!");
+  e.target.reset();
+});
+</script>
+
   </div>
 
   <aside class="info">
