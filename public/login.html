@@ -1,188 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portal Login | Revealed Bible College</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Login | Revealed Bible College</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #0b2c64;
-      --secondary: #f4b400;
-      --light: #f8fafc;
-      --dark: #020617;
-      --radius: 1.25rem;
-    }
+<style>
+:root {
+  --navy-dark:#020617;
+  --navy:#0b2c64;
+  --gold:#f4b400;
+  --radius:1rem;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family:Inter,sans-serif;
+  background:radial-gradient(1000px 400px at 50% 0%, #1e40af, #020617);
+  color:white;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #0b2c64, #020617);
-      color: #fff;
-      min-height: 100vh;
-    }
+header {
+  padding:1rem 2rem;
+  background:linear-gradient(90deg,var(--navy),var(--navy-dark));
+}
 
-    /* Header */
-    header {
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: linear-gradient(90deg, #0b2c64, #020617);
-    }
+.brand {
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  font-weight:700;
+}
 
-    header img {
-      height: 42px;
-    }
+.brand img {height:38px;}
 
-    header span {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
+main {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    /* Layout */
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 3rem 1.5rem;
-    }
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.5rem;
+  max-width:900px;
+  width:100%;
+  padding:2rem;
+}
 
-    .portal-wrapper {
-      max-width: 900px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
+.card {
+  background:#0b2c64;
+  padding:2.5rem;
+  border-radius:var(--radius);
+  box-shadow:0 25px 80px rgba(0,0,0,.4);
+}
 
-    .portal-card {
-      background: #fff;
-      color: #020617;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    }
+.card h2 {margin-bottom:1.2rem;}
 
-    .portal-card h2 {
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
-    }
+input {
+  width:100%;
+  padding:.85rem;
+  border:none;
+  border-radius:.6rem;
+  margin-bottom:1rem;
+}
 
-    .portal-card p {
-      font-size: 0.95rem;
-      color: #475569;
-      margin-bottom: 1.5rem;
-    }
+button {
+  width:100%;
+  background:var(--gold);
+  color:black;
+  padding:.85rem;
+  border:none;
+  border-radius:.7rem;
+  font-weight:700;
+  cursor:pointer;
+}
 
-    label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
+footer {
+  text-align:center;
+  padding:1rem;
+  font-size:.85rem;
+  color:#94a3b8;
+}
 
-    input {
-      width: 100%;
-      padding: 0.65rem;
-      margin-bottom: 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid #cbd5e1;
-      font-size: 0.95rem;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 999px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary {
-      background: var(--secondary);
-      color: #000;
-    }
-
-    .btn-secondary {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .catalogue-link {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .catalogue-link a {
-      color: #93c5fd;
-      text-decoration: underline;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #cbd5f5;
-      padding: 1.5rem;
-    }
-  </style>
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="/logo.png" alt="Revealed Bible College Logo">
-  <span>Revealed Bible College</span>
+  <div class="brand">
+    <img src="/logo.png" alt="RBC Logo">
+    Revealed Bible College
+  </div>
 </header>
 
 <main>
-  <div class="portal-wrapper">
+  <div class="grid">
 
     <!-- STUDENT LOGIN -->
-    <div class="portal-card">
+    <div class="card">
       <h2>Student Portal</h2>
-      <p>Access your courses, assignments, grades, and messages.</p>
-
-      <label>Email</label>
-      <input type="email" placeholder="student@rbc.edu">
-
-      <label>Password</label>
-      <input type="password" placeholder="••••••••">
-
-      <button class="btn btn-primary">Student Sign In</button>
+      <input type="email" placeholder="Student Email">
+      <input type="password" placeholder="Password">
+      <button>Student Sign In</button>
     </div>
 
     <!-- FACULTY LOGIN -->
-    <div class="portal-card">
+    <div class="card">
       <h2>Faculty Portal</h2>
-      <p>Manage courses, grading, students, and academic content.</p>
-
-      <label>Email</label>
-      <input type="email" placeholder="faculty@rbc.edu">
-
-      <label>Password</label>
-      <input type="password" placeholder="••••••••">
-
-      <button class="btn btn-secondary">Faculty Sign In</button>
+      <input type="email" placeholder="Faculty Email">
+      <input type="password" placeholder="Password">
+      <button>Faculty Sign In</button>
     </div>
 
   </div>
 </main>
 
-<div class="catalogue-link">
- <a href="/catalogue-2025.pdf" target="_blank">View Catalogue</a>
-
-  </a>
-</div>
-
 <footer>
-  © 2025 Revealed Bible College · Equipping leaders for the nations
+© 2025 Revealed Bible College
 </footer>
 
 </body>
