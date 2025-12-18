@@ -1,9 +1,13 @@
 {
+  "outputDirectory": "public",
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(.*)\\.pdf",
       "headers": [
-        { "key": "Content-Type", "value": "application/pdf" }
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        }
       ]
     }
   ]
