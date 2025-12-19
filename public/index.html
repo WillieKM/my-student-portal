@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revealed Bible College</title>
+
+  <title>Revealed Bible College | Biblical Education for Ministry & Leadership</title>
+
+  <meta name="description" content="Revealed Bible College provides Christ-centered biblical education for ministry, leadership, and global mission. Apply online today.">
+
+  <meta property="og:title" content="Revealed Bible College">
+  <meta property="og:description" content="Biblical education for ministry, leadership, and global impact.">
+  <meta property="og:type" content="website">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -65,7 +72,6 @@
 
     .brand img {
       height: 42px;
-      width: auto;
     }
 
     .nav-links {
@@ -102,10 +108,18 @@
     }
 
     .hero h1 {
-      font-size: clamp(3.2rem, 5vw, 4.4rem);
+      font-size: clamp(3rem, 5vw, 4.2rem);
       font-weight: 800;
-      line-height: 1.12;
-      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 999px;
+      margin-bottom: 1.8rem;
     }
 
     .hero p {
@@ -136,11 +150,28 @@
       border-radius: var(--radius);
     }
 
+    .hero-trust {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-trust li::before {
+      content: "✓";
+      color: var(--gold);
+      margin-right: 0.4rem;
+    }
+
     .hero img {
       width: 100%;
       max-width: 560px;
       border-radius: var(--radius);
       box-shadow: 0 35px 90px rgba(0,0,0,0.45);
+      filter: contrast(1.05) saturate(1.05);
       justify-self: end;
     }
 
@@ -165,6 +196,11 @@
         justify-self: center;
       }
 
+      .hero-divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .nav-links {
         display: none;
       }
@@ -177,7 +213,7 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="/logo.png" alt="Revealed Bible College Logo">
+      <img src="logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
     </div>
 
@@ -186,6 +222,7 @@
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -196,22 +233,29 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <h1>Forming leaders for a global move of God.</h1>
+      <h1>Biblical Education for Ministry, Leadership, and Global Impact</h1>
+      <div class="hero-divider"></div>
+
       <p>
-        Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College equips believers for ministry,
-        leadership, and mission worldwide.
+        Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College
+        prepares students for ministry leadership, theological study, and global mission
+        through Christ-centered academic programs.
       </p>
 
       <div class="hero-actions">
         <a href="admissions.html" class="btn-primary">Apply Now</a>
         <a href="contact.html" class="btn-secondary">Request Information</a>
-        <a href="assets/REVEALED-BIBLE-COLLEGE-2025.pdf" target="_blank" class="btn-secondary">
-          View Catalogue
-        </a>
+        <a href="programs.html" class="btn-secondary">View Programs</a>
       </div>
+
+      <ul class="hero-trust">
+        <li>Ministry-Focused Programs</li>
+        <li>Flexible Online & In-Person Learning</li>
+        <li>Global Christian Leadership Training</li>
+      </ul>
     </div>
 
-    <img src="student-life-study.jpg" alt="Students studying together">
+    <img src="student-theology-study.jpg" alt="Bible college students studying Scripture">
   </div>
 </section>
 
