@@ -12,6 +12,19 @@
       font-family: Inter, sans-serif;
       background: #020617;
       color: white;
+      margin: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0b2c64, #020617);
+      padding: 1rem 2.5rem;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      font-weight: 500;
     }
 
     .container {
@@ -38,11 +51,11 @@
     }
 
     .faculty-card {
-      background: #020617;
       border: 1px solid #1e40af;
       border-radius: 1.25rem;
-      padding: 1.8rem;
+      padding: 2rem 1.5rem;
       text-align: center;
+      background: #020617;
     }
 
     .faculty-card img {
@@ -51,6 +64,7 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     .faculty-card h3 {
@@ -58,53 +72,87 @@
       margin-bottom: 0.3rem;
     }
 
-    .faculty-card span {
+    .faculty-card .role {
       font-size: 0.9rem;
       color: #f4b400;
+      font-weight: 600;
     }
 
     .faculty-card p {
       font-size: 0.9rem;
       color: #c7d2fe;
       margin-top: 1rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
     }
   </style>
 </head>
 
 <body>
 
+<header>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
+  <a href="admissions.html">Admissions</a>
+  <a href="faculty.html">Faculty</a>
+  <a href="contact.html">Contact</a>
+</header>
+
 <div class="container">
-  <h1>Our Faculty</h1>
+  <h1>Our Faculty & Leadership</h1>
   <p class="intro">
-    Our faculty consists of experienced pastors, theologians, and Christian leaders
-    committed to academic excellence, biblical integrity, and spiritual formation.
+    Revealed Bible College is led by experienced Christian leaders, pastors, and educators
+    committed to biblical truth, academic excellence, and spiritual formation.
   </p>
 
   <div class="faculty-grid">
 
+    <!-- Apostle Pauline Kamanja -->
     <div class="faculty-card">
-      <img src="faculty-placeholder.jpg" alt="Faculty member">
-      <h3>Dr. John Smith</h3>
-      <span>Professor of Biblical Studies</span>
-      <p>Ph.D. in Theology with over 20 years of ministry and teaching experience.</p>
+      <img src="john-smith.jpeg" alt="Apostle Pauline Kamanja">
+      <h3>Apostle Pauline Kamanja</h3>
+      <div class="role">President</div>
+      <p>
+        Founder and spiritual leader providing vision, apostolic oversight,
+        and leadership development for the institution.
+      </p>
     </div>
 
+    <!-- Dr. Leon Harris -->
     <div class="faculty-card">
-      <img src="faculty-placeholder.jpg" alt="Faculty member">
-      <h3>Rev. Mary Johnson</h3>
-      <span>Professor of Ministry Leadership</span>
-      <p>Ordained minister specializing in leadership development and discipleship.</p>
+      <img src="john-smith.jpeg" alt="Dr. Leon Harris">
+      <h3>Dr. Leon Harris</h3>
+      <div class="role">Chancellor</div>
+      <p>
+        Senior academic and administrative leader overseeing institutional strategy,
+        governance, and academic excellence.
+      </p>
     </div>
 
+    <!-- Dr. Harrison Ndungu -->
     <div class="faculty-card">
-      <img src="faculty-placeholder.jpg" alt="Faculty member">
-      <h3>Dr. Samuel Okoro</h3>
-      <span>Professor of Global Missions</span>
-      <p>International missions leader with extensive cross-cultural experience.</p>
+      <img src="john-smith.jpeg" alt="Dr. Harrison Ndungu">
+      <h3>Dr. Harrison Ndungu</h3>
+      <div class="role">Ministry Leadership</div>
+      <p>
+        Instructor in ministry leadership with a focus on practical ministry,
+        leadership development, and discipleship training.
+      </p>
     </div>
 
   </div>
 </div>
+
+<footer>
+  © 2025 Revealed Bible College · Faculty & Leadership
+</footer>
 
 </body>
 </html>
