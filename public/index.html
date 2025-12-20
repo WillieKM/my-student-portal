@@ -211,12 +211,14 @@
 <body>
 
 <header>
+  <header>
   <div class="nav">
     <div class="brand">
       <img src="logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
     </div>
 
+    <!-- Desktop Nav -->
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -227,8 +229,28 @@
     </nav>
 
     <a href="login.html" class="nav-cta">Portal Login</a>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      ☰
+    </button>
   </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="mobile-portal">Portal Login</a>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 </header>
+
 
 <section class="hero">
   <div class="hero-inner">
