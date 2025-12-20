@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{ page.title }}</title>
+
+  <meta name="description" content="{{ page.description | default: 'Revealed Bible College provides Christ-centered biblical education for ministry, leadership, and global mission.' }}">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Inline styles for now (we will extract later) -->
+  <style>
+    :root {
+      --navy-dark: #020617;
+      --navy: #0b2c64;
+      --navy-soft: #1e40af;
+      --gold: #f4b400;
+      --text-muted: #c7d2fe;
+      --radius: 1.25rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--navy-dark);
+      color: white;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: linear-gradient(90deg, var(--navy), var(--navy-dark));
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1400px;
+      margin: auto;
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .brand img {
+      height: 42px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: black;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* ================= MOBILE NAV ================= */
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 260px;
+      height: 100vh;
+      background: #020617;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      transition: right 0.3s ease;
+      z-index: 100;
+    }
+
+    .mobile-menu a {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .mobile-portal {
+      margin-top: 1.5rem;
+      background: var(--gold);
+      color: black;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      z-index: 90;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* ================= PAGE CONTENT ================= */
+
+    main {
+      min-height: calc(100vh - 80px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+{% include header.html %}
+
+<main>
+  {{ content }}
+</main>
+
+<footer>
+  © 2025 Revealed Bible College · Equipping leaders for the nations
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("overlay");
+
+    const isOpen = menu.style.right === "0px";
+    menu.style.right = isOpen ? "-100%" : "0";
+    overlay.style.display = isOpen ? "none" : "block";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", toggleMenu);
+    });
+  });
+</script>
+
+</body>
+</html>
