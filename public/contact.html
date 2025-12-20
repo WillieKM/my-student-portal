@@ -164,7 +164,7 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="/logo.png" alt="RBC Logo">
+      <img src="logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
     </div>
 
@@ -173,12 +173,28 @@
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
       <a href="contact.html">Contact</a>
     </nav>
 
     <a href="login.html" class="nav-cta">Portal Login</a>
+
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="mobile-portal">Portal Login</a>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 </header>
+
 
 <section class="hero">
   <h1>Contact Us</h1>
