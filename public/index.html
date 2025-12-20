@@ -21,7 +21,6 @@
       --navy: #0b2c64;
       --navy-soft: #1e40af;
       --gold: #f4b400;
-      --text-light: #e5e7eb;
       --text-muted: #c7d2fe;
       --radius: 1.25rem;
     }
@@ -31,23 +30,6 @@
       margin: 0;
       padding: 0;
     }
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  const overlay = document.getElementById("overlay");
-
-  const isOpen = menu.style.right === "0px";
-
-  menu.style.right = isOpen ? "-100%" : "0";
-  overlay.style.display = isOpen ? "none" : "block";
-}
-  document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    toggleMenu();
-  });
-});
-
-</script>
 
     body {
       font-family: "Inter", sans-serif;
@@ -104,69 +86,66 @@ function toggleMenu() {
       border-radius: 999px;
       font-weight: 700;
     }
-/* ================= MOBILE NAV ================= */
 
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
+    /* ================= MOBILE NAV ================= */
 
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 260px;
-  height: 100vh;
-  background: #020617;
-  padding: 2.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  transition: right 0.3s ease;
-  z-index: 100;
-}
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
 
-.mobile-menu a {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 260px;
+      height: 100vh;
+      background: #020617;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      transition: right 0.3s ease;
+      z-index: 100;
+    }
 
-.mobile-menu .mobile-portal {
-  margin-top: 1.5rem;
-  background: var(--gold);
-  color: black;
-  padding: 0.7rem 1.2rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-align: center;
-}
+    .mobile-menu a {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  z-index: 90;
-}
+    .mobile-portal {
+      margin-top: 1.5rem;
+      background: var(--gold);
+      color: black;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-align: center;
+    }
 
-/* Mobile Breakpoint */
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      z-index: 90;
+    }
 
-  .nav-cta {
-    display: none;
-  }
+    @media (max-width: 900px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
 
-  .hamburger {
-    display: block;
-  }
-}
+      .hamburger {
+        display: block;
+      }
+    }
 
     /* ================= HERO ================= */
 
@@ -204,7 +183,6 @@ function toggleMenu() {
 
     .hero p {
       font-size: 1.15rem;
-      max-width: 42rem;
       color: var(--text-muted);
       margin-bottom: 2.5rem;
     }
@@ -251,11 +229,8 @@ function toggleMenu() {
       max-width: 560px;
       border-radius: var(--radius);
       box-shadow: 0 35px 90px rgba(0,0,0,0.45);
-      filter: contrast(1.05) saturate(1.05);
       justify-self: end;
     }
-
-    /* ================= FOOTER ================= */
 
     footer {
       text-align: center;
@@ -263,8 +238,6 @@ function toggleMenu() {
       font-size: 0.85rem;
       color: #94a3b8;
     }
-
-    /* ================= RESPONSIVE ================= */
 
     @media (max-width: 900px) {
       .hero-inner {
@@ -277,12 +250,7 @@ function toggleMenu() {
       }
 
       .hero-divider {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .nav-links {
-        display: none;
+        margin: auto;
       }
     }
   </style>
@@ -291,14 +259,12 @@ function toggleMenu() {
 <body>
 
 <header>
-  <header>
   <div class="nav">
     <div class="brand">
       <img src="logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
     </div>
 
-    <!-- Desktop Nav -->
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -310,13 +276,9 @@ function toggleMenu() {
 
     <a href="login.html" class="nav-cta">Portal Login</a>
 
-    <!-- Mobile Hamburger -->
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
-      ☰
-    </button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </div>
 
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -327,10 +289,8 @@ function toggleMenu() {
     <a href="login.html" class="mobile-portal">Portal Login</a>
   </div>
 
-  <!-- Overlay -->
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 </header>
-
 
 <section class="hero">
   <div class="hero-inner">
@@ -364,6 +324,23 @@ function toggleMenu() {
 <footer>
   © 2025 Revealed Bible College · Equipping leaders for the nations
 </footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("overlay");
+
+    const isOpen = menu.style.right === "0px";
+    menu.style.right = isOpen ? "-100%" : "0";
+    overlay.style.display = isOpen ? "none" : "block";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", toggleMenu);
+    });
+  });
+</script>
 
 </body>
 </html>
