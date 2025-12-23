@@ -262,3 +262,8 @@ header{
   margin-bottom: .75rem;
   display: inline-block;
 }
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
