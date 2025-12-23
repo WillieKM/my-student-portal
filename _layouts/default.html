@@ -4,83 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Revealed Bible College</title>
-  <meta name="description" content="Revealed Bible College provides Christ-centered biblical education for ministry, leadership, and global mission.">
+  <title>{{ page.title | default: "Revealed Bible College" }}</title>
+  <meta name="description" content="{{ page.description | default: "Christ-centered biblical education for ministry, leadership, and global mission." }}">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css">
-
-  <style>
-  
-
-    /* ================= HEADER ================= */
-
-  
-
-    /* ================= CTA ================= */
-
-    .catalogue-cta {
-      background: var(--navy);
-      padding: 4rem 2.5rem;
-      text-align: center;
-    }
-
-    .catalogue-cta a {
-      background: var(--gold);
-      color: black;
-      padding: 0.9rem 2rem;
-      border-radius: var(--radius);
-      font-weight: 700;
-      display: inline-block;
-      margin-top: 1.5rem;
-    }
-
-    /* ================= FOOTER ================= */
-
-    .site-footer {
-      background: #020617;
-      padding: 3rem 2.5rem;
-      color: #94a3b8;
-      text-align: center;
-    }
-
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body>
-
-<header>
-  <div class="nav">
-    <div class="brand">Revealed Bible College</div>
-    <nav class="nav-links">
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="admissions.html">Admissions</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <a href="login.html" class="nav-cta">Portal Login</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1>Forming Leaders for a Global Move of God</h1>
-      <div class="hero-divider"></div>
-      <p>Christ-centered biblical education equipping leaders for ministry and service.</p>
-    </div>
-  </div>
-</section>
-
-<section class="catalogue-cta">
-  <h2>Academic Catalogue</h2>
-  <p>View full program details and academic policies.</p>
-  <a href="catalogue-2025.pdf">View Catalogue</a>
-</section>
-
-<footer class="site-footer">
-  © 2025 Revealed Bible College. All rights reserved.
-</footer>
-
+  {{ content }}
 </body>
 </html>
-
