@@ -40,7 +40,9 @@
       <span>Revealed Bible College</span>
     </div>
 
+    <!-- Desktop Navigation -->
     <nav class="nav-links">
+      <a href="/index.html">Home</a>
       <a href="/about.html">About</a>
       <a href="/programs.html">Programs</a>
       <a href="/admissions.html">Admissions</a>
@@ -49,8 +51,29 @@
     </nav>
 
     <a href="/login.html" class="nav-cta">Portal Login</a>
+
+    <!-- Hamburger Button (MOBILE ONLY) -->
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      ☰
+    </button>
   </div>
 </header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <a href="/index.html">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/programs.html">Programs</a>
+  <a href="/admissions.html">Admissions</a>
+  <a href="/faculty.html">Faculty</a>
+  <a href="/contact.html">Contact</a>
+
+  <a href="/login.html" class="mobile-portal">Portal Login</a>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
 
 <main>
   {{ content }}
