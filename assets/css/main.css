@@ -164,19 +164,18 @@ body.menu-open {
     var(--navy-soft),
     var(--navy-dark)
   );
-  padding: 5rem 2.5rem 4rem;
+  padding: 4rem 2.5rem 3.5rem; /* REDUCED */
 }
 
-
-.hero-inner {
-  max-width: 1400px;
+.hero-page .hero-inner {
+  max-width: 1200px;
   margin: auto;
-  padding: 4.5rem 2.5rem;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  align-items: center;
+  padding: 0; /* CRITICAL: remove double padding */
+  display: block; /* REMOVE grid */
+  text-align: left;
 }
+
+
 
 .hero-content {
   max-width: 620px;
