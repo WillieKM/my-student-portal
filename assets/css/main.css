@@ -392,3 +392,12 @@ body.menu-open {
   }
 
 }
+@media (max-width: 900px) {
+
+  .cards-grid,
+  .programs-grid,
+  .values-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+}
