@@ -252,26 +252,43 @@
       min-height: calc(100vh - 80px);
     }
 
-    footer {
-      text-align: center;
-      padding: 1.2rem;
-      font-size: 0.85rem;
-      color: #94a3b8;
-    }
-  </style>
-</head>
+   <footer class="site-footer">
+  <div class="footer-inner">
 
-<body>
+    <div class="footer-brand">
+      <img src="logo.png" alt="Revealed Bible College Logo">
+      <p>
+        Revealed Bible College is committed to Christ-centered biblical education,
+        spiritual formation, and leadership development for service across cultures and nations.
+      </p>
+    </div>
 
-{% include header.html %}
+    <div class="footer-links">
+      <h4>Academics</h4>
+      <a href="programs.html">Programs</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="catalogue-2025.pdf" target="_blank">Academic Catalogue</a>
+    </div>
 
-<main>
-  {{ content }}
-</main>
+    <div class="footer-links">
+      <h4>Institution</h4>
+      <a href="about.html">About</a>
+      <a href="faculty.html">Faculty & Leadership</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-<footer>
-  © 2025 Revealed Bible College · Equipping leaders for the nations
+    <div class="footer-links">
+      <h4>Student Access</h4>
+      <a href="login.html">Student Portal</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Revealed Bible College. All rights reserved.
+  </div>
 </footer>
+
 
 <script>
   function toggleMenu() {
