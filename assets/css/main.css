@@ -267,3 +267,73 @@ button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
 }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background: var(--navy-dark);
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-portal {
+  margin-top: 1.5rem;
+  background: var(--gold);
+  color: black;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 800;
+  text-align: center;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
