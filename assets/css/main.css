@@ -1,3 +1,4 @@
+
 /* ================= ROOT ================= */
 :root {
   --navy-dark: #020617;
@@ -15,20 +16,11 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   font-family: "Inter", sans-serif;
   background: var(--navy-dark);
   color: #ffffff;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
+  min-height: 100vh;
 }
 
 a {
@@ -51,6 +43,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .brand {
@@ -63,12 +56,21 @@ header {
 
 .brand img {
   height: 42px;
+  width: auto;
 }
 
 .nav-links {
   display: flex;
   gap: 2rem;
   font-weight: 600;
+}
+
+.nav-links a {
+  opacity: 0.9;
+}
+
+.nav-links a:hover {
+  opacity: 1;
 }
 
 .nav-cta {
@@ -106,17 +108,32 @@ header {
   z-index: 1500;
 }
 
+.mobile-menu a {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 .mobile-menu.open {
   right: 0;
+}
+
+.mobile-portal {
+  margin-top: 1.5rem;
+  background: var(--gold);
+  color: #000;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 800;
+  text-align: center;
 }
 
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
   z-index: 1400;
 }
 
@@ -125,15 +142,34 @@ header {
   pointer-events: auto;
 }
 
-/* ================= HERO — HOME ONLY ================= */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ================= HOME HERO ================= */
 .hero-home {
   min-height: calc(100vh - 80px);
-  background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
+  background: radial-gradient(
+    1200px 500px at 20% 0%,
+    var(--navy-soft),
+    var(--navy-dark)
+  );
   display: flex;
   align-items: center;
 }
 
-.hero-home .hero-inner {
+/* ================= PAGE HERO (INNER PAGES) ================= */
+.hero-page {
+  background: radial-gradient(
+    1200px 500px at 20% 0%,
+    var(--navy-soft),
+    var(--navy-dark)
+  );
+  padding: 5rem 2.5rem 4rem;
+}
+
+
+.hero-inner {
   max-width: 1400px;
   margin: auto;
   padding: 4.5rem 2.5rem;
@@ -143,42 +179,29 @@ header {
   align-items: center;
 }
 
-/* ================= HERO — INNER PAGES ================= */
-.hero-page {
-  background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
-  padding: 4.5rem 2.5rem 3.5rem;
+.hero-content {
+  max-width: 620px;
 }
 
-.hero-page .hero-inner {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-  display: block;
-}
-
-/* ================= HERO TEXT ================= */
 .hero h1 {
-  font-size: clamp(2.6rem, 4vw, 3.6rem);
+  font-size: clamp(2.8rem, 4.5vw, 3.9rem);
   font-weight: 900;
-  line-height: 1.08;
-  margin-bottom: 1.25rem;
+  line-height: 1.05;
+  margin-bottom: 1.2rem;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   color: var(--text-muted);
   line-height: 1.6;
-  max-width: 720px;
-  margin: 0 auto;
+  margin-bottom: 1.4rem;
 }
 
-/* ================= HERO ACTIONS ================= */
 .hero-actions {
   display: flex;
   gap: 1rem;
-  justify-content: center;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 .btn-primary {
@@ -196,18 +219,26 @@ header {
   border-radius: var(--radius);
 }
 
-/* ================= TRUST LIST (HOME ONLY) ================= */
 .hero-trust {
   list-style: none;
   margin-top: 2rem;
+  padding-left: 0;
   color: var(--text-muted);
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 .hero-trust li::before {
   content: "✓";
   color: var(--gold);
-  margin-right: .45rem;
+  margin-right: 0.45rem;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  justify-self: end;
 }
 
 /* ================= WHITE SECTION ================= */
@@ -222,6 +253,18 @@ header {
   margin: auto;
 }
 
+.section-white h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-white p {
+  color: #334155;
+  line-height: 1.6;
+  max-width: 900px;
+}
+
 /* ================= CARDS ================= */
 .card-grid {
   margin-top: 3rem;
@@ -234,19 +277,32 @@ header {
   background: #ffffff;
   border-radius: var(--radius);
   padding: 2.5rem;
-  box-shadow: 0 30px 60px rgba(2,6,23,.08);
-  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 30px 60px rgba(2, 6, 23, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 40px 80px rgba(2,6,23,.12);
+  box-shadow: 0 40px 80px rgba(2, 6, 23, 0.12);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  color: var(--navy);
+}
+
+.card p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
   background: #020617;
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding: 2.5rem 2.5rem 1.75rem;
 }
 
@@ -258,7 +314,16 @@ header {
 
 .footer-inner p {
   color: #94a3b8;
-  font-size: .9rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* ================= ACCESSIBILITY ================= */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -272,13 +337,25 @@ header {
     display: block;
   }
 
-  .hero-home .hero-inner {
+  .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.5rem;
   }
 
-  .hero-home img {
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero img {
     max-width: 90%;
     margin: 2rem auto 0;
   }
-}
+
+  .hero-trust {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+} 
