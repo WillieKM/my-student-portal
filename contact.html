@@ -1,72 +1,281 @@
----
-layout: default
-title: Contact Us | Revealed Bible College
-description: Contact Revealed Bible College for admissions, programs, and general inquiries.
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Revealed Bible College</title>
+
+  <meta name="description" content="Contact Revealed Bible College for admissions, programs, or general inquiries. We are here to help you take the next step in your calling.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy-dark: #020617;
+      --navy: #0b2c64;
+      --navy-soft: #1e40af;
+      --gold: #f4b400;
+      --text-light: #e5e7eb;
+      --text-muted: #c7d2fe;
+      --radius: 1.25rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--navy-dark);
+      color: white;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: linear-gradient(90deg, var(--navy), var(--navy-dark));
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1400px;
+      margin: auto;
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .brand img {
+      height: 42px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: black;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
+      padding: 6rem 2.5rem 4rem;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-divider {
+      width: 70px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* ================= CONTENT ================= */
+
+    .content {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .card {
+      border: 1px solid #1e40af;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      background: #020617;
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .contact-item {
+      margin-bottom: 1rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .cta-box {
+      margin-top: 2rem;
+    }
+
+    .cta-box a {
+      display: inline-block;
+      background: var(--gold);
+      color: black;
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="logo.png" alt="Revealed Bible College Logo">
+      <span>Revealed Bible College</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a href="login.html" class="nav-cta">Portal Login</a>
+  </div>
+</header>
+
 <section class="hero">
   <div class="hero-inner">
-    <div>
-      <h1>Contact Us</h1>
-      <div class="hero-divider"></div>
+    <h1>Contact Us</h1>
+    <div class="hero-divider"></div>
+    <p>
+      We are here to help you take the next step in your calling and education.
+      Reach out to us with questions about admissions, programs, or enrollment.
+    </p>
+  </div>
+</section>
+
+<section class="content">
+
+  <!-- CONTACT INFO -->
+  <div class="card">
+    <h2>Admissions & General Inquiries</h2>
+
+    <div class="contact-item">
+      <strong>Email</strong>
+      admissions@revealedbiblecollege.com
+    </div>
+
+    <div class="contact-item">
+      <strong>Office Hours</strong>
+      Monday – Friday<br>
+      9:00 AM – 5:00 PM (Local Time)
+    </div>
+
+    <div class="contact-item">
+      <strong>Location</strong>
+      Serving students locally and worldwide through online and ministry-based programs.
+    </div>
+
+    <div class="cta-box">
       <p>
-        We are here to help you take the next step in your calling and education.
-        Reach out to us with questions about admissions, programs, or enrollment.
+        If you are considering enrollment or would like more information,
+        our admissions team would be honored to assist you.
       </p>
+      <a href="admissions.html">Explore Admissions</a>
     </div>
   </div>
-</section>
 
-<section class="layout" style="max-width:1200px;margin:4rem auto;padding:0 2rem;display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;">
-  
-  <!-- Contact Form -->
-  <div class="card" style="background:#0b2c64;padding:2.5rem;border-radius:1.1rem;">
-    <h2>Send Us a Message</h2>
+  <!-- NEXT STEPS -->
+  <div class="card">
+    <h2>Next Steps</h2>
+    <p>
+      Whether you are beginning your journey or continuing your ministry training,
+      we encourage you to take the next step today.
+    </p>
 
-    <form id="contactForm">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="text" placeholder="Subject" />
-      <textarea placeholder="Your message" required></textarea>
-      <button type="submit" class="btn-primary" style="margin-top:1rem;">
-        Send Message
-      </button>
-    </form>
+    <div class="cta-box">
+      <a href="programs.html">View Programs</a>
+    </div>
+
+    <div class="cta-box">
+      <a href="faculty.html">Meet Our Faculty</a>
+    </div>
   </div>
 
-  <!-- Contact Info -->
-  <aside class="info" style="color:#c7d2fe;">
-    <h3 style="color:white;">Admissions Office</h3>
-    <p>Email: admissions@revealedbiblecollege.com</p>
-
-    <h3 style="color:white;margin-top:1.5rem;">General Inquiries</h3>
-    <p>Email: info@revealedbiblecollege.com</p>
-
-    <h3 style="color:white;margin-top:1.5rem;">Office Hours</h3>
-    <p>
-      Monday – Friday<br>
-      9:00 AM – 5:00 PM
-    </p>
-  </aside>
 </section>
 
-<!-- Firebase Contact Form Script -->
-<script type="module">
-  import { db } from './firebase.js'
-  import { collection, addDoc } from
-    'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'
+<footer>
+  © 2025 Revealed Bible College · Contact & Admissions
+</footer>
 
-  document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    await addDoc(collection(db, 'contactMessages'), {
-      name: e.target[0].value,
-      email: e.target[1].value,
-      subject: e.target[2].value,
-      message: e.target[3].value,
-      timestamp: new Date()
-    })
-
-    alert('Message sent successfully!')
-    e.target.reset()
-  })
-</script>
+</body>
+</html>
