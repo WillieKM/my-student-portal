@@ -111,9 +111,9 @@
       color: var(--text-muted);
     }
 
-    /* ================= CONTENT ================= */
+    /* ================= DARK CONTENT ================= */
 
-    .content {
+    .content-dark {
       max-width: 1200px;
       margin: auto;
       padding: 4rem 2.5rem;
@@ -135,52 +135,80 @@
       font-size: 1.05rem;
     }
 
-    /* ================= VALUES ================= */
+    /* ================= LIGHT SECTION ================= */
+
+    .light-section {
+      background: #f8fafc;
+      color: #020617;
+      padding: 5rem 2.5rem;
+    }
+
+    .light-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .light-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #020617;
+    }
+
+    .light-section p {
+      max-width: 900px;
+      color: #334155;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    /* ================= VALUES (LIGHT) ================= */
 
     .values-grid {
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
     }
 
     .value-card {
-      border: 1px solid #1e40af;
+      background: white;
       border-radius: var(--radius);
       padding: 2rem;
-      background: #020617;
+      box-shadow: 0 20px 50px rgba(2, 6, 23, 0.08);
+      border-top: 4px solid var(--navy);
     }
 
     .value-card h3 {
       font-size: 1.2rem;
-      color: var(--gold);
+      color: var(--navy);
       margin-bottom: 0.5rem;
     }
 
     .value-card p {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: #475569;
       line-height: 1.5;
     }
 
-    /* ================= CTA ================= */
+    /* ================= CTA (LIGHT) ================= */
 
     .cta {
       margin-top: 4rem;
       padding: 3rem;
       text-align: center;
-      border: 1px solid #1e40af;
+      background: white;
       border-radius: var(--radius);
-      background: #020617;
+      box-shadow: 0 20px 50px rgba(2, 6, 23, 0.08);
     }
 
     .cta h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      color: #020617;
     }
 
     .cta p {
-      color: var(--text-muted);
+      color: #475569;
       margin-bottom: 2rem;
     }
 
@@ -200,6 +228,7 @@
       padding: 1.5rem;
       font-size: 0.85rem;
       color: #94a3b8;
+      background: var(--navy-dark);
     }
 
     /* ================= RESPONSIVE ================= */
@@ -243,7 +272,7 @@
   </p>
 </section>
 
-<section class="content">
+<section class="content-dark">
 
   <div class="section">
     <h2>Our Mission</h2>
@@ -264,10 +293,19 @@
     </p>
   </div>
 
-  <div class="section">
+</section>
+
+<section class="light-section">
+  <div class="light-inner">
+
     <h2>Core Values</h2>
+    <p>
+      Our values guide our academic standards, spiritual formation,
+      and leadership development across every program and learning environment.
+    </p>
 
     <div class="values-grid">
+
       <div class="value-card">
         <h3>Biblical Authority</h3>
         <p>
@@ -299,19 +337,20 @@
           compassion, and a heart for mission.
         </p>
       </div>
+
     </div>
-  </div>
 
-  <div class="cta">
-    <h2>Begin Your Journey</h2>
-    <p>
-      Whether you are called to pastoral ministry, missions, leadership,
-      or deeper biblical study, Revealed Bible College offers pathways
-      to support your calling.
-    </p>
-    <a href="programs.html">Explore Academic Programs</a>
-  </div>
+    <div class="cta">
+      <h2>Begin Your Journey</h2>
+      <p>
+        Whether you are called to pastoral ministry, missions, leadership,
+        or deeper biblical study, Revealed Bible College offers pathways
+        to support your calling.
+      </p>
+      <a href="programs.html">Explore Academic Programs</a>
+    </div>
 
+  </div>
 </section>
 
 <footer>
