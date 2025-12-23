@@ -384,3 +384,22 @@ button:focus-visible {
   margin-left: auto;
   margin-right: auto;
 }
+/* ================= FACULTY IMAGES ================= */
+.faculty-card {
+  text-align: center;
+}
+
+.faculty-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  border: 3px solid var(--gold);
+}
+
+.faculty-card .role {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
