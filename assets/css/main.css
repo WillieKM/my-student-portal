@@ -314,12 +314,11 @@ body.menu-open {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+/* ================= FOOTER (FINAL – FIXED) ================= */
 
-/* ================= FOOTER ================= */
 .site-footer {
   background: #020617;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 2.5rem 2.5rem 1.75rem;
+  padding: 2.75rem 2.5rem 2.25rem;
 }
 
 .footer-inner {
@@ -329,10 +328,23 @@ body.menu-open {
 }
 
 .footer-inner p {
-  color: #94a3b8;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  margin: 0;
 }
+
+.footer-brand {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 0.35rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+
+
 
 
 /* ================= ACCESSIBILITY ================= */
