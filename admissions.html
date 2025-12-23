@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admissions | Revealed Bible College</title>
 
-  <meta name="description" content="Apply to Revealed Bible College. Learn about admissions requirements, application steps, and how to begin your journey in ministry and leadership.">
+  <meta name="description" content="Admissions at Revealed Bible College. Learn who should apply, admissions requirements, and how to begin your journey in biblical education and ministry leadership.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -87,11 +87,7 @@
     .hero {
       background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
       padding: 6rem 2.5rem 4rem;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      margin: auto;
+      text-align: center;
     }
 
     .hero h1 {
@@ -105,85 +101,100 @@
       height: 4px;
       background: var(--gold);
       border-radius: 999px;
-      margin-bottom: 1.5rem;
+      margin: 0 auto 1.5rem;
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 820px;
+      margin: auto;
       font-size: 1.1rem;
       color: var(--text-muted);
     }
 
-    /* ================= CONTENT ================= */
+    /* ================= ADMISSIONS (DARK) ================= */
 
-    .content {
+    .admissions-section {
       max-width: 1200px;
       margin: auto;
       padding: 4rem 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
     }
 
-    .card {
-      border: 1px solid #1e40af;
+    .admissions-grid {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .admissions-card {
+      background: #020617;
       border-radius: var(--radius);
       padding: 2.5rem;
-      background: #020617;
+      border: 1px solid #1e40af;
     }
 
-    .card h2 {
-      font-size: 1.6rem;
+    .admissions-card h3 {
+      font-size: 1.25rem;
       margin-bottom: 1rem;
     }
 
-    .card p {
+    .admissions-card p {
+      font-size: 0.95rem;
       color: var(--text-muted);
+      line-height: 1.6;
       margin-bottom: 1rem;
-      line-height: 1.5;
     }
 
-    .list {
-      margin-top: 1rem;
+    .admissions-card ul {
+      list-style: none;
+      padding-left: 0;
     }
 
-    .list li {
-      margin-bottom: 0.75rem;
-      color: var(--text-light);
+    .admissions-card li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
     }
 
-    .list li::before {
-      content: "✓";
+    .admissions-card li::before {
+      content: "✓ ";
       color: var(--gold);
-      margin-right: 0.5rem;
+      font-weight: bold;
     }
 
-    .steps {
-      counter-reset: step;
-    }
-
-    .step {
-      margin-bottom: 1.5rem;
-    }
-
-    .step strong {
-      display: block;
-      color: var(--gold);
-      margin-bottom: 0.25rem;
-    }
-
-    .cta {
-      margin-top: 2rem;
-    }
-
-    .cta a {
+    .admissions-card a {
       display: inline-block;
+      margin-top: 1rem;
       background: var(--gold);
       color: black;
-      padding: 0.9rem 2rem;
-      border-radius: var(--radius);
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
       font-weight: 700;
-      margin-top: 1rem;
+    }
+
+    /* ================= LIGHT SECTION ================= */
+
+    .light-section {
+      background: #f8fafc;
+      color: #020617;
+      padding: 5rem 2.5rem;
+    }
+
+    .light-inner {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .light-inner h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .light-inner p {
+      color: #334155;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
     /* ================= FOOTER ================= */
@@ -193,15 +204,12 @@
       padding: 1.5rem;
       font-size: 0.85rem;
       color: #94a3b8;
+      background: var(--navy-dark);
     }
 
     /* ================= RESPONSIVE ================= */
 
     @media (max-width: 900px) {
-      .content {
-        grid-template-columns: 1fr;
-      }
-
       .nav-links {
         display: none;
       }
@@ -232,88 +240,76 @@
 </header>
 
 <section class="hero">
-  <div class="hero-inner">
-    <h1>Admissions</h1>
-    <div class="hero-divider"></div>
-    <p>
-      At Revealed Bible College, admissions is more than an application process.
-      It is a step of faith toward preparation for ministry, leadership, and service.
-    </p>
-  </div>
+  <h1>Admissions</h1>
+  <div class="hero-divider"></div>
+  <p>
+    At Revealed Bible College, admissions is more than an application process.
+    It is a step of faith toward preparation for ministry, leadership, and service.
+  </p>
 </section>
 
-<section class="content">
+<section class="admissions-section">
 
-  <!-- WHO SHOULD APPLY -->
-  <div class="card">
-    <h2>Who Should Apply</h2>
-    <p>
-      Revealed Bible College welcomes students who sense a calling to grow in biblical
-      knowledge, ministry leadership, and Christian service.
-    </p>
+  <div class="admissions-grid">
 
-    <ul class="list">
-      <li>Individuals called to ministry or leadership</li>
-      <li>Pastors, ministers, and church workers</li>
-      <li>Christian leaders seeking theological training</li>
-      <li>Believers desiring deeper biblical understanding</li>
-    </ul>
-  </div>
-
-  <!-- ADMISSIONS PROCESS -->
-  <div class="card">
-    <h2>Admissions Process</h2>
-
-    <div class="step">
-      <strong>Step 1: Review Programs</strong>
-      <p>Explore our academic programs and identify the track that aligns with your calling.</p>
+    <div class="admissions-card">
+      <h3>Who Should Apply</h3>
+      <p>
+        Revealed Bible College welcomes students who sense a calling
+        to grow in biblical knowledge, ministry leadership, and Christian service.
+      </p>
+      <ul>
+        <li>Individuals called to ministry or leadership</li>
+        <li>Pastors, ministers, and church workers</li>
+        <li>Christian leaders seeking theological training</li>
+        <li>Believers desiring deeper biblical understanding</li>
+      </ul>
     </div>
 
-    <div class="step">
-      <strong>Step 2: Submit Inquiry</strong>
-      <p>Contact our admissions office to request information and guidance.</p>
+    <div class="admissions-card">
+      <h3>Admissions Process</h3>
+      <p><strong>Step 1:</strong> Review Programs</p>
+      <p><strong>Step 2:</strong> Submit Inquiry</p>
+      <p><strong>Step 3:</strong> Application Review</p>
+      <p><strong>Step 4:</strong> Enrollment & Next Steps</p>
     </div>
 
-    <div class="step">
-      <strong>Step 3: Application Review</strong>
-      <p>Your application is prayerfully reviewed for readiness and alignment.</p>
+    <div class="admissions-card">
+      <h3>General Requirements</h3>
+      <p>
+        Admissions decisions are based on spiritual maturity,
+        commitment to Christian values, and readiness for academic study.
+      </p>
+      <ul>
+        <li>Personal testimony of faith</li>
+        <li>Commitment to Christian conduct</li>
+        <li>Ability to participate in coursework</li>
+        <li>Willingness to grow spiritually and academically</li>
+      </ul>
     </div>
 
-    <div class="step">
-      <strong>Step 4: Enrollment</strong>
-      <p>Once accepted, you will receive enrollment instructions and next steps.</p>
-    </div>
-  </div>
-
-  <!-- REQUIREMENTS -->
-  <div class="card">
-    <h2>General Requirements</h2>
-    <p>
-      Admissions decisions are based on spiritual maturity, commitment to Christian values,
-      and readiness for academic study.
-    </p>
-
-    <ul class="list">
-      <li>Personal testimony of faith</li>
-      <li>Commitment to Christian conduct</li>
-      <li>Ability to participate in academic coursework</li>
-      <li>Willingness to grow spiritually and academically</li>
-    </ul>
-  </div>
-
-  <!-- NEXT STEPS -->
-  <div class="card">
-    <h2>Begin Your Journey</h2>
-    <p>
-      If you believe God is leading you to take the next step in ministry preparation,
-      we encourage you to begin the admissions conversation today.
-    </p>
-
-    <div class="cta">
+    <div class="admissions-card">
+      <h3>Begin Your Journey</h3>
+      <p>
+        If you believe God is leading you to take the next step
+        in ministry preparation, we encourage you to begin the admissions conversation today.
+      </p>
       <a href="contact.html">Contact Admissions</a>
     </div>
+
   </div>
 
+</section>
+
+<section class="light-section">
+  <div class="light-inner">
+    <h2>Preparing You for Ministry and Leadership</h2>
+    <p>
+      Our admissions process is designed to support spiritual discernment,
+      academic readiness, and personal growth. We are honored to walk alongside
+      students as they prepare to serve the Church and impact the world through Christ-centered leadership.
+    </p>
+  </div>
 </section>
 
 <footer>
