@@ -30,6 +30,23 @@
 </script>
 
 </head>
+<script>
+  const menu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("overlay");
+
+  function toggleMenu() {
+    const isOpen = menu.classList.contains("open");
+
+    menu.classList.toggle("open", !isOpen);
+    overlay.classList.toggle("active", !isOpen);
+    document.body.classList.toggle("menu-open", !isOpen);
+  }
+
+  // Close menu when clicking links
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", toggleMenu);
+  });
+</script>
 
 <body>
 
