@@ -175,6 +175,24 @@ body.menu-open {
   text-align: left;
 }
 
+.hero-page h1 {
+  font-size: clamp(2.6rem, 4.5vw, 3.4rem);
+  margin-bottom: 0.75rem;
+}
+.hero-page h1 {
+  font-size: clamp(2.6rem, 4.5vw, 3.4rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-page p {
+  max-width: 720px;
+  margin-top: 0.75rem;
+}
+
+.hero-page p {
+  max-width: 720px;
+  margin-top: 0.75rem;
+}
 
 
 .hero-content {
