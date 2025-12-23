@@ -145,8 +145,8 @@ body.menu-open {
   overflow: hidden;
 }
 
-/* ================= HERO ================= */
-.hero {
+/* ================= HOME HERO ================= */
+.hero-home {
   min-height: calc(100vh - 80px);
   background: radial-gradient(
     1200px 500px at 20% 0%,
@@ -156,6 +156,17 @@ body.menu-open {
   display: flex;
   align-items: center;
 }
+
+/* ================= PAGE HERO (INNER PAGES) ================= */
+.hero-page {
+  background: radial-gradient(
+    1200px 500px at 20% 0%,
+    var(--navy-soft),
+    var(--navy-dark)
+  );
+  padding: 5rem 2.5rem 4rem;
+}
+
 
 .hero-inner {
   max-width: 1400px;
