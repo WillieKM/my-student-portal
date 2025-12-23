@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{{ page.title }}</title>
+  <title>Revealed Bible College</title>
+  <meta name="description" content="Revealed Bible College provides Christ-centered biblical education for ministry, leadership, and global mission.">
 
-  <meta name="description" content="{{ page.description | default: 'Revealed Bible College provides Christ-centered biblical education for ministry, leadership, and global mission.' }}">
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Inline styles for now (we will extract later) -->
   <style>
     :root {
       --navy-dark: #020617;
@@ -23,7 +20,7 @@
     }
 
     * {
-      box-sizing: border-box;
+      box-sizing: border-box; /* updated */
       margin: 0;
       padding: 0;
     }
@@ -39,108 +36,6 @@
       text-decoration: none;
       color: inherit;
     }
-/* ================= HERO ================= */
-
-.hero {
-  min-height: calc(100vh - 80px);
-  background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
-  display: flex;
-  align-items: center;
-}
-
-.hero-inner {
-  max-width: 1400px;
-  margin: auto;
-  padding: 4rem 2.5rem;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: clamp(3rem, 5vw, 4.2rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.hero-divider {
-  width: 80px;
-  height: 4px;
-  background: var(--gold);
-  border-radius: 999px;
-  margin-bottom: 1.8rem;
-}
-
-.hero p {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  max-width: 42rem;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: var(--gold);
-  color: black;
-  padding: 0.9rem 2rem;
-  border-radius: var(--radius);
-  font-weight: 700;
-}
-
-.btn-secondary {
-  border: 1px solid #93c5fd;
-  color: #e0e7ff;
-  padding: 0.9rem 2rem;
-  border-radius: var(--radius);
-}
-
-.hero-trust {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  list-style: none;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  flex-wrap: wrap;
-}
-
-.hero-trust li::before {
-  content: "✓";
-  color: var(--gold);
-  margin-right: 0.4rem;
-}
-
-.hero img {
-  width: 100%;
-  max-width: 560px;
-  border-radius: var(--radius);
-  box-shadow: 0 35px 90px rgba(0,0,0,0.45);
-  justify-self: end;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero img {
-    justify-self: center;
-  }
-
-  .hero-divider {
-    margin: auto;
-  }
-}
 
     /* ================= HEADER ================= */
 
@@ -165,17 +60,11 @@
       align-items: center;
       gap: 0.75rem;
       font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .brand img {
-      height: 42px;
     }
 
     .nav-links {
       display: flex;
       gap: 2rem;
-      font-weight: 500;
     }
 
     .nav-cta {
@@ -186,135 +75,108 @@
       font-weight: 700;
     }
 
-    /* ================= MOBILE NAV ================= */
+    /* ================= HERO ================= */
 
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 260px;
-      height: 100vh;
-      background: #020617;
-      padding: 2.5rem 1.5rem;
+    .hero {
+      min-height: calc(100vh - 80px);
+      background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
       display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-      transition: right 0.3s ease;
-      z-index: 100;
+      align-items: center;
     }
 
-    .mobile-menu a {
-      font-size: 1.1rem;
-      font-weight: 500;
+    .hero-inner {
+      max-width: 1400px;
+      margin: auto;
+      padding: 4rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .mobile-portal {
-      margin-top: 1.5rem;
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 4.2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 4px;
       background: var(--gold);
-      color: black;
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 700;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ================= CTA ================= */
+
+    .catalogue-cta {
+      background: var(--navy);
+      padding: 4rem 2.5rem;
       text-align: center;
     }
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      display: none;
-      z-index: 90;
+    .catalogue-cta a {
+      background: var(--gold);
+      color: black;
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 1.5rem;
     }
 
-    @media (max-width: 900px) {
-      .nav-links,
-      .nav-cta {
-        display: none;
-      }
+    /* ================= FOOTER ================= */
 
-      .hamburger {
-        display: block;
-      }
+    .site-footer {
+      background: #020617;
+      padding: 3rem 2.5rem;
+      color: #94a3b8;
+      text-align: center;
     }
+  </style>
+</head>
 
-    /* ================= PAGE CONTENT ================= */
+<body>
 
-    main {
-      min-height: calc(100vh - 80px);
-    }
-<section class="catalogue-cta">
-  <h2>Academic Catalogue</h2>
-  <p>
-    View full program details, course descriptions, graduation requirements,
-    and academic policies for Revealed Bible College.
-  </p>
-  <a href="catalogue-2025.pdf" target="_blank">View Academic Catalogue</a>
-</section>
-
-   <footer class="site-footer">
-  <div class="footer-inner">
-
-    <div class="footer-brand">
-      <img src="logo.png" alt="Revealed Bible College Logo">
-      <p>
-        Revealed Bible College is committed to Christ-centered biblical education,
-        spiritual formation, and leadership development for service across cultures and nations.
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Academics</h4>
+<header>
+  <div class="nav">
+    <div class="brand">Revealed Bible College</div>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="admissions.html">Admissions</a>
-      <a href="catalogue-2025.pdf" target="_blank">Academic Catalogue</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>Institution</h4>
-      <a href="about.html">About</a>
-      <a href="faculty.html">Faculty & Leadership</a>
       <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>Student Access</h4>
-      <a href="login.html">Student Portal</a>
-    </div>
-
+    </nav>
+    <a href="login.html" class="nav-cta">Portal Login</a>
   </div>
+</header>
 
-  <div class="footer-bottom">
-    © 2025 Revealed Bible College. All rights reserved.
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Forming Leaders for a Global Move of God</h1>
+      <div class="hero-divider"></div>
+      <p>Christ-centered biblical education equipping leaders for ministry and service.</p>
+    </div>
   </div>
+</section>
+
+<section class="catalogue-cta">
+  <h2>Academic Catalogue</h2>
+  <p>View full program details and academic policies.</p>
+  <a href="catalogue-2025.pdf">View Catalogue</a>
+</section>
+
+<footer class="site-footer">
+  © 2025 Revealed Bible College. All rights reserved.
 </footer>
 
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("mobileMenu");
-    const overlay = document.getElementById("overlay");
-
-    const isOpen = menu.style.right === "0px";
-    menu.style.right = isOpen ? "-100%" : "0";
-    overlay.style.display = isOpen ? "none" : "block";
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-      link.addEventListener("click", toggleMenu);
-    });
-  });
-</script>
-
-    
 </body>
 </html>
+
