@@ -401,3 +401,17 @@ body.menu-open {
   }
 
 }
+/* ===== Compact Page Hero ===== */
+.hero--compact {
+  min-height: 420px;
+  align-items: flex-end;
+}
+
+.hero--compact .hero-inner {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+.hero--compact h1 {
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+}
