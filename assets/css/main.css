@@ -378,3 +378,17 @@ body.menu-open {
     padding-top: 0;
   }
 }
+@media (max-width: 900px) {
+
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero img {
+    margin-top: 2rem;
+    max-width: 90%;
+    justify-self: center;
+  }
+
+}
