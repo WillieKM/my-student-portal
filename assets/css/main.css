@@ -344,3 +344,26 @@ body.menu-open {
   z-index: 1100; /* higher than header, menu, overlay */
   pointer-events: auto;
 }
+/* ================= MOBILE OVERRIDES (FINAL AUTHORITY) ================= */
+@media (max-width: 900px) {
+
+  /* Hide desktop nav completely */
+  .nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: block !important;
+    position: relative;
+    z-index: 2000;
+  }
+
+  /* Ensure nav container does not block clicks */
+  .nav {
+    position: relative;
+    z-index: 100;
+  }
+
+}
