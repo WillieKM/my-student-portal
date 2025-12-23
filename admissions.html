@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admissions | Revealed Bible College</title>
 
-  <!-- Font -->
+  <meta name="description" content="Apply to Revealed Bible College. Learn about admissions requirements, application steps, and how to begin your journey in ministry and leadership.">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -14,8 +15,9 @@
       --navy: #0b2c64;
       --navy-soft: #1e40af;
       --gold: #f4b400;
+      --text-light: #e5e7eb;
       --text-muted: #c7d2fe;
-      --radius: 1.1rem;
+      --radius: 1.25rem;
     }
 
     * {
@@ -28,9 +30,13 @@
       font-family: "Inter", sans-serif;
       background: var(--navy-dark);
       color: white;
+      min-height: 100vh;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     /* ================= HEADER ================= */
 
@@ -44,10 +50,10 @@
     .nav {
       max-width: 1400px;
       margin: auto;
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .brand {
@@ -55,10 +61,11 @@
       align-items: center;
       gap: 0.75rem;
       font-weight: 700;
+      font-size: 1.1rem;
     }
 
     .brand img {
-      height: 40px;
+      height: 42px;
     }
 
     .nav-links {
@@ -78,125 +85,112 @@
     /* ================= HERO ================= */
 
     .hero {
-      padding: 5rem 2rem 4rem;
-      text-align: center;
-      background: radial-gradient(1000px 400px at 50% 0%, var(--navy-soft), var(--navy-dark));
+      background: radial-gradient(1200px 500px at 20% 0%, var(--navy-soft), var(--navy-dark));
+      padding: 6rem 2.5rem 4rem;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
     }
 
     .hero h1 {
-      font-size: clamp(2.6rem, 5vw, 3.6rem);
+      font-size: clamp(2.8rem, 4.5vw, 3.6rem);
       font-weight: 800;
       margin-bottom: 1rem;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-
-    /* ================= INTRO ================= */
-
-    .intro {
-      max-width: 900px;
-      margin: 4rem auto 2rem;
-      padding: 0 2rem;
-      text-align: center;
-    }
-
-    .steps {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .steps div {
-      background: #0b2c64;
-      padding: 1rem 1.5rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-    }
-
-    /* ================= LAYOUT ================= */
-
-    .layout {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
-    }
-
-    /* ================= FORM ================= */
-
-    .card {
-      background: #0b2c64;
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-    }
-
-    .card h2 {
+    .hero-divider {
+      width: 70px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 999px;
       margin-bottom: 1.5rem;
     }
 
-    .card input,
-    .card select,
-    .card textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border-radius: 0.7rem;
-      border: none;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--gold);
-      color: black;
-      padding: 0.9rem;
-      font-weight: 700;
-      border-radius: 0.8rem;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    /* ================= INFO PANEL ================= */
-
-    .info {
+    .hero p {
+      max-width: 760px;
+      font-size: 1.1rem;
       color: var(--text-muted);
     }
 
-    .info h3 {
-      color: white;
+    /* ================= CONTENT ================= */
+
+    .content {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .card {
+      border: 1px solid #1e40af;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      background: #020617;
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .list {
+      margin-top: 1rem;
+    }
+
+    .list li {
       margin-bottom: 0.75rem;
+      color: var(--text-light);
     }
 
-    .info ul {
-      margin-bottom: 2rem;
-      list-style: none;
+    .list li::before {
+      content: "✓";
+      color: var(--gold);
+      margin-right: 0.5rem;
     }
 
-    .info li {
-      margin-bottom: 0.5rem;
+    .steps {
+      counter-reset: step;
+    }
+
+    .step {
+      margin-bottom: 1.5rem;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .cta {
+      margin-top: 2rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: var(--gold);
+      color: black;
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      margin-top: 1rem;
     }
 
     /* ================= FOOTER ================= */
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1.5rem;
       font-size: 0.85rem;
       color: #94a3b8;
     }
@@ -204,7 +198,7 @@
     /* ================= RESPONSIVE ================= */
 
     @media (max-width: 900px) {
-      .layout {
+      .content {
         grid-template-columns: 1fr;
       }
 
@@ -220,7 +214,7 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="/logo.png" alt="RBC Logo">
+      <img src="logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
     </div>
 
@@ -229,6 +223,7 @@
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -237,98 +232,92 @@
 </header>
 
 <section class="hero">
-  <h1>Admissions</h1>
-  <p>Begin your journey in biblical education, ministry preparation, and Christian leadership.</p>
-</section>
-
-<section class="intro">
-  <p>Applying to Revealed Bible College is simple. Submit your application below and our admissions team will guide you through the next steps.</p>
-
-  <div class="steps">
-    <div>1. Submit Application</div>
-    <div>2. Review & Interview</div>
-    <div>3. Enrollment Confirmation</div>
+  <div class="hero-inner">
+    <h1>Admissions</h1>
+    <div class="hero-divider"></div>
+    <p>
+      At Revealed Bible College, admissions is more than an application process.
+      It is a step of faith toward preparation for ministry, leadership, and service.
+    </p>
   </div>
 </section>
 
-<section class="layout">
+<section class="content">
+
+  <!-- WHO SHOULD APPLY -->
   <div class="card">
-    <h2>Apply for Admission</h2>
+    <h2>Who Should Apply</h2>
+    <p>
+      Revealed Bible College welcomes students who sense a calling to grow in biblical
+      knowledge, ministry leadership, and Christian service.
+    </p>
 
-    <form id="admissionsForm">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" />
-
-      <select required>
-        <option value="">Select Program</option>
-        <option>Diploma in Biblical Studies</option>
-        <option>Certificate in Pastoral Ministry</option>
-        <option>Advanced Christian Leadership</option>
-      </select>
-
-      <select>
-        <option value="">Preferred Start Term</option>
-        <option>Spring</option>
-        <option>Summer</option>
-        <option>Fall</option>
-      </select>
-
-      <textarea placeholder="Tell us about your calling or goals"></textarea>
-
-      <button class="submit-btn">Submit Application</button>
-    </form>
-
-    <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "REDACTED",
-  authDomain: "universityportal-prod.firebaseapp.com",
-  projectId: "universityportal-prod"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-document.getElementById("admissionsForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const fields = e.target.elements;
-
-  await addDoc(collection(db, "admissions"), {
-    name: fields[0].value,
-    email: fields[1].value,
-    phone: fields[2].value,
-    program: fields[3].value,
-    term: fields[4].value,
-    goals: fields[5].value,
-    submittedAt: new Date()
-  });
-
-  alert("Application submitted successfully!");
-  e.target.reset();
-});
-</script>
-
+    <ul class="list">
+      <li>Individuals called to ministry or leadership</li>
+      <li>Pastors, ministers, and church workers</li>
+      <li>Christian leaders seeking theological training</li>
+      <li>Believers desiring deeper biblical understanding</li>
+    </ul>
   </div>
 
-  <aside class="info">
-    <h3>Who Can Apply?</h3>
-    <ul>
-      <li>✔ New & returning students</li>
-      <li>✔ Pastors & ministry leaders</li>
-      <li>✔ Online & distance learners</li>
-    </ul>
+  <!-- ADMISSIONS PROCESS -->
+  <div class="card">
+    <h2>Admissions Process</h2>
 
-    <h3>Need Help?</h3>
-    <p>Email: admissions@revealedbiblecollege.com</p>
-  </aside>
+    <div class="step">
+      <strong>Step 1: Review Programs</strong>
+      <p>Explore our academic programs and identify the track that aligns with your calling.</p>
+    </div>
+
+    <div class="step">
+      <strong>Step 2: Submit Inquiry</strong>
+      <p>Contact our admissions office to request information and guidance.</p>
+    </div>
+
+    <div class="step">
+      <strong>Step 3: Application Review</strong>
+      <p>Your application is prayerfully reviewed for readiness and alignment.</p>
+    </div>
+
+    <div class="step">
+      <strong>Step 4: Enrollment</strong>
+      <p>Once accepted, you will receive enrollment instructions and next steps.</p>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="card">
+    <h2>General Requirements</h2>
+    <p>
+      Admissions decisions are based on spiritual maturity, commitment to Christian values,
+      and readiness for academic study.
+    </p>
+
+    <ul class="list">
+      <li>Personal testimony of faith</li>
+      <li>Commitment to Christian conduct</li>
+      <li>Ability to participate in academic coursework</li>
+      <li>Willingness to grow spiritually and academically</li>
+    </ul>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="card">
+    <h2>Begin Your Journey</h2>
+    <p>
+      If you believe God is leading you to take the next step in ministry preparation,
+      we encourage you to begin the admissions conversation today.
+    </p>
+
+    <div class="cta">
+      <a href="contact.html">Contact Admissions</a>
+    </div>
+  </div>
+
 </section>
 
 <footer>
-  © 2025 Revealed Bible College · Equipping leaders for the nations
+  © 2025 Revealed Bible College · Admissions
 </footer>
 
 </body>
