@@ -2,45 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} | Revealed Bible College</title>
   <meta name="description" content="{{ page.description }}">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-  {% include header.html %}
+{% include header.html %}
 
-  <main class="page-wrapper">
+<main class="page-wrapper">
 
-    {% if page.hero_title %}
-    <section class="page-hero">
-      <h1>{{ page.hero_title }}</h1>
-      {% if page.hero_subtitle %}
-      <p class="subtitle">{{ page.hero_subtitle }}</p>
+  {# ---------- HERO (Top Banner) ---------- #}
+  {% if page.page_hero_title %}
+  <section class="page-hero">
+      <h1 class="hero-title">{{ page.page_hero_title }}</h1>
+      {% if page.page_hero_subtitle %}
+          <p class="subtitle">{{ page.page_hero_subtitle }}</p>
       {% endif %}
-    </section>
-    {% endif %}
+  </section>
+  {% endif %}
 
-    <section class="page-content">
-
-      {% if page.title %}
-<section class="hero hero-page">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1>{{ page.title }}</h1>
+  {# ---------- STANDARD PAGE TITLE FALLBACK ---------- #}
+  {% if page.title and not page.page_hero_title %}
+  <section class="page-hero noimage">
+      <h1 class="hero-title">{{ page.title }}</h1>
       {% if page.subtitle %}
-      <p>{{ page.subtitle }}</p>
+          <p class="subtitle">{{ page.subtitle }}</p>
       {% endif %}
-    </div>
-  </div>
-</section>
-{% endif %}
+  </section>
+  {% endif %}
 
+  {# ---------- PAGE CONTENT ---------- #}
+  <section class="page-content">
       {{ content }}
-    </section>
+  </section>
 
-  </main>
+</main>
 
-  {% include footer.html %}
+{% include footer.html %}
+
 </body>
 </html>
