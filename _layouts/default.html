@@ -1,33 +1,29 @@
-<header>
-  <div class="nav">
-    <a href="/index.html" class="brand">
-      <img src="/logo.png" alt="Revealed Bible College Logo">
-      <span>Revealed Bible College</span>
-    </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
 
-    <div class="nav-links">
-      <a href="/index.html">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/programs.html">Programs</a>
-      <a href="/admissions.html">Admissions</a>
-      <a href="/faculty.html">Faculty</a>
-      <a href="/contact.html">Contact</a>
-    </div>
+  {% include header.html %}
 
-    <a href="/login.html" class="nav-cta">Portal Login</a>
+  <main>
+    {{ content }}
+  </main>
 
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/index.html">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/programs.html">Programs</a>
-    <a href="/admissions.html">Admissions</a>
-    <a href="/faculty.html">Faculty</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/login.html" class="mobile-portal">Portal Login</a>
-  </div>
-
-  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-</header>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('overlay');
+      menu.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
