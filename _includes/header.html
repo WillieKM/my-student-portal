@@ -1,13 +1,10 @@
 <header>
   <div class="nav">
-    
-    <!-- BRAND -->
-    <a href="/index.html" class="brand">
-      <img src="/logo.png" alt="Revealed Bible College Logo">
+    <div class="brand">
+      <img src="logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
-    </a>
+    </div>
 
-    <!-- DESKTOP NAV -->
     <nav class="nav-links">
       <a href="/index.html">Home</a>
       <a href="/about.html">About</a>
@@ -17,16 +14,12 @@
       <a href="/contact.html">Contact</a>
     </nav>
 
-    <!-- CTA -->
     <a href="/login.html" class="nav-cta">Portal Login</a>
 
-    <!-- MOBILE BUTTON -->
-    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
   </div>
 
-  <!-- MOBILE MENU -->
-  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="/index.html">Home</a>
     <a href="/about.html">About</a>
     <a href="/programs.html">Programs</a>
@@ -34,8 +27,7 @@
     <a href="/faculty.html">Faculty</a>
     <a href="/contact.html">Contact</a>
     <a href="/login.html" class="mobile-portal">Portal Login</a>
-  </nav>
+  </div>
 
-  <!-- BACKDROP -->
-  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
-</header>
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+</header> THIS IS THE HEADER DEFAULT
