@@ -1,1 +1,243 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --navy-dark: #020617;
+  --navy: #0b2c64;
+  --navy-soft: #1e40af;
+  --gold: #f4b400;
+  --text-muted: #c7d2fe;
+  --radius: 1.25rem;
+}
 
+/* ================= RESET & BASE ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--navy-dark);
+  color: #ffffff;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* ================= HEADER & NAV ================= */
+header {
+  background: linear-gradient(90deg, var(--navy), var(--navy-dark));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* FIX: This constrains the giant logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.brand img {
+  height: 48px; /* Corrects massive logo */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-cta {
+  background: var(--gold);
+  color: #000;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+/* ================= HERO SECTION (HOME) ================= */
+.hero-home {
+  min-height: 85vh;
+  background: radial-gradient(
+    1200px 500px at 20% 0%,
+    var(--navy-soft),
+    var(--navy-dark)
+  );
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+/* FIX: The Grid Layout - Splits text and image into two columns */
+.hero-inner {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Text gets slightly more space */
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+/* BUTTON STYLES */
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius);
+  font-weight: 800;
+}
+
+.btn-secondary {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* TRUST LIST - Fixes visibility */
+.hero-trust {
+  list-style: none;
+  padding: 0;
+}
+
+.hero-trust li {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero-trust li::before {
+  content: "✓";
+  color: var(--gold);
+  margin-right: 0.75rem;
+  font-weight: 900;
+}
+
+/* HERO IMAGE */
+.hero-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= MOBILE MENU & RESPONSIVE ================= */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: var(--navy-dark);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: 0.4s ease;
+  z-index: 1000;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 992px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-links, .nav-cta {
+    display: none;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr; /* Stacks image below text on tablets/phones */
+    text-align: center;
+  }
+  .hero-content {
+    margin: 0 auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-trust {
+    display: inline-block;
+    text-align: left;
+  }
+}
