@@ -434,3 +434,30 @@ button:focus-visible {
   color: var(--navy);
   margin-bottom: 0.5rem;
 }
+/* FIX: Section & footer spacing */
+.section-white, .light-section, .content-dark {
+  padding-bottom: 6rem;
+}
+
+/* FIX: CTA bottom */
+.cta-bottom {
+  background: var(--navy-dark);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+.cta-bottom h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+/* FIX: Card grid alignment */
+.card-grid {
+  max-width: 1200px;
+  margin: 4rem auto;
+  justify-items: center;
+  gap: 2rem;
+}
+
+/* FIX: Hero bottom spacing */
+.hero-page {
+  margin-bottom: 4rem;
+}
