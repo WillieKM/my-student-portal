@@ -241,3 +241,40 @@ header {
     text-align: left;
   }
 }
+/* PROGRAMS PAGE */
+.hero-center {
+  text-align: center;
+}
+
+.program-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.program-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 45px rgba(2, 6, 23, 0.08);
+  color: #0f172a;
+  transition: 0.25s;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.program-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.program-card p {
+  color: #475569;
+  line-height: 1.6;
+}
