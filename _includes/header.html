@@ -1,10 +1,13 @@
 <header>
   <div class="nav">
-    <div class="brand">
-      <img src="logo.png" alt="Revealed Bible College Logo">
+    
+    <!-- BRAND -->
+    <a href="/index.html" class="brand">
+      <img src="/logo.png" alt="Revealed Bible College Logo">
       <span>Revealed Bible College</span>
-    </div>
+    </a>
 
+    <!-- DESKTOP NAV -->
     <nav class="nav-links">
       <a href="/index.html">Home</a>
       <a href="/about.html">About</a>
@@ -14,12 +17,16 @@
       <a href="/contact.html">Contact</a>
     </nav>
 
+    <!-- CTA -->
     <a href="/login.html" class="nav-cta">Portal Login</a>
 
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <!-- MOBILE BUTTON -->
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+
   </div>
 
-  <div class="mobile-menu" id="mobileMenu">
+  <!-- MOBILE MENU -->
+  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
     <a href="/index.html">Home</a>
     <a href="/about.html">About</a>
     <a href="/programs.html">Programs</a>
@@ -27,8 +34,8 @@
     <a href="/faculty.html">Faculty</a>
     <a href="/contact.html">Contact</a>
     <a href="/login.html" class="mobile-portal">Portal Login</a>
-  </div>
+  </nav>
 
-  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+  <!-- BACKDROP -->
+  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
 </header>
-
