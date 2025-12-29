@@ -2,44 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
-  
+  <meta name="description" content="{{ page.description }}">
   <link rel="stylesheet" href="/assets/css/style.css">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
   {% include header.html %}
 
-  <main>
-    {{ content }}
-  </main>
+  <main class="page-wrapper">
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const overlay = document.getElementById('overlay');
-      menu.classList.toggle('open');
-      overlay.classList.toggle('active');
-    }
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <meta name="description" content="{{ page.description }}">
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-
-    {% include header.html %}
-
-    <!-- Dynamic Hero -->
     {% if page.hero_title %}
     <section class="page-hero">
       <h1>{{ page.hero_title }}</h1>
@@ -49,11 +21,12 @@
     </section>
     {% endif %}
 
-    <!-- PAGE CONTENT -->
-    <main class="page-content">
+    <section class="page-content">
       {{ content }}
-    </main>
+    </section>
 
-    {% include footer.html %}
+  </main>
+
+  {% include footer.html %}
 </body>
 </html>
