@@ -27,3 +27,33 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    {% include header.html %}
+
+    <!-- Dynamic Hero -->
+    {% if page.hero_title %}
+    <section class="page-hero">
+      <h1>{{ page.hero_title }}</h1>
+      {% if page.hero_subtitle %}
+      <p class="subtitle">{{ page.hero_subtitle }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    <!-- PAGE CONTENT -->
+    <main class="page-content">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+</body>
+</html>
