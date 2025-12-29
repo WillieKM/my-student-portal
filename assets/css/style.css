@@ -278,3 +278,39 @@ header {
   color: #475569;
   line-height: 1.6;
 }
+/* PROGRAM PAGE FIXES */
+.center {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.program-card {
+  text-align: left;
+  padding: 2rem;
+}
+
+.program-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+  font-weight: 800;
+}
+
+/* Make the cards look even */
+.program-card p {
+  min-height: 90px;
+}
+
+/* Bottom CTA clean styling */
+.cta-bottom {
+  background: var(--navy-dark);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+
+.cta-bottom h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
