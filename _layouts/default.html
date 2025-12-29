@@ -2,44 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }} | Revealed Bible College</title>
+  <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-{% include header.html %}
+  {% include header.html %}
 
-<main class="page-wrapper">
+  <main class="page-wrapper">
 
-  {# ---------- HERO (Top Banner) ---------- #}
-  {% if page.page_hero_title %}
-  <section class="page-hero">
-      <h1 class="hero-title">{{ page.page_hero_title }}</h1>
-      {% if page.page_hero_subtitle %}
-          <p class="subtitle">{{ page.page_hero_subtitle }}</p>
-      {% endif %}
-  </section>
-  {% endif %}
+    {% if page.page_hero_title %}
+      <section class="hero-page">
+        <h1>{{ page.page_hero_title }}</h1>
+        {% if page.page_hero_subtitle %}
+          <p>{{ page.page_hero_subtitle }}</p>
+        {% endif %}
+      </section>
+    {% endif %}
 
-  {# ---------- STANDARD PAGE TITLE FALLBACK ---------- #}
-  {% if page.title and not page.page_hero_title %}
-  <section class="page-hero noimage">
-      <h1 class="hero-title">{{ page.title }}</h1>
-      {% if page.subtitle %}
-          <p class="subtitle">{{ page.subtitle }}</p>
-      {% endif %}
-  </section>
-  {% endif %}
-
-  {# ---------- PAGE CONTENT ---------- #}
-  <section class="page-content">
+    <section class="page-content">
       {{ content }}
-  </section>
+    </section>
 
-</main>
+  </main>
 
-{% include footer.html %}
+  {% include footer.html %}
 
 </body>
 </html>
