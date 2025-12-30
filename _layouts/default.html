@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
+
 <body>
 
   {% include header.html %}
@@ -13,12 +14,14 @@
   <main class="page-wrapper">
 
     {% if page.page_hero_title %}
-      <section class="hero-page">
+    <section class="hero hero-page">
+      <div class="hero-inner">
         <h1>{{ page.page_hero_title }}</h1>
         {% if page.page_hero_subtitle %}
-          <p>{{ page.page_hero_subtitle }}</p>
+        <p class="subtitle">{{ page.page_hero_subtitle }}</p>
         {% endif %}
-      </section>
+      </div>
+    </section>
     {% endif %}
 
     <section class="page-content">
@@ -28,6 +31,5 @@
   </main>
 
   {% include footer.html %}
-
 </body>
 </html>
