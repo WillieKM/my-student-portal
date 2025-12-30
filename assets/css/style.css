@@ -1,6 +1,6 @@
 /* =========================================
-   REVEALED BIBLE COLLEGE - GLOBAL STYLES
-   Cleaned & Consolidated Master Stylesheet
+   REVEALED BIBLE COLLEGE - MASTER STYLESHEET
+   Global System for All Pages
 ========================================= */
 
 /* ---------- ROOT VARIABLES ---------- */
@@ -24,15 +24,15 @@
 body {
   font-family: "Inter", sans-serif;
   background: var(--navy-dark);
-  color: #ffffff;
+  color: white;
   line-height: 1.6;
-  min-height: 100vh;
 }
 
+/* ---------- LINKS ---------- */
 a {
-  text-decoration: none;
   color: inherit;
-  transition: 0.3s ease;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 /* ---------- LAYOUT UTILITIES ---------- */
@@ -42,23 +42,24 @@ a {
   padding: 0 1.5rem;
 }
 
-.text-center {
-  text-align: center;
-}
+.text-center { text-align: center; }
 
-/* ---------- HEADER / NAVIGATION ---------- */
+/* =========================================
+   HEADER / NAVIGATION
+========================================= */
+
 header {
   background: linear-gradient(90deg, var(--navy), var(--navy-dark));
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 1.25rem 0;
 }
 
@@ -66,6 +67,7 @@ header {
   display: flex;
   align-items: center;
   gap: .75rem;
+  font-size: 1.1rem;
   font-weight: 800;
 }
 
@@ -87,57 +89,57 @@ header {
 
 .nav-cta {
   background: var(--gold);
-  padding: .7rem 1.5rem;
+  color: #000;
+  padding: .7rem 1.4rem;
   border-radius: 999px;
   font-weight: 800;
-  color: #000;
 }
 
-/* ---------- HERO (HOME + PAGES) ---------- */
+/* =========================================
+   HERO SECTIONS (HOME + PAGES)
+========================================= */
+
 .hero-home,
 .hero-page {
-  min-height: 70vh;
-  padding: 5rem 1.5rem;
-  display: flex;
-  align-items: center;
   background: radial-gradient(
-    1100px 500px at 20% 0%,
+    900px 300px at 50% 0%,
     var(--navy-soft),
     var(--navy-dark)
   );
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
+  text-align: center;
+  padding: 4rem 1rem 2rem;   /* FIXED */
+  min-height: 40vh;          /* REDUCED */
+  display: flex;
   align-items: center;
-  margin: auto;
-  width: 100%;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 3.8rem);
-  font-weight: 900;
-  line-height: 1.1;
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  font-weight: 800;
   color: var(--gold);
-  margin-bottom: 1.2rem;
 }
 
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-light);
-  max-width: 40rem;
-  margin-bottom: 2rem;
+.hero-divider {
+  width: 70px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 999px;
+  margin: .75rem auto 1.25rem;
 }
 
-.hero-image img {
-  width: 100%;
-  border-radius: var(--radius);
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+.hero-lead {
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.1rem;
 }
 
-/* ---------- BUTTONS ---------- */
+/* =========================================
+   BUTTONS
+========================================= */
+
 .btn-primary,
 .btn-secondary {
   padding: .85rem 1.8rem;
@@ -151,37 +153,40 @@ header {
   color: #000;
 }
 
-.btn-primary:hover {
-  background: #e2a600;
-}
+.btn-primary:hover { background: #e2a600; }
 
 .btn-secondary {
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255,255,255,0.4);
   color: #fff;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.12);
   border-color: #fff;
 }
 
-.btn-secondary.alt {
-  border-color: var(--gold);
-  color: var(--gold);
-}
+/* =========================================
+   GENERIC CONTENT SECTIONS
+========================================= */
 
-.btn-secondary.alt:hover {
-  background: rgba(244,180,0,0.12);
-}
-
-/* ---------- CONTENT SECTIONS ---------- */
 .content-dark {
   background: var(--navy-dark);
   padding: 4rem 1.5rem;
 }
 
+.section-white {
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 4rem 1.5rem;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .section {
-  max-width: 850px;
+  max-width: 900px;
   margin: 2.5rem auto;
 }
 
@@ -192,30 +197,64 @@ header {
 }
 
 .section p,
-.section ol,
-.section ul {
-  font-size: 1.1rem;
-  line-height: 1.7;
+.section ul,
+.section ol {
+  font-size: 1.07rem;
   color: var(--text-light);
+  line-height: 1.7;
 }
 
-/* ---------- PROGRAM CARD GRID ---------- */
+/* =========================================
+   ABOUT PAGE CARDS
+========================================= */
+
+.card-grid,
+.values-grid {
+  display: grid;
+  gap: 2rem;
+  margin: 2.5rem auto 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(2,6,23,0.1);
+  border-top: 4px solid var(--navy);
+}
+
+.card h3 {
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+.card p {
+  color: #475569;
+  font-size: 1rem;
+}
+
+/* =========================================
+   PROGRAMS PAGE
+========================================= */
+
 .program-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .program-card {
-  background: #fff;
+  background: #ffffff;
   border-radius: var(--radius);
   padding: 2rem;
   color: #0f172a;
   text-align: left;
-  min-height: 240px;
-  box-shadow: 0 20px 40px rgba(2,6,23,0.08);
-  transition: .25s ease;
+  min-height: 220px;
+  box-shadow: 0 20px 45px rgba(2,6,23,0.08);
+  transition: .25s;
 }
 
 .program-card:hover {
@@ -230,49 +269,55 @@ header {
   margin-bottom: .75rem;
 }
 
-/* ---------- CTA BLOCKS ---------- */
+/* =========================================
+   CTA SECTIONS
+========================================= */
+
 .light-section {
-  background: #fff;
-  color: #0f172a;
-  padding: 4rem 2rem;
+  background: #ffffff;
+  color: #111;
+  padding: 4rem 1.5rem;
   text-align: center;
 }
 
-.light-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 .light-section p {
-  max-width: 650px;
+  max-width: 700px;
   margin: auto;
-  margin-bottom: 1.5rem;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  color: #475569;
 }
 
-/* ---------- FOOTER ---------- */
+/* =========================================
+   FOOTER
+========================================= */
+
 footer {
   background: var(--navy);
   color: #fff;
   text-align: center;
-  padding: 2.2rem 1.5rem;
-  margin-top: 4rem;
+  padding: 2rem 1rem;
   border-top: 1px solid rgba(255,255,255,0.12);
+  margin-top: 4rem;
+  font-size: .9rem;
 }
 
-/* ---------- RESPONSIVE DESIGN ---------- */
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
 @media (max-width: 992px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-image {
-    order: -1;
-  }
-  .nav-cta,
-  .nav-links {
+  .nav-links,
+  .nav-cta {
     display: none;
   }
-}
 
-/* END CLEAN MASTER FILE */
+  .program-card {
+    min-height: 180px;
+  }
+
+  .hero-page,
+  .hero-home {
+    min-height: 32vh;
+    padding: 3rem 1rem;
+  }
+}
