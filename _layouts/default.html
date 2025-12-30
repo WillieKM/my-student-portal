@@ -2,34 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} | Revealed Bible College</title>
+
+  {% if page.description %}
   <meta name="description" content="{{ page.description }}">
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  {% endif %}
+
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
 
-  {% include header.html %}
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="/logo.png" alt="Revealed Bible College Logo">
+      <a href="/index.html">Revealed Bible College</a>
+    </div>
 
-  <main class="page-wrapper">
+    <nav class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/programs.html">Programs</a>
+      <a href="/admissions.html">Admissions</a>
+      <a href="/faculty.html">Faculty</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
 
-    {% if page.page_hero_title %}
-    <section class="hero hero-page">
-      <div class="hero-inner">
-        <h1>{{ page.page_hero_title }}</h1>
-        {% if page.page_hero_subtitle %}
-        <p class="subtitle">{{ page.page_hero_subtitle }}</p>
-        {% endif %}
-      </div>
-    </section>
-    {% endif %}
+    <a href="/login.html" class="nav-cta">Portal Login</a>
+  </div>
+</header>
 
-    <section class="page-content">
-      {{ content }}
-    </section>
+<main>
+  {{ content }}
+</main>
 
-  </main>
+<footer>
+  © 2025 Revealed Bible College
+</footer>
 
-  {% include footer.html %}
 </body>
 </html>
