@@ -536,3 +536,62 @@ footer {
   color: var(--gold);
   font-weight: 900;
 }
+/* ==========================
+   MOBILE NAV
+========================== */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem;
+  gap: 1.6rem;
+  transition: 0.35s ease;
+  z-index: 999;
+  font-weight: 600;
+}
+
+.mobile-menu a {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+/* Mobile CTA button */
+.mobile-cta {
+  background: var(--gold);
+  color: #000;
+  text-align: center;
+  padding: .75rem;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* Hide menu items on mobile & show hamburger */
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
