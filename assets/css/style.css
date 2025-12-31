@@ -516,3 +516,23 @@ footer {
     padding: 3rem 1.25rem 2rem;
   }
 }
+/* Fix hero benefits icons */
+.hero-benefits {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.hero-benefits li {
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.hero-benefits li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 900;
+}
