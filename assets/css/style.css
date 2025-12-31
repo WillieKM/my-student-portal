@@ -321,3 +321,51 @@ footer {
     padding: 3rem 1rem;
   }
 }
+/* =========================================
+   FACULTY PAGE STYLES
+========================================= */
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.faculty-card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 15px 45px rgba(2,6,23,0.1);
+  transition: .25s;
+  min-height: 340px;
+}
+
+.faculty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+.faculty-card img {
+  width: 100%;
+  max-width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  border: 4px solid var(--gold);
+}
+
+.faculty-card h3 {
+  font-size: 1.25rem;
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.faculty-card .role {
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
