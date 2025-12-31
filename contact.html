@@ -1,69 +1,128 @@
----
-layout: default
-title: Contact Us | Revealed Bible College
-description: Contact Revealed Bible College for admissions, programs, and general inquiries.
----
-<!-- HERO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Revealed Bible College</title>
+
+  <meta name="description" content="Contact Revealed Bible College for admissions information, program guidance, and ministry training inquiries. We are here to support your calling.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="nav container">
+
+    <a class="brand" href="index.html">
+      <img src="logo.png" alt="Revealed Bible College Logo">
+      <span>Revealed Bible College</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <a href="login.html" class="nav-cta">Portal Login</a>
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
 <section class="hero hero-page">
-  <div class="hero-inner">
-    <div>
-      <h1>Contact Us</h1>
-      <div class="hero-divider"></div>
-      <p>
-        We are here to help you take the next step in your calling and education.
-        Reach out with questions about admissions, programs, or enrollment.
-      </p>
-    </div>
+  <div class="container text-center">
+    <h1 class="page-title">Contact Us</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-lead">
+      We are here to help you take the next step in your calling and education.
+      Reach out with questions about admissions, programs, or enrollment.
+    </p>
   </div>
 </section>
 
-<!-- WHITE MIDDLE SECTION -->
-<section class="section-white">
-  <div class="section-inner">
 
-    <h2>Connect With Us</h2>
-    <p>
-      Whether you are exploring your calling, seeking academic guidance,
+<!-- ================= CONTACT OPTIONS ================= -->
+<section class="section-white">
+  <div class="section-inner container">
+
+    <h2 class="text-center" style="margin-bottom: 2rem;">Connect With Us</h2>
+    <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">
+      Whether you are exploring your calling, seeking academic direction,
       or ready to begin the admissions process, our team is honored to assist you.
     </p>
 
-    <div class="card-grid">
+    <div class="contact-card-grid">
 
-      <div class="card">
-        <span class="card-icon">📧</span>
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
         <h3>Email</h3>
         <p>admissions@revealedbiblecollege.com</p>
       </div>
 
-      <div class="card">
-        <span class="card-icon">🕘</span>
+      <div class="contact-card">
+        <div class="contact-icon">🕘</div>
         <h3>Office Hours</h3>
-        <p>
-          Monday – Friday<br>
-          9:00 AM – 5:00 PM (Local Time)
-        </p>
+        <p>Mon–Fri · 9:00 AM – 5:00 PM<br>(Local Time)</p>
       </div>
 
-      <div class="card">
-        <span class="card-icon">🌍</span>
-        <h3>Service Area</h3>
-        <p>
-          Serving students locally and worldwide through online
-          and ministry-based programs.
-        </p>
+      <div class="contact-card">
+        <div class="contact-icon">🌍</div>
+        <h3>Global Reach</h3>
+        <p>Serving students worldwide through online and ministry-based learning</p>
       </div>
 
     </div>
+  </div>
+</section>
+
+
+<!-- ================= CONTACT FORM (OPTIONAL ACTIVATION) ================= -->
+<section class="section-white" style="background: #fff; padding-top: 0;">
+  <div class="container">
+
+    <h2 class="text-center">Send Us a Message</h2>
+    <p class="text-center" style="max-width: 650px; margin: 0 auto 2rem;">
+      Send us a message and our team will respond to guide you forward.
+    </p>
+
+    <form class="contact-form" action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Full Name" required>
+      <input type="email" name="email" placeholder="Your Email Address" required>
+      <textarea name="message" placeholder="Your Message or Inquiry" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
 
   </div>
 </section>
 
-<!-- DARK BOTTOM CTA -->
-<section class="catalogue-cta">
-  <h2>Take the Next Step</h2>
-  <p>
-    If you believe God may be leading you to pursue ministry training
-    or biblical education, we encourage you to begin the conversation today.
-  </p>
-  <a href="/admissions.html">Explore Admissions</a>
+
+<!-- ================= CTA SECTION ================= -->
+<section class="light-section">
+  <div class="container text-center">
+    <h2>Take the Next Step</h2>
+    <p style="max-width: 700px; margin: 0 auto 2rem;">
+      If you believe God may be leading you to pursue ministry training or biblical education,
+      we encourage you to begin the conversation today.
+    </p>
+    <a href="admissions.html" class="btn-primary">Explore Admissions</a>
+  </div>
 </section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    © 2025 Revealed Bible College · All Rights Reserved
+  </div>
+</footer>
+
+</body>
+</html>
