@@ -24,7 +24,24 @@
         <a href="contact.html">Contact</a>
       </nav>
       <a href="login.html" class="nav-cta">Portal Login</a>
+
+      <button class="hamburger" id="menu-btn" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
+
+    <div class="overlay" id="overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="mobile-cta">Portal Login</a>
+    </nav>
   </header>
 
 
@@ -57,21 +74,105 @@
     </div>
   </section>
 
+  <!-- Stats strip -->
+  <section class="stats-strip">
+    <div class="container stats-grid">
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Academic Programs</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Online &amp; In-Person</span>
+        <span class="stat-label">Flexible Learning</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Global</span>
+        <span class="stat-label">Ministry Reach</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs preview -->
   <section class="section-white">
-    <div class="section-inner container text-center">
-      <h2>Equipping Leaders for Kingdom Impact</h2>
-      <p style="max-width: 800px; margin: 0.75rem auto 0;">
-        Our programs combine biblical teaching, theological depth, and practical ministry
-        training so that students are prepared to serve in churches, missions, education,
-        and community leadership.
+    <div class="section-inner container">
+      <h2 class="text-center">Our Programs</h2>
+      <p class="text-center" style="max-width: 700px; margin: 0.75rem auto 2.5rem;">
+        Each program combines biblical teaching, theological depth, and practical ministry
+        training to prepare you for Kingdom service.
       </p>
+
+      <div class="program-list">
+        <a href="biblical-studies.html" class="program-card">
+          <h3>Diploma in Biblical Studies</h3>
+          <p>
+            Foundation training in Old and New Testament interpretation, theology,
+            ethics, and biblical languages for deep scriptural understanding.
+          </p>
+        </a>
+
+        <a href="pastoral-ministry.html" class="program-card">
+          <h3>Certificate in Pastoral Ministry</h3>
+          <p>
+            Practical preparation in preaching, pastoral care, counseling,
+            and church leadership for local and global ministry.
+          </p>
+        </a>
+
+        <a href="christian-leadership.html" class="program-card">
+          <h3>Advanced Christian Leadership</h3>
+          <p>
+            Strategic leadership development for cross-cultural and marketplace
+            ministry — preparing leaders to impact every sphere of society.
+          </p>
+        </a>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="programs.html" class="btn-primary">View All Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container text-center">
+      <h2>Ready to Begin Your Journey?</h2>
+      <p>
+        Take the first step toward ministry training, theological education,
+        and a life of Kingdom purpose.
+      </p>
+      <div class="cta-actions">
+        <a href="admissions.html" class="btn-primary">Start the Admissions Process</a>
+        <a href="contact.html" class="btn-secondary">Talk to Our Team</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Revealed Bible College">
+        <p>Equipping believers for ministry, leadership, and global mission.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="about.html">About Us</a>
+        <a href="programs.html">Programs</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>admissions@revealedbiblecollege.com</p>
+        <p>Mon–Fri · 9:00 AM – 5:00 PM</p>
+        <a href="login.html" class="footer-portal-btn">Portal Login</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
       © 2025 Revealed Bible College · All Rights Reserved
     </div>
   </footer>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>

@@ -30,7 +30,24 @@
     </nav>
 
     <a href="login.html" class="nav-cta">Portal Login</a>
+
+    <button class="hamburger" id="menu-btn" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   </div>
+
+  <div class="overlay" id="overlay"></div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="mobile-cta">Portal Login</a>
+  </nav>
 </header>
 
 <section class="hero hero-page">
@@ -125,10 +142,30 @@
 </section>
 
 <footer>
-  <div class="container">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Revealed Bible College">
+      <p>Equipping believers for ministry, leadership, and global mission.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="faculty.html">Faculty</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>admissions@revealedbiblecollege.com</p>
+      <p>Mon–Fri · 9:00 AM – 5:00 PM</p>
+      <a href="login.html" class="footer-portal-btn">Portal Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">
     © 2025 Revealed Bible College · All Rights Reserved
   </div>
 </footer>
-
+<script src="assets/js/nav.js"></script>
 </body>
 </html>
