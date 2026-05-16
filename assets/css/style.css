@@ -618,12 +618,7 @@ footer {
 }
 
 /* Show hamburger | hide desktop links on mobile */
-@media (max-width: 900px) {
-  .nav-links,
-  .nav-cta {
-    display: none;
-  }
-
+@media (max-width: 992px) {
   .hamburger {
     display: flex;
   }
