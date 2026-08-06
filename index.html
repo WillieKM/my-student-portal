@@ -52,26 +52,26 @@
   <section class="hero hero-home">
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1 class="hero-title">
+        <h1 class="hero-title hero-enter d1">
           Biblical Education for Ministry,
           <span>Leadership, and Global Mission</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle hero-enter d2">
           Rooted in Scripture and empowered by the Holy Spirit, Revealed Bible College
           prepares students for ministry leadership, theological study, and global service.
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions hero-enter d3">
           <a href="/contact" class="btn-primary">Contact Us</a>
           <a href="/contact" class="btn-secondary">Request Information</a>
           <a href="/programs" class="btn-secondary alt">View Programs</a>
         </div>
-        <ul class="hero-benefits">
+        <ul class="hero-benefits hero-enter d4">
           <li>Ministry-Focused Academic Programs</li>
           <li>Flexible Online & In-Person Learning</li>
           <li>Global Christian Leadership Training</li>
         </ul>
       </div>
-      <figure class="hero-image">
+      <figure class="hero-image hero-enter d2">
         <img src="/student-theology-study.jpg" alt="Students engaged in theological instruction">
       </figure>
     </div>
@@ -79,9 +79,9 @@
 
   <!-- Stats strip -->
   <section class="stats-strip">
-    <div class="container stats-grid">
+    <div class="container stats-grid" data-reveal-group>
       <div class="stat">
-        <span class="stat-num">6</span>
+        <span class="stat-num" data-count="6">0</span>
         <span class="stat-label">Academic Programs</span>
       </div>
       <div class="stat">
@@ -98,13 +98,13 @@
   <!-- Programs preview -->
   <section class="section-white">
     <div class="section-inner container">
-      <h2 class="text-center">Our Programs</h2>
-      <p class="text-center" style="max-width: 700px; margin: 0.75rem auto 2.5rem;">
+      <h2 class="text-center" data-reveal>Our Programs</h2>
+      <p class="text-center" data-reveal style="max-width: 700px; margin: 0.75rem auto 2.5rem;">
         Each program combines biblical teaching, theological depth, and practical ministry
         training to prepare you for Kingdom service.
       </p>
 
-      <div class="program-list">
+      <div class="program-list" data-reveal-group>
         <div class="program-card">
           <h3>Certificate in Biblical Studies</h3>
           <p>
@@ -162,7 +162,7 @@
 
   <!-- CTA -->
   <section class="cta-strip">
-    <div class="container text-center">
+    <div class="container text-center" data-reveal="scale">
       <h2>Ready to Begin Your Journey?</h2>
       <p>
         Take the first step toward ministry training, theological education,
@@ -201,5 +201,6 @@
     </div>
   </footer>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/animate.js"></script>
 </body>
 </html>
