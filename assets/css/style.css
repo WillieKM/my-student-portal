@@ -10,7 +10,11 @@
   --gold: #f4b400;
   --text-light: #e5e7eb;
   --text-muted: #c7d2fe;
-  --radius: 1.25rem;
+  --radius: 0.85rem;
+  --radius-btn: 0.6rem;
+  --radius-lg: 1rem;
+  --font-serif: "Crimson Pro", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -21,7 +25,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-sans);
   background: var(--navy-dark);
   color: #ffffff;
   line-height: 1.6;
@@ -42,6 +46,84 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+/* ---------- HEADING HIERARCHY ---------- */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* ---------- EYEBROW / KICKER LABEL ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.65rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.content-dark .eyebrow,
+.cta-strip .eyebrow,
+.hero .eyebrow {
+  color: var(--gold);
+}
+
+.content-dark .eyebrow::before,
+.cta-strip .eyebrow::before,
+.hero .eyebrow::before {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- UTILITY BAR ---------- */
+.utility-bar {
+  background: var(--navy-dark);
+  border-bottom: 1px solid rgba(244, 180, 0, 0.2);
+}
+
+.utility-bar-inner {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.utility-bar-inner a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 700px) {
+  .utility-bar-inner {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    text-align: center;
+  }
 }
 
 /* =========================================
@@ -67,8 +149,9 @@ header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-weight: 800;
-  font-size: 1.1rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .brand img {
@@ -100,16 +183,21 @@ header {
 ========================================= */
 
 .hero {
-  background: radial-gradient(
-    900px 300px at 50% 0%,
-    var(--navy-soft),
-    var(--navy-dark)
-  );
+  background:
+    radial-gradient(900px 300px at 50% 0%, var(--navy-soft), var(--navy-dark)),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025) 0px,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 28px
+    );
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  position: relative;
 }
 
 /* Home hero larger */
@@ -199,7 +287,7 @@ header {
   width: 100%;
   max-height: 500px;
   object-fit: cover;
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
 }
 
@@ -211,8 +299,9 @@ header {
 .btn-secondary {
   display: inline-block;
   padding: 0.85rem 1.9rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   font-weight: 700;
+  font-family: var(--font-sans);
 }
 
 .btn-primary {
@@ -640,6 +729,15 @@ footer {
   text-align: center;
 }
 
+.stat {
+  padding: 0 1.5rem;
+  border-left: 1px solid rgba(244, 180, 0, 0.22);
+}
+
+.stat:first-child {
+  border-left: none;
+}
+
 .stat-num {
   display: block;
   font-size: 2rem;
@@ -660,6 +758,17 @@ footer {
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .stat {
+    border-left: none;
+    border-top: 1px solid rgba(244, 180, 0, 0.18);
+    padding: 1.25rem 0 0;
+  }
+
+  .stat:first-child {
+    border-top: none;
+    padding-top: 0;
   }
 }
 
