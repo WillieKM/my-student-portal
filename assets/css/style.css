@@ -283,12 +283,18 @@ header {
 }
 
 /* Hero image */
-.hero-image img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
+.hero-image {
+  overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
 }
 
 /* =========================================
@@ -949,7 +955,28 @@ footer {
   @keyframes heroEnter {
     to { opacity: 1; transform: translateY(0); }
   }
+
+  /* Ken Burns slow zoom/pan for photographic imagery */
+  .kenburns {
+    animation: kenburns 24s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.09) translate(-1.5%, -1%); }
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .kenburns {
+    animation: none;
+  }
+}
+
+/* Desync faculty portrait Ken Burns loops so they don't zoom in unison */
+.faculty-card:nth-child(2) .kenburns { animation-delay: -9s; }
+.faculty-card:nth-child(3) .kenburns { animation-delay: -17s; }
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal],
